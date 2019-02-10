@@ -16,7 +16,8 @@ func _ready():
 	wander_target = self.position
 var steering_force = Vector2(0, 0)
 func _draw():
-	draw_line(col_start, -col_end*200, Color(1, 1, 1))
+#	draw_line(heading, heading*200, Color(1, 1, 1))
+	draw_line(Vector2(0, 0), linear_velocity, Color(0, 1, 1))
 
 func _physics_process(delta):
 	#f=ma -> a=f/a
@@ -46,19 +47,12 @@ func _physics_process(delta):
 	#position += velocity * time_elapsed
 	
 	#Update the heading
-
-	var to_turn = acos(heading.dot(velocity.normalized()))
-	if to_turn > 0:
-		print(to_turn)
-		if to_turn > MAX_TURN_RATE:
-			to_turn = MAX_TURN_RATE
-		heading = heading.rotated(to_turn)
-		$Position2D.rotate(to_turn)
-			
-		
-#		$Position2D.rotate()
-		
+	if velocity.length_squared() > .00000001:
+		heading = lerp(heading, velocity, MAX_TURN_RATE)
+		$Position2D.look_at(position+heading)
+		$Position2D.rotate(PI/2)
 		#Need to calc the perp
+
 	linear_velocity = velocity
 	update()
 	

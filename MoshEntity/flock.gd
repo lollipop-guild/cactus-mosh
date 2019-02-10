@@ -3,7 +3,7 @@ extends RigidBody2D
 export var MASS = 1
 export var MAX_SPEED = 100
 export var MAX_FORCE = 10
-export var MAX_TURN_RATE = 2
+export var MAX_TURN_RATE = .1
 export(NodePath) var target
 export(int, FLAGS, "Seek", "flee", "Pursuit", "Evade", "Wander", "Wall Avoid", "Object Avoid", "seek_point") var flock_type
 var wander_target
@@ -120,7 +120,7 @@ func wall_avoid():
 var min_ray_length = Vector2(0, 150)
 
 func calc_ray_length():
-	return min_ray_length + (self.linear_velocity / self.MAX_SPEED) * min_ray_length
+	return min_ray_length + (Vector2(abs(self.linear_velocity.x), abs(self.linear_velocity.y)) / self.MAX_SPEED) * min_ray_length
 
 func calc_wall_vel(object, ray):
 	var dist_to_col = (ray.get_collision_point() - object.get_global_transform().origin)
