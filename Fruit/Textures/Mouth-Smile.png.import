@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RightLeg.png-ea27bec8de1ab1997fc7e6d12730042d.stex"
+path="res://.import/Mouth-Smile.png-adf0dc9a5f2c84f541afa1e9c3553491.stex"
 
 [deps]
 
-source_file="res://Fruit/Textures/RightLeg.png"
-dest_files=[ "res://.import/RightLeg.png-ea27bec8de1ab1997fc7e6d12730042d.stex" ]
+source_file="res://Fruit/Textures/Mouth-Smile.png"
+dest_files=[ "res://.import/Mouth-Smile.png-adf0dc9a5f2c84f541afa1e9c3553491.stex" ]
 
 [params]
 

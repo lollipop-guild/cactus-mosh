@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LeftLeg.png-ac572c37813e4e1dfe7557d5975af87c.stex"
+path="res://.import/Eyes-Closed.png-87ffb596960410b7b686331a53b99e18.stex"
 
 [deps]
 
-source_file="res://Fruit/Textures/LeftLeg.png"
-dest_files=[ "res://.import/LeftLeg.png-ac572c37813e4e1dfe7557d5975af87c.stex" ]
+source_file="res://Fruit/Textures/Eyes-Closed.png"
+dest_files=[ "res://.import/Eyes-Closed.png-87ffb596960410b7b686331a53b99e18.stex" ]
 
 [params]
 

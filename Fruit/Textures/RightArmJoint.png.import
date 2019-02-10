@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AppleEyes.png-9d43c591bd8b68a96a5535a7771a393b.stex"
+path="res://.import/RightArmJoint.png-f2ee2632f7a0c730c39200e9708854ed.stex"
 
 [deps]
 
-source_file="res://Fruit/Textures/AppleEyes.png"
-dest_files=[ "res://.import/AppleEyes.png-9d43c591bd8b68a96a5535a7771a393b.stex" ]
+source_file="res://Fruit/Textures/RightArmJoint.png"
+dest_files=[ "res://.import/RightArmJoint.png-f2ee2632f7a0c730c39200e9708854ed.stex" ]
 
 [params]
 

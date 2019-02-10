@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LeftArm.png-042285bd2104ef99af9667eee2281d21.stex"
+path="res://.import/LeftArmJoint.png-4a434f475bf5d2c34c13c891381ae9db.stex"
 
 [deps]
 
-source_file="res://Fruit/Textures/LeftArm.png"
-dest_files=[ "res://.import/LeftArm.png-042285bd2104ef99af9667eee2281d21.stex" ]
+source_file="res://Fruit/Textures/LeftArmJoint.png"
+dest_files=[ "res://.import/LeftArmJoint.png-4a434f475bf5d2c34c13c891381ae9db.stex" ]
 
 [params]
 
