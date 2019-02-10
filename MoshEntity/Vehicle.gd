@@ -23,7 +23,7 @@ func _draw():
 func set_target(target):
 	self.target = to_local(target)
 
-func _physics_process(delta):
+func _integrate_forces(state):
 	#f=ma -> a=f/a
 	var new_ray_length = calc_ray_length()
 	RayLeft.cast_to = new_ray_length
@@ -51,7 +51,7 @@ func _physics_process(delta):
 		steering_force = Vector2(0, 0)
 	
 	var acceleration = steering_force / self.mass
-	velocity  += acceleration * delta
+	velocity  += acceleration * state.step
 	#Need to figure out a way to truncate a vector
 	if velocity.length() > MAX_SPEED:
 		 velocity = velocity.normalized()*MAX_SPEED
