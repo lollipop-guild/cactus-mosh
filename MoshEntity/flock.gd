@@ -1,11 +1,10 @@
 extends RigidBody2D
 
-export var MASS = 1
-export var MAX_SPEED = 100
-export var MAX_FORCE = 10
+export var MAX_SPEED = 100.0
+export var MAX_FORCE = 10.0
 export var MAX_TURN_RATE = .1
-export(NodePath) var target
-export(int, FLAGS, "Seek", "flee", "Pursuit", "Evade", "Wander", "Wall Avoid", "Object Avoid", "seek_point") var flock_type
+export var target = Vector2(0, 0)
+export(int, FLAGS, "Seek", "flee", "Pursuit", "Evade", "Wander", "Wall Avoid", "Object Avoid", "idle") var flock_type
 var wander_target
 export var wander_jitter = 500
 export var wander_radius = 2000
@@ -21,9 +20,9 @@ func flee(target, object):
 	return(object.get_linear_velocity() - desired_vec)
 
 func seek(target_pos, object):
-	var desired_vec = object.position - target_pos
+	var desired_vec =  target_pos - object.position
 	desired_vec = desired_vec.normalized() * object.MAX_SPEED
-	return(desired_vec - object.get_linear_velocity())
+	return((desired_vec - object.get_linear_velocity()) * (object.position.distance_to(target_pos)) / 200)
 
 #Don't use seek until arrive, need to figure in distance from the actual destination, not the
 #intermediary points.
@@ -132,7 +131,7 @@ func calc_wall_vel(object, ray):
 	update()
 	wander_target = -ray.get_collision_normal() * overshoot.length()*wander_distance
 	wander_target = wander_target.normalized()
-	return ray.get_collision_normal() * overshoot.length()
+	return ray.get_collision_normal() * (pow(overshoot.length(), 1.3))
 
 ##Need to add the braking force
 #func object_avoid(object, area):
