@@ -5,6 +5,13 @@ var velocity = Vector2(0, 0)
 var side
 export var min_velocity = Vector2(10, 10)
 export var seek_flee_multiplier = 2.0
+
+var sprites = [
+	preload("res://Fruit/Textures/AppleRef.png"),
+	preload("res://Fruit/Textures/PearRef.png"),
+	preload("res://Fruit/Textures/OrangeRef.png")
+	]
+	
 func _ready():
 	RayRight = $Position2D/RayRight
 	RayLeft  = $Position2D/RayLeft
@@ -14,6 +21,12 @@ func _ready():
 	var rand_int = randi() % children.size()
 #	target = children[rand_int]
 	wander_target = self.position
+	set_random_sprite()
+
+func set_random_sprite():
+	var rand_int = randi() % sprites.size()
+	$Position2D/Sprite.texture = sprites[rand_int]
+
 var steering_force = Vector2(0, 0)
 
 func _draw():
