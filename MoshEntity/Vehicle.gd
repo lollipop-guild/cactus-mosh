@@ -1,11 +1,14 @@
 extends "res://MoshEntity/flock.gd"
 
-var heading = Vector2(0, 0)
+var heading = Vector2(0, 1)
 var velocity = Vector2(0, 0)
 var side
 
 func _ready():
-	Ray = $Position2D/RayLeft
+	RayRight = $Position2D/RayRight
+	RayLeft  = $Position2D/RayLeft
+	RayRight.add_exception(self)
+	RayLeft.add_exception(self)
 	var children = get_parent().get_children()
 	var rand_int = randi() % children.size()
 #	target = get_node(target)
@@ -13,10 +16,13 @@ func _ready():
 	wander_target = self.position
 var steering_force = Vector2(0, 0)
 func _draw():
-	draw_line(position+wander_target, position+wander_target*20, Color(1, 1, 1))
+	draw_line(col_start, -col_end*200, Color(1, 1, 1))
 
 func _physics_process(delta):
 	#f=ma -> a=f/a
+	var new_ray_length = calc_ray_length()
+	RayLeft.cast_to = new_ray_length
+	RayRight.cast_to = new_ray_length
 	steering_force = Vector2(0, 0)
 	if (flock_type & 1):
 		steering_force = seek(target.position, self)
@@ -40,11 +46,20 @@ func _physics_process(delta):
 	#position += velocity * time_elapsed
 	
 	#Update the heading
-	if velocity.length_squared() > .00000001:
-		heading = velocity.normalized()
+
+	var to_turn = acos(heading.dot(velocity.normalized()))
+	if to_turn > 0:
+		print(to_turn)
+		if to_turn > MAX_TURN_RATE:
+			to_turn = MAX_TURN_RATE
+		heading = heading.rotated(to_turn)
+		$Position2D.rotate(to_turn)
+			
+		
+#		$Position2D.rotate()
+		
 		#Need to calc the perp
 	linear_velocity = velocity
-	$Position2D.look_at(position+heading.rotated(PI/2))
 	update()
 	
 

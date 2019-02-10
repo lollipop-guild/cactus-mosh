@@ -17,12 +17,20 @@ shape = SubResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="."]
 
-[node name="RayLeft" type="RayCast2D" parent="Position2D"]
-position = Vector2( -1, -44 )
-rotation = -3.14159
-enabled = true
-cast_to = Vector2( 0, 100 )
-
 [node name="Sprite" type="Sprite" parent="Position2D"]
 texture = ExtResource( 2 )
+
+[node name="RayRight" type="RayCast2D" parent="Position2D"]
+position = Vector2( 30, 30 )
+rotation = 3.14159
+enabled = true
+cast_to = Vector2( 0, 150 )
+
+[node name="RayLeft" type="RayCast2D" parent="Position2D"]
+position = Vector2( -30, 29 )
+rotation = 3.14159
+enabled = true
+cast_to = Vector2( 0, 150 )
+
+[node name="Tween" type="Tween" parent="."]
 

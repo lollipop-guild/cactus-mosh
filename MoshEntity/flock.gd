@@ -10,7 +10,10 @@ var wander_target
 export var wander_jitter = 500
 export var wander_radius = 2000
 export var wander_distance = 20
-var Ray
+var RayLeft
+var RayRight
+var col_start = Vector2(0, 0)
+var col_end = Vector2(0, 0)
 
 func flee(target, object):
 	var desired_vec = object.position - target
@@ -105,17 +108,29 @@ func wander():
 #Function is not taking into account the closest wall. So, it gets stuck in corners right now.
 func wall_avoid():
 	var SteeringForce = Vector2(0, 0)
-	if Ray.is_colliding():
-		SteeringForce += calc_wall_vel(self, Ray)
+	if RayLeft.is_colliding() or RayRight.is_colliding():
+		var position_to_right = self.position.distance_to(RayLeft.get_collision_point())
+		var position_to_left = self.position.distance_to(RayRight.get_collision_point())
+		if position_to_left < position_to_right:
+			SteeringForce = calc_wall_vel(self, RayLeft)
+		else:
+			SteeringForce = calc_wall_vel(self, RayRight)
 	return SteeringForce
+
+var min_ray_length = Vector2(0, 150)
+
+func calc_ray_length():
+	return min_ray_length + (self.linear_velocity / self.MAX_SPEED) * min_ray_length
 
 func calc_wall_vel(object, ray):
 	var dist_to_col = (ray.get_collision_point() - object.get_global_transform().origin)
 	var overshoot = (object.get_global_transform().origin + ray.get_cast_to()) - ray.get_collision_point()
 	#Creating a steering force in the direction of the wall normal with the magnitude
 	#of the overshoot
-	print(ray.get_collision_normal())
-	wander_target = ray.get_collision_normal() * overshoot.length()*wander_distance
+	col_start = to_local(ray.get_collision_point())
+	col_end = to_local(ray.get_collision_point() + ray.get_collision_normal() * overshoot.length())
+	update()
+	wander_target = -ray.get_collision_normal() * overshoot.length()*wander_distance
 	wander_target = wander_target.normalized()
 	return ray.get_collision_normal() * overshoot.length()
 
