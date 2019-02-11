@@ -1,6 +1,0 @@
-[gd_scene format=2]
-
-[node name="Apple" type="KinematicBody2D"]
-
-[node name="Polygons" type="Node2D" parent="."]
-
