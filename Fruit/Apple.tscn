@@ -1,14 +1,14 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Fruit/Textures/AppleBody.png" type="Texture" id=1]
 [ext_resource path="res://Fruit/Textures/LeftArmJoint.png" type="Texture" id=2]
 [ext_resource path="res://Fruit/Textures/RightArmJoint.png" type="Texture" id=3]
 [ext_resource path="res://Fruit/Textures/LegJoint.png" type="Texture" id=4]
-[ext_resource path="res://Fruit/Textures/Eyes-Angry.png" type="Texture" id=5]
+[ext_resource path="res://Fruit/Textures/Eyes-Closed.png" type="Texture" id=5]
 [ext_resource path="res://Fruit/Textures/Mouth-Frown.png" type="Texture" id=6]
 [ext_resource path="res://Fruit/Textures/AppleStem.png" type="Texture" id=7]
 [ext_resource path="res://Fruit/Textures/AppleEyes-Normal.png" type="Texture" id=8]
-[ext_resource path="res://Fruit/Textures/Eyes-Closed.png" type="Texture" id=9]
+[ext_resource path="res://Fruit/Textures/Eyes-Angry.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 
@@ -856,7 +856,7 @@ tracks/34/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -1682,7 +1682,7 @@ tracks/32/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/33/type = "value"
 tracks/33/path = NodePath("Body/Mouth:texture")
@@ -2421,20 +2421,17 @@ tracks/56/keys = {
 "values": [ 1.45113, 1.00613, 0.709459, 3.06474 ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
-
-radius = 85.5546
-
-[node name="Apple" type="KinematicBody2D"]
+[node name="Apple" type="Node2D"]
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 43.87, -133.622 )
-rotation = 0.367365
+position = Vector2( -0.491943, -134.426 )
+rotation = 0.0566183
+scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 
 [node name="LeftArmUpper" type="Sprite" parent="Body"]
 position = Vector2( -77.8146, 30.2686 )
-rotation = -1.29866
+rotation = 0.82026
 texture = ExtResource( 2 )
 offset = Vector2( -1.41577, 16.2402 )
 __meta__ = {
@@ -2444,7 +2441,7 @@ __meta__ = {
 
 [node name="LeftArmLower" type="Sprite" parent="Body/LeftArmUpper"]
 position = Vector2( -1.10297, 33.0893 )
-rotation = -0.856892
+rotation = -0.947302
 texture = ExtResource( 2 )
 offset = Vector2( -1.41577, 16.2402 )
 __meta__ = {
@@ -2453,7 +2450,6 @@ __meta__ = {
 
 [node name="LeftArmEnd" type="Position2D" parent="Body/LeftArmUpper/LeftArmLower"]
 position = Vector2( -0.919144, 32.5378 )
-rotation = 1.90333
 __meta__ = {
 "_edit_bone_": true
 }
@@ -2461,7 +2457,7 @@ __meta__ = {
 [node name="RightArmUpper" type="Sprite" parent="Body"]
 show_behind_parent = true
 position = Vector2( 84.6904, 26.7758 )
-rotation = -1.96693
+rotation = -0.982112
 texture = ExtResource( 3 )
 offset = Vector2( 0.974014, 16.0564 )
 __meta__ = {
@@ -2471,7 +2467,7 @@ __meta__ = {
 
 [node name="RightArmLower" type="Sprite" parent="Body/RightArmUpper"]
 position = Vector2( 0.551498, 34.1922 )
-rotation = -0.806837
+rotation = 0.973762
 texture = ExtResource( 3 )
 offset = Vector2( 0.974014, 16.0564 )
 __meta__ = {
@@ -2480,14 +2476,13 @@ __meta__ = {
 
 [node name="RightArmEnd" type="Position2D" parent="Body/RightArmUpper/RightArmLower"]
 position = Vector2( 0.735321, 31.9863 )
-rotation = 2.91755
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="LeftLegUpper" type="Sprite" parent="Body"]
 position = Vector2( -13.6582, 84.682 )
-rotation = 0.654539
+rotation = -0.18412
 texture = ExtResource( 4 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2497,7 +2492,7 @@ __meta__ = {
 
 [node name="LeftLegLower" type="Sprite" parent="Body/LeftLegUpper"]
 position = Vector2( 1.10297, 25.5523 )
-rotation = 0.787724
+rotation = 0.574697
 texture = ExtResource( 4 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2506,14 +2501,14 @@ __meta__ = {
 
 [node name="LeftLegEnd" type="Position2D" parent="Body/LeftLegUpper/LeftLegLower"]
 position = Vector2( 1.34053, 24.9607 )
-rotation = -1.0957
+rotation = -0.106219
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="RightLegUpper" type="Sprite" parent="Body"]
 position = Vector2( 34.6889, 83.7629 )
-rotation = -2.1762
+rotation = -0.491129
 texture = ExtResource( 4 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2523,7 +2518,7 @@ __meta__ = {
 
 [node name="RightLegLower" type="Sprite" parent="Body/RightLegUpper"]
 position = Vector2( 1.10297, 25.5523 )
-rotation = 1.96468
+rotation = 0.609012
 texture = ExtResource( 4 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2532,7 +2527,6 @@ __meta__ = {
 
 [node name="RightLegEnd" type="Position2D" parent="Body/RightLegUpper/RightLegLower"]
 position = Vector2( 1.23185, 26.1891 )
-rotation = 0.352212
 __meta__ = {
 "_edit_bone_": true
 }
@@ -2554,7 +2548,6 @@ __meta__ = {
 [node name="Stem" type="Sprite" parent="Body"]
 show_behind_parent = true
 position = Vector2( -3.17999, -68.6316 )
-rotation = -0.199671
 texture = ExtResource( 7 )
 offset = Vector2( -18.1442, -24.7537 )
 __meta__ = {
@@ -2574,8 +2567,4 @@ anims/Dance = SubResource( 2 )
 anims/Idle = SubResource( 3 )
 anims/Mosh = SubResource( 4 )
 anims/Walk = SubResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 6 )
 

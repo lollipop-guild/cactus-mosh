@@ -17,7 +17,7 @@ func _ready():
 	$Timer.connect('timeout', self, 'add_percent')
 
 func add_percent():
-	global.percent_complete += $Area2D.get_overlapping_bodies().size()*5
+	global.percent_complete += $Area2D.get_overlapping_bodies().size()*3
 
 func _integrate_forces(state):
 	var move_left = Input.is_action_pressed("walk_left")

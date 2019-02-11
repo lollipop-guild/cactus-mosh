@@ -7,6 +7,10 @@
 [node name="Bouncer" groups=[
 "bouncer",
 ] instance=ExtResource( 1 )]
+collision_layer = 7
+collision_mask = 7
+contacts_reported = 4
+contact_monitor = true
 script = ExtResource( 2 )
 flock_type = 1
 

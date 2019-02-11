@@ -8,6 +8,8 @@ extends "res://MoshEntity/Vehicle.gd"
 func _ready():
 	self.connect('body_entered', self, 'check_if_player')
 
-func body_entered(body):
+func check_if_player(body):
+	print(body)
 	if body.is_in_group('players'):
-		get_node('/root/global').go_to_scene("res://main.tscn")
+		get_node('/root/global').percent_complete = 0
+		get_node('/root/global').goto_scene("res://main.tscn")
