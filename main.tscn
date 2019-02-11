@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://MoshEntity/MoshEntity.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -14,189 +15,189 @@ script = ExtResource( 1 )
 position = Vector2( 766.337, 87.528 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity66" parent="." instance=ExtResource( 2 )]
 position = Vector2( 844.913, 163.648 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity41" parent="." instance=ExtResource( 2 )]
 position = Vector2( 762.654, 189.43 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity94" parent="." instance=ExtResource( 2 )]
 position = Vector2( 951.726, 109.627 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity52" parent="." instance=ExtResource( 2 )]
 position = Vector2( 765.11, 329.392 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity79" parent="." instance=ExtResource( 2 )]
 position = Vector2( 855.962, 239.767 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity54" parent="." instance=ExtResource( 2 )]
 position = Vector2( 909.983, 508.642 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity72" parent="." instance=ExtResource( 2 )]
 position = Vector2( 824.041, 421.473 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity60" parent="." instance=ExtResource( 2 )]
 position = Vector2( 765.11, 523.375 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity68" parent="." instance=ExtResource( 2 )]
 position = Vector2( 739.327, 421.473 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity36" parent="." instance=ExtResource( 2 )]
 position = Vector2( 600.593, 83.8448 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity86" parent="." instance=ExtResource( 2 )]
 position = Vector2( 682.851, 102.261 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity46" parent="." instance=ExtResource( 2 )]
 position = Vector2( 596.91, 185.747 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity83" parent="." instance=ExtResource( 2 )]
 position = Vector2( 657.069, 188.202 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity49" parent="." instance=ExtResource( 2 )]
 position = Vector2( 595.682, 295.016 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity92" parent="." instance=ExtResource( 2 )]
 position = Vector2( 655.841, 297.471 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity58" parent="." instance=ExtResource( 2 )]
 position = Vector2( 598.137, 415.334 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity75" parent="." instance=ExtResource( 2 )]
 position = Vector2( 852.279, 514.781 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity63" parent="." instance=ExtResource( 2 )]
 position = Vector2( 599.365, 519.692 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity71" parent="." instance=ExtResource( 2 )]
 position = Vector2( 659.524, 522.147 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity37" parent="." instance=ExtResource( 2 )]
 position = Vector2( 449.581, 71.5674 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity77" parent="." instance=ExtResource( 2 )]
 position = Vector2( 723.367, 255.728 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity44" parent="." instance=ExtResource( 2 )]
 position = Vector2( 929.626, 404.284 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity80" parent="." instance=ExtResource( 2 )]
 position = Vector2( 506.057, 175.925 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity48" parent="." instance=ExtResource( 2 )]
 position = Vector2( 444.67, 282.738 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity87" parent="." instance=ExtResource( 2 )]
 position = Vector2( 673.029, 378.502 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="MoshEntity56" parent="." instance=ExtResource( 2 )]
 position = Vector2( 447.126, 403.056 )
 mass = 2.0
 MAX_TURN_RATE = 0.01
-flock_type = 33
+flock_type = 161
 seek_flee_multiplier = 1.0
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -228,4 +229,7 @@ position = Vector2( 164.677, -511.215 )
 shape = SubResource( 1 )
 
 [node name="AreaContainer" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 46.0135, 123.76 )
 
