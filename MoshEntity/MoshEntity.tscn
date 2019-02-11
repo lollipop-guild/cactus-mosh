@@ -26,12 +26,14 @@ position = Vector2( 30, 30 )
 rotation = 3.14159
 enabled = true
 cast_to = Vector2( 0, 150 )
+collision_mask = 7
 
 [node name="RayLeft" type="RayCast2D" parent="Position2D"]
 position = Vector2( -30, 29 )
 rotation = 3.14159
 enabled = true
 cast_to = Vector2( 0, 150 )
+collision_mask = 7
 
 [node name="Tween" type="Tween" parent="."]
 

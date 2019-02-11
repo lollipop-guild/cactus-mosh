@@ -7,9 +7,9 @@ export var WALK_MAX_VELOCITY = 100
 export var WALK_ACCEL = 100
 export var WALK_DEACCEL = 50
 var dashing = false
-var dash_speed = 100
+export var dash_speed = 30
 var dash_time = 0
-export var dash_length = 1
+export var dash_length = 5
 export var mosh_weight = 5
 onready var global = get_node('/root/global')
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +17,8 @@ func _ready():
 	$Timer.connect('timeout', self, 'add_percent')
 
 func add_percent():
-	global.percent_complete += $Area2D.get_overlapping_bodies().size()*3
+	if linear_velocity.length() < 40:
+		global.percent_complete += $Area2D.get_overlapping_bodies().size()*3
 
 func _integrate_forces(state):
 	var move_left = Input.is_action_pressed("walk_left")

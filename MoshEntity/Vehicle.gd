@@ -17,7 +17,8 @@ func _ready():
 var steering_force = Vector2(0, 0)
 
 func _draw():
-	draw_line(Vector2(0, 0), target.position, Color(0, 1, 1))
+	pass
+#	draw_line(Vector2(0, 0), target.position, Color(0, 1, 1))
 
 func set_target(target):
 	self.target = target
