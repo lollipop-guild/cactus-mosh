@@ -3,7 +3,7 @@ extends RigidBody2D
 export var MAX_SPEED = 100.0
 export var MAX_FORCE = 10.0
 export var MAX_TURN_RATE = .1
-export var target = Vector2(0, 0)
+export (NodePath) var target = self.get_path()
 export(int, FLAGS, "Seek", "flee", "Pursuit", "Evade", "Wander", "Wall Avoid", "Object Avoid", "idle") var flock_type
 var wander_target
 export var wander_jitter = 500

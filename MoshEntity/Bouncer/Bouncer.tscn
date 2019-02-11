@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://MoshEntity/MoshEntity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MoshEntity/Bouncer/Bouncer.gd" type="Script" id=2]
+[ext_resource path="res://Fruit/Textures/OrangeRef.png" type="Texture" id=3]
+
+[node name="Bouncer" groups=[
+"bouncer",
+] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+flock_type = 1
+
+[node name="Sprite" parent="Position2D" index="0"]
+texture = ExtResource( 3 )
+

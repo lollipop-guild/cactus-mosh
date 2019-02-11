@@ -25,13 +25,22 @@ func create_world_grid():
 func find_most_dense():
 	var most_bodies = $AreaContainer.get_children()[0]
 	for child in $AreaContainer.get_children():
-		if most_bodies.get_overlapping_bodies().size() < child.get_overlapping_bodies().size():
+		var mb_weight = get_mosh_weight(most_bodies.get_overlapping_bodies())
+		var child_weight = get_mosh_weight(child.get_overlapping_bodies())
+		if mb_weight < child_weight:
 			most_bodies = child
 	return most_bodies
 
 func set_seek_target(new_target):
 	for mosher in get_tree().get_nodes_in_group('mosher'):
-		mosher.set_target(to_local(new_target.position))
+		mosher.set_target(new_target)
+
+func get_mosh_weight(bodies):
+	var weight = 0
+	for body in bodies:
+			weight += body.mosh_weight
+	return weight
+	
 
 func _process(delta):
 	var prev_dense = most_dense
