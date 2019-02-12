@@ -1,7 +1,0 @@
-[gd_scene format=2]
-
-[node name="New Game" type="Button"]
-margin_right = 864.0
-margin_bottom = 20.0
-flat = true
-
