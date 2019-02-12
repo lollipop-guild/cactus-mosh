@@ -3,11 +3,11 @@ extends RigidBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var WALK_MAX_VELOCITY = 100
-export var WALK_ACCEL = 100
-export var WALK_DEACCEL = 50
+export var WALK_MAX_VELOCITY = 150
+export var WALK_ACCEL = 400
+export var WALK_DEACCEL = 300
 var dashing = false
-export var dash_speed = 30
+export var dash_speed = 80
 var dash_time = 0
 export var dash_length = 5
 export var mosh_weight = 5
@@ -39,11 +39,11 @@ func _integrate_forces(state):
 		if lv.x < WALK_MAX_VELOCITY:
 			lv.x += WALK_ACCEL * step
 	else:
-		var xv = abs(delta_velocity.x)
+		var xv = abs(lv.x)
 		xv -= WALK_DEACCEL * step
 		if xv < 0:
 			xv = 0
-		delta_velocity.x = sign(delta_velocity.x) * xv
+		lv.x = sign(lv.x) * xv
 		
 	# Handle up an down
 	if move_up and not move_down:
@@ -55,11 +55,11 @@ func _integrate_forces(state):
 		if lv.y < WALK_MAX_VELOCITY:
 			lv.y += WALK_ACCEL * step
 	else:
-		var yv = abs(delta_velocity.y)
+		var yv = abs(lv.y)
 		yv -= WALK_DEACCEL * step
 		if yv < 0:
 			yv = 0
-		delta_velocity.y = sign(delta_velocity.y) * yv
+		lv.y = sign(lv.y) * yv
 
 	if dash and not dashing:
 		dash_time += step
