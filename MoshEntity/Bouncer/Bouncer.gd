@@ -13,3 +13,6 @@ func check_if_player(body):
 	if body.is_in_group('players'):
 		get_node('/root/global').percent_complete = 0
 		get_node('/root/global').goto_scene("res://main.tscn")
+
+func _process(delta):
+	get_tree().get_nodes_in_group('mosher')

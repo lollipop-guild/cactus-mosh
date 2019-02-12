@@ -37,7 +37,9 @@ func set_seek_target(new_target):
 
 func get_mosh_weight(bodies):
 	var weight = 0
+
 	for body in bodies:
+		if body.is_in_group('moshers'):
 			weight += body.mosh_weight
 	return weight
 

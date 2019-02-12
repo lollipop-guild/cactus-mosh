@@ -27,8 +27,11 @@ func _process(delta):
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group('bouncer'):
 			transition_to_idle()
+	if not flock_type & STATE.idle and not is_in_group('moshers'):
+		add_to_group('moshers')
 
 func transition_to_idle():
 	if flock_type != default_flock:
+		remove_from_group('moshers')
 		flock_type = 0
 		$Timer.start()
