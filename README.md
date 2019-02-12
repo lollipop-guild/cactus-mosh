@@ -1,5 +1,5 @@
 # cactus-mosh
-A game made for [Godot Wild Jam 5](https://itch.io/jam/godot-wild-jam-5)
+A game made for [Godot Wild Jam 6](https://itch.io/jam/godot-wild-jam-6)
 
 ## Instructions to play
 
