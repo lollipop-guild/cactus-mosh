@@ -7,6 +7,16 @@ export var min_velocity = Vector2(10, 10)
 export var seek_flee_multiplier = 2.0
 export var mosh_weight = 1
 
+enum STATE {
+	seek = 1,
+	flee = 2,
+	pursuit = 4,
+	evade = 8,
+	wander = 16,
+	wall_avoid = 32,
+	idle = 64
+}
+
 func _ready():
 	RayRight = $Position2D/RayRight
 	RayLeft  = $Position2D/RayLeft
@@ -35,24 +45,24 @@ func _integrate_forces(state):
 		#TODO: Move to function
 		set_collision_mask_bit(2, true)
 		set_collision_layer_bit(2, true)
-		flock_type = flock_type ^ 64
-	if (flock_type & 1):
+		flock_type = flock_type ^ STATE.idle
+	if (flock_type & STATE.seek):
 		steering_force += seek(target_pos, self)
-		steering_force * seek_flee_multiplier
-	if (flock_type & 2):
+		steering_force *= seek_flee_multiplier
+	if (flock_type & STATE.flee):
 		steering_force += flee(target_pos, self)
-		steering_force * seek_flee_multiplier
-	if (flock_type & 4):
+		steering_force *= seek_flee_multiplier
+	if (flock_type & STATE.pursuit):
 		steering_force = pursuit(target, self)
-	if (flock_type & 8):
+	if (flock_type & STATE.evade):
 		steering_force = evade(target_pos, self)
-	if (flock_type & 16):
+	if (flock_type & STATE.wander):
 		steering_force += wander()
-	if (flock_type & 32):
+	if (flock_type & STATE.wall_avoid):
 		var potential_avoid = self.wall_avoid()
 		if (potential_avoid.length() > 0):
 			steering_force += potential_avoid
-	if (flock_type & 64):
+	if (flock_type & STATE.idle):
 		set_collision_mask_bit(2, false)
 		set_collision_layer_bit(2, false)
 		steering_force = Vector2(0, 0)
@@ -72,7 +82,7 @@ func _integrate_forces(state):
 		$Position2D.rotate(PI/2)
 		#Need to calc the perp
 
-	linear_velocity = velocity
+	state.set_linear_velocity(velocity)
 	update()
 	
 

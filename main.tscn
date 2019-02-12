@@ -55,74 +55,91 @@ shape = SubResource( 1 )
 [node name="AreaContainer" type="Node2D" parent="."]
 
 [node name="Mosher" parent="." instance=ExtResource( 2 )]
-position = Vector2( 472.132, 178.533 )
+position = Vector2( 472.132, 179.533 )
+flock_type = 113
 
 [node name="Mosher16" parent="." instance=ExtResource( 2 )]
 position = Vector2( 371.301, 248.339 )
+flock_type = 113
 
 [node name="Mosher2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 351.357, 324.793 )
+flock_type = 113
 
 [node name="Mosher17" parent="." instance=ExtResource( 2 )]
 position = Vector2( 261.606, 465.513 )
+flock_type = 113
 
 [node name="Mosher3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 382.382, 163.02 )
+flock_type = 113
 
 [node name="Mosher10" parent="." instance=ExtResource( 2 )]
 position = Vector2( 252.742, 330.333 )
+flock_type = 113
 
 [node name="Mosher7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 343.601, 100.971 )
+flock_type = 113
 
 [node name="Mosher13" parent="." instance=ExtResource( 2 )]
 position = Vector2( 246.094, 209.558 )
+flock_type = 113
 
 [node name="Mosher8" parent="." instance=ExtResource( 2 )]
 position = Vector2( 475.456, 304.848 )
+flock_type = 113
 
 [node name="Mosher11" parent="." instance=ExtResource( 2 )]
 position = Vector2( 377.95, 413.436 )
+flock_type = 113
 
 [node name="Mosher9" parent="." instance=ExtResource( 2 )]
 position = Vector2( 570.747, 230.61 )
+flock_type = 113
 
 [node name="Mosher18" parent="." instance=ExtResource( 2 )]
 position = Vector2( 458.836, 319.253 )
+flock_type = 113
 
 [node name="Mosher4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 650.525, 130.887 )
+flock_type = 113
 
 [node name="Mosher12" parent="." instance=ExtResource( 2 )]
 position = Vector2( 553.019, 239.475 )
+flock_type = 113
 
 [node name="Mosher5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 648.309, 319.253 )
+flock_type = 113
 
 [node name="Mosher14" parent="." instance=ExtResource( 2 )]
 position = Vector2( 550.803, 427.84 )
+flock_type = 113
 
 [node name="Mosher6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 653.85, 414.544 )
+position = Vector2( 653.85, 416.544 )
+flock_type = 113
 
 [node name="Mosher15" parent="." instance=ExtResource( 2 )]
 position = Vector2( 437.783, 478.81 )
+flock_type = 113
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 47.6454, 128.532 )
 WALK_MAX_VELOCITY = 200
-dash_speed = 60
 dash_length = 2
 
 [node name="Bouncer" parent="." instance=ExtResource( 4 )]
 position = Vector2( 782.271, 474.238 )
 mass = 1.5
-flock_type = 0
+flock_type = 1
 
 [node name="Bouncer2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 836.564, 212.742 )
 mass = 0.2
-flock_type = 0
+flock_type = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
