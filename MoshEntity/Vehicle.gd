@@ -6,6 +6,7 @@ var side
 export var min_velocity = Vector2(10, 10)
 export var seek_flee_multiplier = 2.0
 export var mosh_weight = 1
+
 func _ready():
 	RayRight = $Position2D/RayRight
 	RayLeft  = $Position2D/RayLeft
@@ -34,7 +35,7 @@ func _integrate_forces(state):
 		#TODO: Move to function
 		set_collision_mask_bit(2, true)
 		set_collision_layer_bit(2, true)
-		flock_type = flock_type ^ 128
+		flock_type = flock_type ^ 64
 	if (flock_type & 1):
 		steering_force += seek(target_pos, self)
 		steering_force * seek_flee_multiplier
@@ -42,7 +43,7 @@ func _integrate_forces(state):
 		steering_force += flee(target_pos, self)
 		steering_force * seek_flee_multiplier
 	if (flock_type & 4):
-		steering_force = pursuit(target_pos, self)
+		steering_force = pursuit(target, self)
 	if (flock_type & 8):
 		steering_force = evade(target_pos, self)
 	if (flock_type & 16):
@@ -51,7 +52,7 @@ func _integrate_forces(state):
 		var potential_avoid = self.wall_avoid()
 		if (potential_avoid.length() > 0):
 			steering_force += potential_avoid
-	if (flock_type & 128):
+	if (flock_type & 64):
 		set_collision_mask_bit(2, false)
 		set_collision_layer_bit(2, false)
 		steering_force = Vector2(0, 0)

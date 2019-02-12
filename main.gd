@@ -10,7 +10,7 @@ var most_dense
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	create_world_grid()
-	
+
 func create_world_grid():
 	var num_col = OS.get_screen_size().x / area_size.x 
 	var num_row = OS.get_screen_size().y / area_size.y
@@ -40,7 +40,6 @@ func get_mosh_weight(bodies):
 	for body in bodies:
 			weight += body.mosh_weight
 	return weight
-	
 
 func _process(delta):
 	var prev_dense = most_dense
