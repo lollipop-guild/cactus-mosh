@@ -5,7 +5,7 @@
 [ext_resource path="res://Fruit/Textures/OrangeRef.png" type="Texture" id=3]
 
 [node name="Bouncer" groups=[
-"bouncer",
+"bouncers",
 ] instance=ExtResource( 1 )]
 collision_layer = 7
 collision_mask = 7

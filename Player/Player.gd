@@ -11,14 +11,31 @@ export var dash_speed = 80
 var dash_time = 0
 export var dash_length = 5
 export var mosh_weight = 5
+export var not_mosh_penalty = 3
+var time_since_dance = -1
 onready var global = get_node('/root/global')
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect('timeout', self, 'add_percent')
 
 func add_percent():
-	if linear_velocity.length() < 40:
-		global.percent_complete += $Area2D.get_overlapping_bodies().size()*3
+	var mosh_weight = calculate_mosh_weight()
+	if linear_velocity.length() < 40 and mosh_weight > 0:
+		global.percent_complete += mosh_weight
+		time_since_dance = 10
+	elif time_since_dance < 0 and global.percent_complete > 0:
+		global.percent_complete -= max(not_mosh_penalty, 0)
+	else:
+		time_since_dance -= 1
+
+func calculate_mosh_weight():
+	var bodies = $Area2D.get_overlapping_bodies()
+	var weight = 0
+	for body in bodies:
+		if body.is_in_group('moshers'):
+			weight += body.mosh_weight
+	return weight
 
 func _integrate_forces(state):
 	var move_left = Input.is_action_pressed("walk_left")
