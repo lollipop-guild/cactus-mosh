@@ -4,23 +4,7 @@
 [ext_resource path="res://TitleScreen/Buttons/NewGameButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TitleScreen/Buttons/SettingsButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fruit/Textures/AppleRef.png" type="Texture" id=4]
-
-[sub_resource type="Animation" id=1]
-
-resource_name = "fade_in"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
-}
+[ext_resource path="res://TitleScreen/fade_in/FadeIn.tscn" type="PackedScene" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -85,11 +69,6 @@ size_flags_vertical = 3
 text = "Version 1.1 
 Lollipop Guild"
 
-[node name="FadeIn" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeIn"]
-anims/fade_in = SubResource( 1 )
+[node name="FadeIn" parent="." instance=ExtResource( 5 )]
+visible = false
 
