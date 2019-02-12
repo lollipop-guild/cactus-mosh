@@ -872,7 +872,7 @@ tracks/34/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=3]
 
 resource_name = "Dash"
 length = 0.001
@@ -1126,7 +1126,7 @@ tracks/20/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 47.9488, -174.615 ) ]
+"values": [ Vector2( 10.8494, -170.163 ) ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("Body:rotation_degrees")
@@ -1213,7 +1213,7 @@ tracks/27/keys = {
 "values": [ 9.706 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 
 resource_name = "Idle"
 loop = true
@@ -1554,7 +1554,7 @@ tracks/27/keys = {
 "values": [ 1.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 
 resource_name = "Walk"
 length = 2.0
@@ -1891,7 +1891,7 @@ radius = 85.5546
 [node name="Player" type="Node2D"]
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 47.9488, -174.615 )
+position = Vector2( 10.8494, -170.163 )
 rotation = 0.347767
 texture = ExtResource( 1 )
 
@@ -1907,7 +1907,7 @@ __meta__ = {
 
 [node name="LeftArmLower" type="Sprite" parent="Body/LeftArmUpper"]
 position = Vector2( -1.10297, 33.0893 )
-rotation = -2.23101
+rotation = -2.231
 texture = ExtResource( 2 )
 offset = Vector2( -1.41577, 16.2402 )
 __meta__ = {
@@ -1934,7 +1934,7 @@ __meta__ = {
 
 [node name="RightArmLower" type="Sprite" parent="Body/RightArmUpper"]
 position = Vector2( 0.551498, 34.1922 )
-rotation = -1.90575
+rotation = -1.90574
 texture = ExtResource( 3 )
 offset = Vector2( 0.974014, 16.0564 )
 __meta__ = {
@@ -1950,7 +1950,7 @@ __meta__ = {
 
 [node name="LeftLegUpper" type="Sprite" parent="Body"]
 position = Vector2( -15.8842, 113.62 )
-rotation = 0.647431
+rotation = 0.647432
 texture = ExtResource( 4 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -1986,7 +1986,7 @@ __meta__ = {
 
 [node name="RightLegLower" type="Sprite" parent="Body/RightLegUpper"]
 position = Vector2( 1.10297, 25.5523 )
-rotation = 1.90221
+rotation = 1.9022
 texture = ExtResource( 4 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2031,9 +2031,9 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Base = SubResource( 1 )
 anims/Dance = SubResource( 2 )
-anims/Dash = SubResource( 9 )
-anims/Idle = SubResource( 7 )
-anims/Walk = SubResource( 8 )
+anims/Dash = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Walk = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

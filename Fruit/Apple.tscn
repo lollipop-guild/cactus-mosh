@@ -2450,7 +2450,7 @@ tracks/58/keys = {
 
 radius = 85.5546
 
-[node name="Apple" type="KinematicBody2D"]
+[node name="Apple" type="Node2D"]
 
 [node name="Body" type="Sprite" parent="."]
 position = Vector2( -0.280426, -131 )
