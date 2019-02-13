@@ -1,13 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MoshEntity/MoshEntity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MoshEntity/Bouncer/Bouncer.gd" type="Script" id=2]
 [ext_resource path="res://Fruit/Banana.tscn" type="PackedScene" id=3]
-
-[sub_resource type="CapsuleShape2D" id=1]
-
-radius = 25.1498
-height = 109.316
 
 [node name="Bouncer" index="0" groups=[
 "bouncers",
@@ -19,7 +14,7 @@ contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource( 1 )
+polygon = PoolVector2Array( 26.1147, 70.9596, 5.06912, 65.2716, -10.2885, 55.602, -18.2516, 37.9693, -27.9212, 8.96049, -26.7836, -31.4242, -15.4077, -55.3138, -2.89407, -71.809, 9.05072, -78.0658, 20.9955, -91.7169, 31.2339, -96.8361, 25.5459, -88.8729, 18.1515, -76.3594, 17.5827, -65.5522, 18.7203, -57.589, 13.0323, -26.305, 13.0323, -5.82828, 14.7387, 17.4925, 22.7019, 36.8316, 30.6651, 55.602, 32.3715, 63.5652 )
 
 [node name="Banana" parent="." index="2" instance=ExtResource( 3 )]
 

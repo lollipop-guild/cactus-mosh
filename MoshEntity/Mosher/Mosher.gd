@@ -39,6 +39,10 @@ func _process(delta):
 		add_to_group('moshers')
 		playback.travel("Mosh")
 
+func trigger_particle():
+	$CPUParticles2D.emitting = true
+	$CPUParticles2D.restart()
+
 func transition_to_idle():
 	if flock_type != default_flock:
 		remove_from_group('moshers')
