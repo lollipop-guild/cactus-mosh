@@ -36,6 +36,7 @@ func set_target(target):
 
 func _integrate_forces(state):
 	#f=ma -> a=f/a
+	rotation = 0
 	var target_pos = get_parent().to_local(target.position)
 	var new_ray_length = calc_ray_length()
 	RayLeft.cast_to = new_ray_length

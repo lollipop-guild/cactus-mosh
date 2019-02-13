@@ -9,10 +9,9 @@ func _ready():
 	self.connect('body_entered', self, 'check_if_player')
 
 func check_if_player(body):
-	print(body)
 	if body.is_in_group('players'):
 		get_node('/root/global').percent_complete = 0
-		get_node('/root/global').goto_scene("res://main.tscn")
+		get_node('/root/global').goto_scene("res://TitleScreen/MainMenu.tscn")
 #
 #func _process(delta):
 #	get_tree().get_nodes_in_group('mosher')

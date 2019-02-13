@@ -92,3 +92,4 @@ func _integrate_forces(state):
 		if dash_time > dash_length:
 			dash_time = 0
 			dashing = false
+

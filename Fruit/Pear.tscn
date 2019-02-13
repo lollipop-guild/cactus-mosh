@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Fruit/Textures/Body-Pear.png" type="Texture" id=1]
 [ext_resource path="res://Fruit/Textures/LeftArmJoint.png" type="Texture" id=2]
@@ -10,9 +10,52 @@
 [ext_resource path="res://Fruit/Textures/Eyes-Pear-Angry.png" type="Texture" id=8]
 [ext_resource path="res://Fruit/Textures/Mouth-Frown.png" type="Texture" id=9]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="AnimationNodeAnimation" id=9]
 
-resource_name = "Base"
+animation = "Dance"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+
+animation = "Mosh"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+switch_mode = 2
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachine" id=1]
+
+states/Dance/node = SubResource( 9 )
+states/Dance/position = Vector2( 585, 74 )
+states/Idle/node = SubResource( 10 )
+states/Idle/position = Vector2( 695, 167 )
+states/Mosh/node = SubResource( 11 )
+states/Mosh/position = Vector2( 489, 167 )
+transitions = [ "Mosh", "Dance", SubResource( 13 ), "Dance", "Mosh", SubResource( 14 ), "Dance", "Idle", SubResource( 15 ), "Idle", "Mosh", SubResource( 16 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+
+
+[sub_resource type="Animation" id=3]
+
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -435,9 +478,8 @@ tracks/34/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
-resource_name = "Dance"
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -860,9 +902,8 @@ tracks/34/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 
-resource_name = "Idle"
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/RightLegUpper/RightLegLower/RightLegEnd:position")
@@ -1201,9 +1242,8 @@ tracks/27/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 
-resource_name = "Mosh"
 length = 6.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/RightLegUpper/RightLegLower/RightLegEnd:position")
@@ -1638,7 +1678,7 @@ tracks/35/keys = {
 "values": [ 12.574, 12.574, 12.574, -8.76655, 6.36812, -11.4403, 13.8994, -9.36662, 36.7525, -14.7521, 18.8817, -12.0583, 12.574, 12.574 ]
 }
 tracks/36/type = "value"
-tracks/36/path = NodePath("AnimationPlayer:playback_speed")
+tracks/36/path = NodePath("AnimationTree/AnimationPlayer:playback_speed")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/imported = false
@@ -1652,7 +1692,6 @@ tracks/36/keys = {
 
 [sub_resource type="Animation" id=7]
 
-resource_name = "Walk"
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -2040,19 +2079,17 @@ tracks/31/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
-
-radius = 85.5546
-
 [node name="Pear" type="Node2D"]
+position = Vector2( 0, 40 )
+scale = Vector2( 0.4, 0.4 )
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( -0.280426, -134 )
+position = Vector2( -0.280426, -150 )
 texture = ExtResource( 1 )
 
 [node name="LeftArmUpper" type="Sprite" parent="Body"]
 position = Vector2( -62.1483, 42.3744 )
-rotation = -1.03789
+rotation = 0.25967
 texture = ExtResource( 2 )
 offset = Vector2( -1.41577, 16.2402 )
 __meta__ = {
@@ -2062,7 +2099,7 @@ __meta__ = {
 
 [node name="LeftArmLower" type="Sprite" parent="Body/LeftArmUpper"]
 position = Vector2( -1.10297, 33.0893 )
-rotation = -1.05353
+rotation = -0.5034
 texture = ExtResource( 2 )
 offset = Vector2( -1.41577, 16.2402 )
 __meta__ = {
@@ -2071,7 +2108,6 @@ __meta__ = {
 
 [node name="LeftArmEnd" type="Position2D" parent="Body/LeftArmUpper/LeftArmLower"]
 position = Vector2( -0.919144, 32.5378 )
-rotation = 1.85228
 __meta__ = {
 "_edit_bone_": true
 }
@@ -2079,7 +2115,7 @@ __meta__ = {
 [node name="RightArmUpper" type="Sprite" parent="Body"]
 show_behind_parent = true
 position = Vector2( 66.8878, 38.1695 )
-rotation = 1.57068
+rotation = -0.337386
 texture = ExtResource( 2 )
 offset = Vector2( 0.974014, 16.0564 )
 __meta__ = {
@@ -2089,7 +2125,7 @@ __meta__ = {
 
 [node name="RightArmLower" type="Sprite" parent="Body/RightArmUpper"]
 position = Vector2( 0.551498, 34.1922 )
-rotation = -1.46276
+rotation = 0.47037
 texture = ExtResource( 2 )
 offset = Vector2( 0.974014, 16.0564 )
 __meta__ = {
@@ -2098,14 +2134,13 @@ __meta__ = {
 
 [node name="RightArmEnd" type="Position2D" parent="Body/RightArmUpper/RightArmLower"]
 position = Vector2( 0.735321, 31.9863 )
-rotation = 0.0281223
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="LeftLegUpper" type="Sprite" parent="Body"]
 position = Vector2( -22.2034, 95.3635 )
-rotation = 0.388328
+rotation = 0.160137
 texture = ExtResource( 3 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2115,7 +2150,7 @@ __meta__ = {
 
 [node name="LeftLegLower" type="Sprite" parent="Body/LeftLegUpper"]
 position = Vector2( 1.10297, 25.5523 )
-rotation = 1.36492
+rotation = 0.215267
 texture = ExtResource( 3 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2124,14 +2159,13 @@ __meta__ = {
 
 [node name="LeftLegEnd" type="Position2D" parent="Body/LeftLegUpper/LeftLegLower"]
 position = Vector2( 1.34053, 24.9607 )
-rotation = -1.3731
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="RightLegUpper" type="Sprite" parent="Body"]
 position = Vector2( 31.1284, 93.7324 )
-rotation = -1.2703
+rotation = -0.0770863
 texture = ExtResource( 3 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2141,7 +2175,7 @@ __meta__ = {
 
 [node name="RightLegLower" type="Sprite" parent="Body/RightLegUpper"]
 position = Vector2( 1.10297, 25.5523 )
-rotation = 1.5884
+rotation = 0.215267
 texture = ExtResource( 3 )
 offset = Vector2( 0.422501, 12.5637 )
 __meta__ = {
@@ -2150,20 +2184,19 @@ __meta__ = {
 
 [node name="RightLegEnd" type="Position2D" parent="Body/RightLegUpper/RightLegLower"]
 position = Vector2( 1.23185, 26.1891 )
-rotation = -0.179922
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="Eyes" type="Sprite" parent="Body"]
-position = Vector2( 10.5944, 18.5304 )
+position = Vector2( 9.0298, 22.0732 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="Mouth" type="Sprite" parent="Body"]
-position = Vector2( 11.5135, 40.5899 )
+position = Vector2( 9.9489, 44.1327 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_bone_": true
@@ -2171,8 +2204,7 @@ __meta__ = {
 
 [node name="Stem" type="Sprite" parent="Body"]
 show_behind_parent = true
-position = Vector2( 14.7257, -94.9648 )
-rotation = -0.0525567
+position = Vector2( 13.1984, -93.5552 )
 texture = ExtResource( 6 )
 offset = Vector2( -18.1442, -24.7537 )
 __meta__ = {
@@ -2185,15 +2217,18 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 2.0
-anims/Base = SubResource( 1 )
-anims/Dance = SubResource( 2 )
-anims/Idle = SubResource( 8 )
-anims/Mosh = SubResource( 4 )
-anims/Walk = SubResource( 7 )
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 1 )
+anim_player = NodePath("AnimationPlayer")
+active = true
+parameters/playback = SubResource( 8 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 6 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
+root_node = NodePath("../..")
+playback_speed = 2.0
+anims/Base = SubResource( 3 )
+anims/Dance = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Mosh = SubResource( 6 )
+anims/Walk = SubResource( 7 )
 

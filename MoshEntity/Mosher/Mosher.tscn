@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MoshEntity/MoshEntity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MoshEntity/Mosher/Mosher.gd" type="Script" id=2]
-[ext_resource path="res://Fruit/Textures/AppleRef.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -13,15 +12,14 @@ script = ExtResource( 2 )
 flock_type = 33
 seek_flee_multiplier = 400.0
 
-[node name="Sprite" parent="Position2D" index="0"]
-texture = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="." index="3"]
+[node name="Area2D" type="Area2D" parent="." index="2"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="." index="4"]
+[node name="Timer" type="Timer" parent="." index="3"]
 wait_time = 5.0
 one_shot = true
 

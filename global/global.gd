@@ -30,6 +30,8 @@ func goto_scene(path):
 func _deferred_goto_scene(path):
     # Immediately free the current scene,
     # there is no risk here.
+	var root = get_tree().get_root()
+	current_scene = root.get_child(root.get_child_count() -1)
 	current_scene.free()
 
     # Load new scene.

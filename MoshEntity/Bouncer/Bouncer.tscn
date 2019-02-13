@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://MoshEntity/MoshEntity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MoshEntity/Bouncer/Bouncer.gd" type="Script" id=2]
-[ext_resource path="res://Fruit/Textures/OrangeRef.png" type="Texture" id=3]
+[ext_resource path="res://Fruit/Banana.tscn" type="PackedScene" id=3]
 
-[node name="Bouncer" groups=[
+[sub_resource type="CapsuleShape2D" id=1]
+
+radius = 25.1498
+height = 109.316
+
+[node name="Bouncer" index="0" groups=[
 "bouncers",
 ] instance=ExtResource( 1 )]
 collision_layer = 7
@@ -13,7 +18,8 @@ contacts_reported = 4
 contact_monitor = true
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="Position2D" index="0"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 3 )
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Banana" parent="." index="2" instance=ExtResource( 3 )]
 
