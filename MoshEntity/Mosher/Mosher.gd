@@ -45,7 +45,8 @@ func trigger_particle():
 
 func transition_to_idle():
 	if flock_type != default_flock:
-		remove_from_group('moshers')
+		if is_in_group('moshers'):
+			remove_from_group('moshers')
 		playback.travel("Idle")
 		flock_type = STATE.idle
 		$Timer.start()

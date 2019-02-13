@@ -10,7 +10,7 @@ radius = 65.8347
 
 [node name="Mosher" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-flock_type = 33
+flock_type = 97
 seek_flee_multiplier = 400.0
 
 [node name="Area2D" type="Area2D" parent="." index="2"]

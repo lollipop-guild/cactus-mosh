@@ -12,15 +12,19 @@ radius = 49.9037
 radius = 182.807
 
 [node name="Player" type="RigidBody2D" groups=[
-"moshers",
 "players",
+"moshers",
 ]]
 collision_layer = 3
 collision_mask = 3
 mode = 2
 mass = 11.45
 script = ExtResource( 1 )
+WALK_MAX_VELOCITY = 200
+WALK_ACCEL = 600
 dash_speed = 60
+dash_length = 2
+mosh_weight = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://MoshEntity/Mosher/Mosher.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://MoshEntity/Bouncer/Bouncer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://UI/ProgressBar/ProgressBar.gd" type="Script" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/ProgressBar/ProgressBar.gd" type="Script" id=3]
+[ext_resource path="res://MoshEntity/Mosher/Mosher.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MoshEntity/Bouncer/Bouncer.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -54,112 +54,8 @@ shape = SubResource( 1 )
 
 [node name="AreaContainer" type="Node2D" parent="."]
 
-[node name="Mosher" parent="." instance=ExtResource( 2 )]
-position = Vector2( 472.132, 179.533 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher16" parent="." instance=ExtResource( 2 )]
-position = Vector2( 371.301, 248.339 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 351.357, 324.793 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher17" parent="." instance=ExtResource( 2 )]
-position = Vector2( 261.606, 465.513 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 382.382, 163.02 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher10" parent="." instance=ExtResource( 2 )]
-position = Vector2( 252.742, 330.333 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 343.601, 100.971 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher13" parent="." instance=ExtResource( 2 )]
-position = Vector2( 246.094, 209.558 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 475.456, 304.848 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher11" parent="." instance=ExtResource( 2 )]
-position = Vector2( 377.95, 413.436 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher9" parent="." instance=ExtResource( 2 )]
-position = Vector2( 570.747, 230.61 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher18" parent="." instance=ExtResource( 2 )]
-position = Vector2( 458.836, 319.253 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 650.525, 130.887 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher12" parent="." instance=ExtResource( 2 )]
-position = Vector2( 553.019, 239.475 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 648.309, 319.253 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher14" parent="." instance=ExtResource( 2 )]
-position = Vector2( 550.803, 427.84 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 653.85, 416.544 )
-mode = 0
-flock_type = 113
-
-[node name="Mosher15" parent="." instance=ExtResource( 2 )]
-position = Vector2( 437.783, 478.81 )
-mode = 0
-flock_type = 113
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 47.6454, 128.532 )
-WALK_MAX_VELOCITY = 200
-dash_length = 2
-
-[node name="Bouncer" parent="." instance=ExtResource( 4 )]
-position = Vector2( 782.271, 474.238 )
-mode = 0
-mass = 1.5
-flock_type = 1
-
-[node name="Bouncer2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 836.564, 212.742 )
-mode = 0
-mass = 0.2
-flock_type = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -167,7 +63,7 @@ flock_type = 1
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -189,4 +85,108 @@ margin_bottom = 15.5
 text = "WICKED, YOU WIN!
 Press 'enter' to restart"
 align = 1
+
+[node name="Mosher" parent="." instance=ExtResource( 4 )]
+position = Vector2( 440.693, 242.963 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher19" parent="." instance=ExtResource( 4 )]
+position = Vector2( 310.165, 258.471 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 355.397, 360.567 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher18" parent="." instance=ExtResource( 4 )]
+position = Vector2( 224.87, 376.075 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 708.21, 262.348 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 577.682, 277.856 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 611.283, 133.112 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher12" parent="." instance=ExtResource( 4 )]
+position = Vector2( 480.756, 148.621 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 516.942, 474.294 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher17" parent="." instance=ExtResource( 4 )]
+position = Vector2( 386.414, 489.802 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 555.712, 319.211 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher20" parent="." instance=ExtResource( 4 )]
+position = Vector2( 425.184, 334.72 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 333.427, 109.85 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher13" parent="." instance=ExtResource( 4 )]
+position = Vector2( 202.899, 125.358 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 177.052, 434.231 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher14" parent="." instance=ExtResource( 4 )]
+position = Vector2( 46.5246, 449.739 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 846.492, 169.298 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher15" parent="." instance=ExtResource( 4 )]
+position = Vector2( 715.964, 184.807 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 846.492, 169.298 )
+mode = 2
+can_sleep = true
+
+[node name="Mosher16" parent="." instance=ExtResource( 4 )]
+position = Vector2( 715.964, 184.807 )
+mode = 2
+can_sleep = true
+
+[node name="Bouncer" parent="." instance=ExtResource( 5 )]
+position = Vector2( 806.789, 400.394 )
+debug_text = false
 

@@ -31,8 +31,8 @@ func _ready():
 var steering_force = Vector2(0, 0)
 
 func _draw():
-	pass
-#	draw_line(Vector2(0, 0), target.position, Color(0, 1, 1))
+	if debug_text:
+		draw_line(Vector2(0, 0), heading, Color(0, 1, 1))
 
 func set_target(target):
 	self.target = target
@@ -91,7 +91,7 @@ func _integrate_forces(state):
 		$Position2D.look_at(position+heading)
 		$Position2D.rotate(PI/2)
 		#Need to calc the perp
-
+	velocity += state.get_total_gravity() * state.step
 	state.set_linear_velocity(velocity)
 	update()
 	
