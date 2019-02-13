@@ -5,6 +5,7 @@ extends "res://MoshEntity/Vehicle.gd"
 # var b = "text"
 var default_flock
 
+
 var fruit_scenes = [
 	"res://Fruit/Apple.tscn",
 	"res://Fruit/Orange.tscn",
@@ -18,7 +19,7 @@ func _ready():
 	set_random_scene()
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Idle")
-	self.connect("body_entered", self, "_on_Mosher_body_entered")
+
 
 func set_default_flock():
 	flock_type = default_flock
@@ -40,8 +41,7 @@ func _process(delta):
 
 func transition_to_idle():
 	if flock_type != default_flock:
-		print("transition to idle")
 		remove_from_group('moshers')
 		playback.travel("Idle")
-		flock_type = 0
+		flock_type = STATE.idle
 		$Timer.start()

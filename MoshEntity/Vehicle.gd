@@ -6,6 +6,7 @@ var side
 export var min_velocity = Vector2(10, 10)
 export var seek_flee_multiplier = 2.0
 export var mosh_weight = 1
+export var debug_text = false
 
 enum STATE {
 	seek = 1,
@@ -24,6 +25,8 @@ func _ready():
 	RayLeft.add_exception(self)
 	wander_target = self.position
 	target = get_node(target)
+	if debug_text:
+		$DebugLabel.show()
 
 var steering_force = Vector2(0, 0)
 
@@ -34,6 +37,12 @@ func _draw():
 func set_target(target):
 	self.target = target
 
+func _process(delta):
+	display_debug_text()
+
+func display_debug_text():
+	$DebugLabel.text = str(flock_type)
+
 func _integrate_forces(state):
 	#f=ma -> a=f/a
 	rotation = 0
@@ -42,7 +51,7 @@ func _integrate_forces(state):
 	RayLeft.cast_to = new_ray_length
 	RayRight.cast_to = new_ray_length
 	steering_force = Vector2(0, 0)
-	if linear_velocity.length() > min_velocity.length():
+	if linear_velocity.length() > min_velocity.length() and flock_type & STATE.idle:
 		#TODO: Move to function
 		set_collision_mask_bit(2, true)
 		set_collision_layer_bit(2, true)

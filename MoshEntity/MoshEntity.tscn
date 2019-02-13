@@ -31,3 +31,9 @@ enabled = true
 cast_to = Vector2( 0, 150 )
 collision_mask = 7
 
+[node name="DebugLabel" type="Label" parent="."]
+margin_left = -20.0
+margin_top = 50.0
+margin_right = 20.0
+margin_bottom = 64.0
+
