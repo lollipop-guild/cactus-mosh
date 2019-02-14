@@ -15,13 +15,17 @@ export var not_mosh_penalty = 3
 var time_since_dance = -1
 onready var global = get_node('/root/global')
 var playback
+var facing_left = false
+var original_art_scale
+var anim = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect('timeout', self, 'add_percent')
-	playback = $Player/AnimationTree.get("parameters/playback")
+	playback = $Art/AnimationTree.get("parameters/playback")
 	playback.start("Idle")
-
+	original_art_scale = $Art.scale
+	
 func add_percent():
 	var mosh_weight = calculate_mosh_weight()
 	if linear_velocity.length() < 40 and mosh_weight > 0:
@@ -56,6 +60,9 @@ func _integrate_forces(state):
 	var lv = state.get_linear_velocity()
 	var step = state.step
 	var delta_velocity = Vector2(0, 0)
+	var new_facing_left = facing_left
+	var new_anim
+	
 	## Movement left and right
 	if move_left and not move_right:
 		delta_velocity.x -= WALK_ACCEL * step
@@ -98,10 +105,37 @@ func _integrate_forces(state):
 		state.set_linear_velocity(lv)
 		
 	if dashing:
-		playback.travel("Dash")
 		dash_time += state.step
 		if dash_time > dash_length:
 			dash_time = 0
 			dashing = false
-			playback.travel("Idle")
 
+	# Animations & Scaling
+	if lv.x < 0 and move_left:
+		new_facing_left = true
+	elif lv.x > 0 and move_right:
+		new_facing_left = false
+
+	if new_facing_left != facing_left:
+		var new_scale
+		if new_facing_left:
+			new_scale = original_art_scale.x * -1
+			$Art.scale = Vector2(new_scale, original_art_scale.y)
+		else:
+			$Art.scale.x = original_art_scale.x
+		
+		facing_left = new_facing_left
+	
+	if dashing:
+		new_anim = "Dash"
+	elif time_since_dance > 0:
+		new_anim = "Dance"
+	else:
+		if abs(lv.x) < 0.1:
+			new_anim = "Idle"
+		else:
+			new_anim = "Walk"
+	
+	if new_anim != anim:
+		anim = new_anim
+		playback.start(anim)

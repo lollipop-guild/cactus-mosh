@@ -3,10 +3,10 @@
 [ext_resource path="res://MoshEntity/Mosher/Mosher.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fruit/Orange.tscn" type="PackedScene" id=2]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 
 radius = 35.3027
 
@@ -15,10 +15,10 @@ radius = 35.3027
 [node name="art" parent="." index="3" instance=ExtResource( 2 )]
 
 [node name="AnimationTree" parent="art" index="1"]
-parameters/playback = SubResource( 2 )
+parameters/playback = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="." index="6"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 
 [editable path="art"]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player_Animations.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Textures/Mouth-Laugh.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
-radius = 49.9037
+radius = 79.221
+height = 115.747
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -30,14 +32,14 @@ dash_length = 1
 mosh_weight = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.20771, -74.2049 )
-rotation = 0.0206272
+position = Vector2( 0.20771, -74.2883 )
+rotation = 0.0189638
 scale = Vector2( 0.45, 0.45 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0.20771, -74.2049 )
-rotation = 0.0206272
+position = Vector2( 0.20771, -74.2883 )
+rotation = 0.0189638
 scale = Vector2( 0.45, 0.45 )
 collision_layer = 4
 collision_mask = 4
@@ -48,57 +50,60 @@ shape = SubResource( 2 )
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Art" parent="." instance=ExtResource( 2 )]
 scale = Vector2( 0.45, 0.45 )
 
-[node name="Body" parent="Player" index="0"]
-position = Vector2( 0.461578, -164.9 )
-rotation = 0.0206272
+[node name="Body" parent="Art" index="0"]
+position = Vector2( 0.461578, -165.085 )
+rotation = 0.0189638
 
-[node name="LeftArmUpper" parent="Player/Body" index="0"]
-rotation = 0.574211
+[node name="LeftArmUpper" parent="Art/Body" index="0"]
+rotation = 0.574565
 
-[node name="LeftArmLower" parent="Player/Body/LeftArmUpper" index="0"]
-rotation = -0.701056
+[node name="LeftArmLower" parent="Art/Body/LeftArmUpper" index="0"]
+rotation = -0.710691
 
-[node name="LeftArmEnd" parent="Player/Body/LeftArmUpper/LeftArmLower" index="0"]
-rotation = -0.116885
+[node name="LeftArmEnd" parent="Art/Body/LeftArmUpper/LeftArmLower" index="0"]
+rotation = -0.107604
 
-[node name="RightArmUpper" parent="Player/Body" index="1"]
-rotation = -0.566476
+[node name="RightArmUpper" parent="Art/Body" index="1"]
+rotation = -0.566352
 
-[node name="RightArmLower" parent="Player/Body/RightArmUpper" index="0"]
-rotation = 0.675941
+[node name="RightArmLower" parent="Art/Body/RightArmUpper" index="0"]
+rotation = 0.680674
 
-[node name="RightArmEnd" parent="Player/Body/RightArmUpper/RightArmLower" index="0"]
-rotation = 0.0235205
+[node name="RightArmEnd" parent="Art/Body/RightArmUpper/RightArmLower" index="0"]
+rotation = 0.0186633
 
-[node name="LeftLegUpper" parent="Player/Body" index="2"]
-rotation = -0.0318848
+[node name="LeftLegUpper" parent="Art/Body" index="2"]
+rotation = -0.0164
 
-[node name="LeftLegLower" parent="Player/Body/LeftLegUpper" index="0"]
-rotation = 0.518978
+[node name="LeftLegLower" parent="Art/Body/LeftLegUpper" index="0"]
+rotation = 0.494487
 
-[node name="LeftLegEnd" parent="Player/Body/LeftLegUpper/LeftLegLower" index="0"]
-rotation = -0.111698
+[node name="LeftLegEnd" parent="Art/Body/LeftLegUpper/LeftLegLower" index="0"]
+rotation = -0.102691
 
-[node name="RightLegUpper" parent="Player/Body" index="3"]
-rotation = -0.26481
+[node name="RightLegUpper" parent="Art/Body" index="3"]
+rotation = -0.249672
 
-[node name="RightLegLower" parent="Player/Body/RightLegUpper" index="0"]
-rotation = 0.577342
+[node name="RightLegLower" parent="Art/Body/RightLegUpper" index="0"]
+rotation = 0.548144
 
-[node name="RightLegEnd" parent="Player/Body/RightLegUpper/RightLegLower" index="0"]
-rotation = -0.17435
+[node name="RightLegEnd" parent="Art/Body/RightLegUpper/RightLegLower" index="0"]
+rotation = -0.160291
 
-[node name="RemoteCollision" type="RemoteTransform2D" parent="Player/Body" index="7"]
+[node name="Mouth" parent="Art/Body" index="5"]
+texture = ExtResource( 3 )
+
+[node name="RemoteCollision" type="RemoteTransform2D" parent="Art/Body" index="7"]
 remote_path = NodePath("../../../CollisionShape2D")
 
-[node name="RemoteArea2D" type="RemoteTransform2D" parent="Player/Body" index="8"]
+[node name="RemoteArea2D" type="RemoteTransform2D" parent="Art/Body" index="8"]
 remote_path = NodePath("../../../Area2D")
 
-[node name="AnimationTree" parent="Player" index="1"]
+[node name="AnimationTree" parent="Art" index="1"]
 parameters/playback = SubResource( 3 )
 
 
-[editable path="Player"]
+[editable path="Art"]
