@@ -5,6 +5,7 @@ extends Node2D
 # var b = "text"
 
 var percent_complete = 0.0
+var level = 1
 
 # Called when the node enters the scene tree for the first time.
 

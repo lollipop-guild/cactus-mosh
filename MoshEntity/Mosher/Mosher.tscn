@@ -26,6 +26,7 @@ spread = 78.14
 gravity = Vector2( 0, -100 )
 
 [node name="Timer" type="Timer" parent="." index="3"]
+wait_time = 10.0
 
 [node name="Area2D" type="Area2D" parent="." index="4"]
 

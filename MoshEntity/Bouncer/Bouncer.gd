@@ -9,6 +9,10 @@ export var DASH_SPEED = 10
 var player_pos = Vector2(0, 0)
 var players
 var playback
+export var time_to_delete = 4
+var kill_timer = time_to_delete
+export var will_dash_distance = 600
+
 func _ready():
 	self.connect('body_entered', self, '_handle_collision')
 	players = get_tree().get_nodes_in_group("players")
@@ -21,7 +25,6 @@ func _handle_collision(body):
 		get_node('/root/global').goto_scene("res://TitleScreen/MainMenu.tscn")
 	dash = Vector2(0, 0)
 	playback.travel("Walk")
-
 
 func _integrate_forces(state):
 	._integrate_forces(state)
@@ -37,7 +40,17 @@ func _draw():
 
 func _process(delta):
 	for player in players:
-		if player.global_position.distance_to(self.global_position) < 300:
+		# Delete if too far away
+		var to_player = player.global_position.distance_to(self.global_position)
+		if to_player > 800:
+			kill_timer -= delta
+			if kill_timer <= 0:
+				self.queue_free()
+		else:
+			kill_timer = time_to_delete
+
+		# Dash if close
+		if to_player < will_dash_distance:
 			var is_facing_player = check_if_facing_player(player)
 			if is_facing_player and dash.length() == 0:
 				player_pos = to_local(player.global_position)

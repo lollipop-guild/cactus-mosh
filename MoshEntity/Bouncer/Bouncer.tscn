@@ -8,7 +8,7 @@
 
 radius = 30.302
 
-[node name="Bouncer" groups=[
+[node name="Bouncer" index="0" groups=[
 "bouncers",
 ] instance=ExtResource( 1 )]
 collision_layer = 7
@@ -17,9 +17,12 @@ mass = 100.0
 contacts_reported = 4
 contact_monitor = true
 script = ExtResource( 2 )
+MAX_SPEED = 40.0
 flock_type = 1
 seek_flee_multiplier = 200.0
-debug_text = true
+DASH_SPEED = 8
+time_to_delete = 20
+will_dash_distance = 500
 
 [node name="art" parent="." index="2" instance=ExtResource( 3 )]
 

@@ -1,4 +1,4 @@
-extends Control
+extends HBoxContainer
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -6,7 +6,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	update_label()
 
 func _input(event):
 	if event.is_action_pressed('ui_accept'):
@@ -18,5 +18,10 @@ func _input(event):
 func _process(delta):
 	$Bar.value = get_node('/root/global').percent_complete
 	if $Bar.value >= 100:
-		get_tree().paused = true
-		$Label.show()
+		$"/root/global".percent_complete = 0.0
+		$"/root/global".level += 1
+		update_label()
+
+func update_label():
+	$MarginContainer/Level.text = str($"/root/global".level)
+	
