@@ -16,7 +16,7 @@ func _ready():
 	instance_bouncer()
 
 func create_world_grid():
-	var size = $Environment/Background.texture.get_size() * $Player/Camera2D.zoom
+	var size = $Environment/Background.texture.get_size() * $YSort/Player/Camera2D.zoom
 	var num_col = size.x / area_size.x
 	var num_row = size.y / area_size.y
 
@@ -46,7 +46,7 @@ func calc_new_spawn_time():
 
 func instance_bouncer():
 	randomize()
-	var center = $Player/Camera2D.get_camera_screen_center()
+	var center = $YSort/Player/Camera2D.get_camera_screen_center()
 	var rand_x = rand_range(-1, 1)
 	var rand_y = rand_range(-1, 1)
 	var rand_vect = Vector2(rand_x, rand_y)
