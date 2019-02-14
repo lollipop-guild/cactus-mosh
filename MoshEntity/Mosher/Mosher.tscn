@@ -24,7 +24,7 @@ shape = SubResource( 1 )
 wait_time = 5.0
 one_shot = true
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="5"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="4"]
 position = Vector2( 0, 20 )
 emitting = false
 amount = 32

@@ -203,5 +203,7 @@ can_sleep = true
 
 [node name="Bouncer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 806.789, 400.394 )
+MAX_SPEED = 60.0
 debug_text = false
+DASH_SPEED = 5
 

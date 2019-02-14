@@ -18,13 +18,13 @@ radius = 182.807
 collision_layer = 3
 collision_mask = 3
 mode = 2
-mass = 11.45
+mass = 20.0
 script = ExtResource( 1 )
 WALK_MAX_VELOCITY = 200
 WALK_ACCEL = 600
 dash_speed = 60
-dash_length = 2
-mosh_weight = 3
+dash_length = 1
+mosh_weight = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

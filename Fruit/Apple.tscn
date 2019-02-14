@@ -62,10 +62,10 @@ states/Walk/node = SubResource( 5 )
 states/Walk/position = Vector2( 349, 215 )
 transitions = [ "Mosh", "Dance", SubResource( 6 ), "Dance", "Idle", SubResource( 7 ), "Idle", "Mosh", SubResource( 8 ), "Dance", "Mosh", SubResource( 9 ) ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=16]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
 length = 0.001
 tracks/0/type = "value"
@@ -489,7 +489,7 @@ tracks/34/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 
 loop = true
 tracks/0/type = "value"
@@ -925,7 +925,7 @@ tracks/35/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 
 length = 2.0
 loop = true
@@ -1350,7 +1350,7 @@ tracks/34/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 
 length = 6.5
 tracks/0/type = "value"
@@ -1798,7 +1798,7 @@ tracks/36/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 
 loop = true
 tracks/0/type = "value"
@@ -2519,6 +2519,9 @@ position = Vector2( -0.280426, -135.176 )
 rotation = 0.0376511
 texture = ExtResource( 1 )
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body"]
+polygon = PoolVector2Array( 8.07246, 86.0003, -9.48706, 87.5426, -29.818, 85.6658, -65.898, 63.2411, -87.8526, 18.2623, -97.6911, -32.4582, -86.4366, -61.0704, -73.0251, -79.1932, -36.2462, -84.9831, -4.31432, -79.1388, 17.5108, -84.3654, 40.3482, -86.1065, 73.3585, -75.0176, 89.3394, -48.3123, 95.0299, -14.1723, 86.9112, 27.535, 73.6323, 49.1763, 57.6483, 69.1578, 43.059, 79.3971, 27.3581, 83.512 )
+
 [node name="LeftArmUpper" type="Sprite" parent="Body"]
 position = Vector2( -77.8146, 30.2686 )
 rotation = 0.0994967
@@ -2661,14 +2664,14 @@ shape = SubResource( 1 )
 tree_root = SubResource( 10 )
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/playback = SubResource( 16 )
+parameters/playback = SubResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 root_node = NodePath("../..")
 playback_speed = 2.0
-anims/Base = SubResource( 11 )
-anims/Dance = SubResource( 12 )
-anims/Idle = SubResource( 13 )
-anims/Mosh = SubResource( 14 )
-anims/Walk = SubResource( 15 )
+anims/Base = SubResource( 12 )
+anims/Dance = SubResource( 13 )
+anims/Idle = SubResource( 14 )
+anims/Mosh = SubResource( 15 )
+anims/Walk = SubResource( 16 )
 

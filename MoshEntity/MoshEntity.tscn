@@ -8,9 +8,6 @@ collision_mask = 3
 can_sleep = false
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -5.44916, 35.3508, -27.2992, 4.00073, -34.8992, -14.9993, -21.5992, -37.7993, 15.4509, -42.5493, 34.4509, -30.1993, 38.2509, -7.39929, 33.5009, 14.4507, 20.2009, 25.8508 )
-
 [node name="Position2D" type="Position2D" parent="."]
 
 [node name="RayRight" type="RayCast2D" parent="Position2D"]

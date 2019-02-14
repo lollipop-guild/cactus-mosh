@@ -11,52 +11,52 @@
 [ext_resource path="res://Fruit/Textures/Eyes-Angry.png" type="Texture" id=9]
 [ext_resource path="res://Fruit/Textures/Mouth-Frown.png" type="Texture" id=10]
 
-[sub_resource type="AnimationNodeAnimation" id=8]
+[sub_resource type="AnimationNodeAnimation" id=1]
 
 animation = "Dance"
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=2]
 
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=3]
 
 animation = "Mosh"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
 
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
 
 switch_mode = 2
 auto_advance = true
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
 
 switch_mode = 2
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
 
 switch_mode = 2
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachine" id=1]
+[sub_resource type="AnimationNodeStateMachine" id=8]
 
-states/Dance/node = SubResource( 8 )
+states/Dance/node = SubResource( 1 )
 states/Dance/position = Vector2( 572, 66 )
-states/Idle/node = SubResource( 9 )
+states/Idle/node = SubResource( 2 )
 states/Idle/position = Vector2( 681, 141 )
-states/Mosh/node = SubResource( 10 )
+states/Mosh/node = SubResource( 3 )
 states/Mosh/position = Vector2( 497, 141 )
-transitions = [ "Idle", "Mosh", SubResource( 11 ), "Mosh", "Dance", SubResource( 12 ), "Dance", "Mosh", SubResource( 13 ), "Dance", "Idle", SubResource( 14 ) ]
+transitions = [ "Idle", "Mosh", SubResource( 4 ), "Mosh", "Dance", SubResource( 5 ), "Dance", "Mosh", SubResource( 6 ), "Dance", "Idle", SubResource( 7 ) ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
 
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=10]
 
 length = 0.001
 tracks/0/type = "value"
@@ -480,7 +480,7 @@ tracks/34/keys = {
 "values": [ ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=11]
 
 loop = true
 tracks/0/type = "value"
@@ -916,7 +916,7 @@ tracks/35/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=12]
 
 length = 2.0
 loop = true
@@ -1341,7 +1341,7 @@ tracks/34/keys = {
 "values": [ ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=13]
 
 length = 6.5
 tracks/0/type = "value"
@@ -1789,7 +1789,7 @@ tracks/36/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=14]
 
 loop = true
 tracks/0/type = "value"
@@ -2510,6 +2510,9 @@ position = Vector2( -0.987675, -123.706 )
 rotation = 0.189315
 texture = ExtResource( 1 )
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body"]
+polygon = PoolVector2Array( 9.54694, 86.3135, -49.6665, 75.7705, -73.9855, 55.7171, -87.0034, 17.2582, -86.4729, -31.5637, -54.5962, -71.5639, -14.4855, -87.0165, 17.1787, -83.9045, 47.0322, -75.5029, 74.9605, -47.668, 88.5575, -13.5566, 86.7791, 21.3826, 74.2624, 55.555, 46.6151, 77.0926 )
+
 [node name="LeftArmUpper" type="Sprite" parent="Body"]
 position = Vector2( -77.8146, 30.2686 )
 rotation = 2.13411
@@ -2642,17 +2645,17 @@ __meta__ = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 1 )
+tree_root = SubResource( 8 )
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/playback = SubResource( 2 )
+parameters/playback = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 root_node = NodePath("../..")
 playback_speed = 0.333333
-anims/Base = SubResource( 3 )
-anims/Dance = SubResource( 4 )
-anims/Idle = SubResource( 5 )
-anims/Mosh = SubResource( 6 )
-anims/Walk = SubResource( 7 )
+anims/Base = SubResource( 10 )
+anims/Dance = SubResource( 11 )
+anims/Idle = SubResource( 12 )
+anims/Mosh = SubResource( 13 )
+anims/Walk = SubResource( 14 )
 
