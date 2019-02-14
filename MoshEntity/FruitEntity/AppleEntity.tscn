@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://MoshEntity/Mosher/Mosher.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fruit/Apple.tscn" type="PackedScene" id=2]
+
+[node name="Mosher" instance=ExtResource( 1 )]
+min_velocity = Vector2( 10, 10 )
+
+[node name="art" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="5"]
+polygon = PoolVector2Array( 1.2057, 33.6023, -9.54892, 36.4702, -24.2469, 30.376, -41.4543, 6.35729, -47.5486, -18.3783, -39.3034, -40.963, -24.9639, -51.7177, -4.53011, -48.1328, 7.65846, -48.1328, 20.9225, -49.5667, 39.9223, -42.397, 46.3751, -4.39732, 36.3374, 23.9232, 19.847, 34.6778 )
+

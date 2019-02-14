@@ -55,6 +55,10 @@ dash={
  ]
 }
 
+[network]
+
+limits/debugger_stdout/max_errors_per_frame=500
+
 [physics]
 
 2d/default_gravity=0

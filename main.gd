@@ -12,8 +12,10 @@ func _ready():
 	create_world_grid()
 
 func create_world_grid():
-	var num_col = OS.get_screen_size().x / area_size.x 
-	var num_row = OS.get_screen_size().y / area_size.y
+	var size = $Environment/Background.texture.get_size() * $Player/Camera2D.zoom
+	var num_col = size.x / area_size.x
+	var num_row = size.y / area_size.y
+	
 	for col in num_col:
 		for row in num_row:
 			var instance = area.instance()

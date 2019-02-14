@@ -5,31 +5,16 @@ extends "res://MoshEntity/Vehicle.gd"
 # var b = "text"
 var default_flock
 
-
-var fruit_scenes = [
-	"res://Fruit/Apple.tscn",
-	"res://Fruit/Orange.tscn",
-	"res://Fruit/Pear.tscn"
-]
 var playback
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect('timeout', self, 'set_default_flock')
 	default_flock = flock_type
-	set_random_scene()
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Idle")
 
-
 func set_default_flock():
 	flock_type = default_flock
-
-func set_random_scene():
-	var rand_int = randi() % fruit_scenes.size()
-	var scene = load(fruit_scenes[rand_int])
-	var temp = scene.instance()
-	temp.name = "art"
-	add_child(temp)
 
 func _process(delta):
 	for body in $Area2D.get_overlapping_bodies():
@@ -38,6 +23,8 @@ func _process(delta):
 	if not flock_type & STATE.idle and not is_in_group('moshers'):
 		add_to_group('moshers')
 		playback.travel("Mosh")
+	$CollisionPolygon2D.set_transform($art/Body.get_transform())
+	$CollisionPolygon2D.global_position = $art/Body.global_position
 
 func trigger_particle():
 	$CPUParticles2D.emitting = true

@@ -8,15 +8,20 @@ export var DASH_SPEED = 10
 # Called when the node enters the scene tree for the first time.
 var player_pos = Vector2(0, 0)
 var players
+var playback
 func _ready():
 	self.connect('body_entered', self, '_handle_collision')
 	players = get_tree().get_nodes_in_group("players")
+	playback = $art/AnimationTree.get("parameters/playback")
+	playback.start("Walk")
 
 func _handle_collision(body):
 	if body.is_in_group('players'):
 		get_node('/root/global').percent_complete = 0
 		get_node('/root/global').goto_scene("res://TitleScreen/MainMenu.tscn")
 	dash = Vector2(0, 0)
+	playback.travel("Walk")
+
 
 func _integrate_forces(state):
 	._integrate_forces(state)
@@ -37,8 +42,10 @@ func _process(delta):
 			if is_facing_player and dash.length() == 0:
 				player_pos = to_local(player.global_position)
 				dash_to_target(player.global_position)
+				playback.travel("Dash")
 		else:
 			dash = Vector2(0, 0)
+			playback.travel("Walk")
 
 func dash_to_target(pos):
 	var BP = pos - self.global_position

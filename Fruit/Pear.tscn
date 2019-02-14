@@ -10,51 +10,51 @@
 [ext_resource path="res://Fruit/Textures/Eyes-Pear-Angry.png" type="Texture" id=8]
 [ext_resource path="res://Fruit/Textures/Mouth-Frown.png" type="Texture" id=9]
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=15]
 
 animation = "Dance"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=2]
 
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=16]
 
 animation = "Mosh"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
 switch_mode = 2
 auto_advance = true
 xfade_time = 0.15
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
 switch_mode = 2
 xfade_time = 0.15
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 xfade_time = 0.15
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
 xfade_time = 0.15
 
-[sub_resource type="AnimationNodeStateMachine" id=1]
+[sub_resource type="AnimationNodeStateMachine" id=21]
 
-states/Dance/node = SubResource( 9 )
+states/Dance/node = SubResource( 15 )
 states/Dance/position = Vector2( 585, 74 )
-states/Idle/node = SubResource( 10 )
+states/Idle/node = SubResource( 2 )
 states/Idle/position = Vector2( 695, 167 )
-states/Mosh/node = SubResource( 11 )
+states/Mosh/node = SubResource( 16 )
 states/Mosh/position = Vector2( 489, 167 )
-transitions = [ "Mosh", "Dance", SubResource( 13 ), "Dance", "Mosh", SubResource( 14 ), "Dance", "Idle", SubResource( 15 ), "Idle", "Mosh", SubResource( 16 ) ]
+transitions = [ "Mosh", "Dance", SubResource( 17 ), "Dance", "Mosh", SubResource( 18 ), "Dance", "Idle", SubResource( 19 ), "Idle", "Mosh", SubResource( 20 ) ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
 
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=10]
 
 length = 0.001
 tracks/0/type = "value"
@@ -478,7 +478,7 @@ tracks/34/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=11]
 
 loop = true
 tracks/0/type = "value"
@@ -902,7 +902,7 @@ tracks/34/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=12]
 
 loop = true
 tracks/0/type = "value"
@@ -1242,7 +1242,7 @@ tracks/27/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=13]
 
 length = 6.5
 tracks/0/type = "value"
@@ -1690,7 +1690,7 @@ tracks/36/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=14]
 
 length = 2.0
 loop = true
@@ -2218,17 +2218,17 @@ __meta__ = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 1 )
+tree_root = SubResource( 21 )
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/playback = SubResource( 8 )
+parameters/playback = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 root_node = NodePath("../..")
 playback_speed = 2.0
-anims/Base = SubResource( 3 )
-anims/Dance = SubResource( 4 )
-anims/Idle = SubResource( 5 )
-anims/Mosh = SubResource( 6 )
-anims/Walk = SubResource( 7 )
+anims/Base = SubResource( 10 )
+anims/Dance = SubResource( 11 )
+anims/Idle = SubResource( 12 )
+anims/Mosh = SubResource( 13 )
+anims/Walk = SubResource( 14 )
 

@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://MoshEntity/MoshEntity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MoshEntity/Bouncer/Bouncer.gd" type="Script" id=2]
 [ext_resource path="res://Fruit/Banana.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+radius = 30.302
 
 [node name="Bouncer" groups=[
 "bouncers",
@@ -17,8 +21,9 @@ flock_type = 1
 seek_flee_multiplier = 200.0
 debug_text = true
 
-[node name="CollisionShape2D" parent="." index="0"]
-polygon = PoolVector2Array( 26.1147, 70.9596, 5.06912, 65.2716, -10.2885, 55.602, -18.2516, 37.9693, 22.7019, 36.8316, 30.6651, 55.602, 32.3715, 63.5652 )
+[node name="art" parent="." index="2" instance=ExtResource( 3 )]
 
-[node name="Banana" parent="." index="2" instance=ExtResource( 3 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+position = Vector2( -2.64075, 44.0125 )
+shape = SubResource( 1 )
 
