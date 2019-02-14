@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Main/Textures/ClubAmbrosia.png" type="Texture" id=2]
@@ -9,12 +9,7 @@
 [ext_resource path="res://MoshEntity/FruitEntity/OrangeEntity.tscn" type="PackedScene" id=7]
 [ext_resource path="res://MoshEntity/FruitEntity/PearEntity.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-extents = Vector2( 10, 1281 )
-
 [sub_resource type="RectangleShape2D" id=2]
-
 extents = Vector2( 2076.91, 10 )
 
 [node name="Main" type="Node2D"]
@@ -51,15 +46,15 @@ polygon = PoolVector2Array( -1267.34, -903.05, -1118.35, -787.169, -671.382, -71
 
 [node name="LeftWall" type="StaticBody2D" parent="Environment/Background"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Background/LeftWall"]
-position = Vector2( -2068.81, 16.7026 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Background/LeftWall"]
+polygon = PoolVector2Array( -2108.94, -947.175, -2057.07, -950.633, -2057.07, -743.147, -2022.49, -732.773, -2011.28, -706.379, -1984.3, -681.2, -1977.54, -632.488, -1974.08, -117.232, -2005.2, -68.8185, -2025.95, -30.7793, -2060.53, -27.3213, -2063.44, 38.1924, -2025.95, 45.2988, -2013.08, 72.3635, -1989.7, 83.1545, -1973.51, 115.527, -1977.54, 681.589, -2005.2, 709.254, -2029.41, 754.209, -2060.53, 761.125, -2060.53, 761.125, -2056.24, 879.882, -2025.95, 889.075, -2005.2, 916.74, -1974.08, 944.404, -1978.91, 1311.52, -2098.57, 1304.05 )
 
 [node name="RightWall" type="StaticBody2D" parent="Environment/Background"]
+position = Vector2( 2, 0 )
+scale = Vector2( -1, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Background/RightWall"]
-position = Vector2( 2074.89, 16.7026 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Background/RightWall"]
+polygon = PoolVector2Array( -2108.94, -947.175, -2057.07, -950.633, -2057.07, -743.147, -2022.49, -732.773, -2011.28, -706.379, -1984.3, -681.2, -1977.54, -632.488, -1974.08, -117.232, -2005.2, -68.8185, -2025.95, -30.7793, -2060.53, -27.3213, -2063.44, 38.1924, -2025.95, 45.2988, -2013.08, 72.3635, -1989.7, 83.1545, -1973.51, 115.527, -1977.54, 681.589, -2005.2, 709.254, -2029.41, 754.209, -2060.53, 761.125, -2060.53, 761.125, -2056.24, 879.882, -2025.95, 889.075, -2005.2, 916.74, -1974.08, 944.404, -1978.91, 1311.52, -2098.57, 1304.05 )
 
 [node name="LowerWall" type="StaticBody2D" parent="Environment/Background"]
 
@@ -108,1201 +103,541 @@ DASH_SPEED = 20
 
 [node name="AppleEntity" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2935.6, 2057.85 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity11" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2925.27, 1319.64 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity17" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1464.33, 1412.56 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity23" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2470.99, 916.98 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity29" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2264.49, 1691.33 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity35" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1670.83, 720.812 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity41" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3467.32, 942.792 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity47" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3312.45, 1505.49 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity54" parent="." instance=ExtResource( 6 )]
 position = Vector2( 705.471, 1391.91 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity60" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2651.67, 1366.1 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3070.27, 2174.85 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity10" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1103.43, 1054.62 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity16" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1599.01, 1529.56 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity22" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2605.66, 1033.97 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity28" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2399.17, 1808.32 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity34" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1805.5, 837.804 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity40" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3601.99, 1059.78 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity46" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3447.12, 1622.48 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity50" parent="." instance=ExtResource( 6 )]
 position = Vector2( 840.148, 1508.91 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity56" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2786.34, 1483.09 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3283.85, 2038.81 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity9" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1317.01, 918.584 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity15" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1812.59, 1393.52 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity20" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2819.24, 897.935 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity25" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2612.75, 1672.28 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity31" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2019.08, 701.767 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity37" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3815.57, 923.747 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity43" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3660.7, 1486.44 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity49" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1053.73, 1372.87 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity55" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2999.92, 1347.06 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3283.85, 2038.81 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity8" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1317.01, 918.584 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity13" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1812.59, 1393.52 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity19" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2819.24, 897.935 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity26" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2612.75, 1672.28 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity32" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2019.08, 701.767 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity38" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3815.57, 923.747 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity44" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3660.7, 1486.44 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity52" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1053.73, 1372.87 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity58" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2999.92, 1347.06 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2788.68, 2006.16 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity7" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2778.35, 1267.95 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity14" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1317.41, 1360.87 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity21" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2324.07, 865.286 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity27" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2117.57, 1639.64 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity33" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1523.91, 669.118 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity39" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3320.4, 891.098 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity45" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3165.53, 1453.79 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity53" parent="." instance=ExtResource( 6 )]
 position = Vector2( 558.551, 1340.22 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity59" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2504.75, 1314.41 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity6" parent="." instance=ExtResource( 6 )]
 position = Vector2( 525.277, 776.861 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity12" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2884.46, 1179.52 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity18" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1423.52, 1272.44 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity24" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2430.18, 776.862 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity30" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2223.68, 1551.21 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity36" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1630.02, 580.694 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity42" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3426.5, 802.674 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity48" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3271.63, 1365.37 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity51" parent="." instance=ExtResource( 6 )]
 position = Vector2( 664.66, 1251.8 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="AppleEntity57" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2610.86, 1225.98 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
 
 [node name="OrangeEntity" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2622.71, 2260.55 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity8" parent="." instance=ExtResource( 7 )]
 position = Vector2( 655.864, 1140.33 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity13" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1151.45, 1615.26 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity19" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2158.1, 1119.68 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity25" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1951.61, 1894.03 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity31" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1357.94, 923.508 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity37" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3154.43, 1145.49 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity43" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2999.56, 1708.18 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity49" parent="." instance=ExtResource( 7 )]
 position = Vector2( 392.585, 1594.61 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity55" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2338.78, 1568.8 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2757.39, 2377.54 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity7" parent="." instance=ExtResource( 7 )]
 position = Vector2( 790.541, 1257.32 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity14" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1286.12, 1732.25 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity20" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2292.78, 1236.67 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity26" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2086.28, 2011.02 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity32" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1492.62, 1040.5 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity38" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3289.11, 1262.48 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity44" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3134.24, 1825.17 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity50" parent="." instance=ExtResource( 7 )]
 position = Vector2( 527.262, 1711.6 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity56" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2473.46, 1685.79 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2970.97, 2241.5 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity11" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1004.12, 1121.28 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity17" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1499.7, 1596.21 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity23" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2506.36, 1100.63 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity29" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2299.86, 1874.98 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity35" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1706.2, 904.463 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity41" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3502.69, 1126.44 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity47" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3347.82, 1689.14 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity53" parent="." instance=ExtResource( 7 )]
 position = Vector2( 740.841, 1575.57 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity59" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2687.04, 1549.75 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2970.97, 2241.5 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity10" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1004.12, 1121.28 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity16" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1499.7, 1596.21 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity22" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2506.36, 1100.63 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity28" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2299.86, 1874.98 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity34" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1706.2, 904.463 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity40" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3502.69, 1126.44 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity46" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3347.82, 1689.14 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity52" parent="." instance=ExtResource( 7 )]
 position = Vector2( 740.841, 1575.57 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity58" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2687.04, 1549.75 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity5" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2475.79, 2208.86 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity9" parent="." instance=ExtResource( 7 )]
 position = Vector2( 508.943, 1088.63 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity15" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1004.53, 1563.57 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity21" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2011.18, 1067.98 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity27" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1804.69, 1842.33 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity33" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1211.02, 871.814 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity39" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3007.51, 1093.79 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity45" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2852.64, 1656.49 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity51" parent="." instance=ExtResource( 7 )]
 position = Vector2( 245.665, 1542.92 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity57" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2191.86, 1517.1 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity6" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2581.9, 2120.43 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity12" parent="." instance=ExtResource( 7 )]
 position = Vector2( 615.053, 1000.21 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity18" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1110.64, 1475.14 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity24" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2117.29, 979.557 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity30" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1910.8, 1753.91 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity36" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1317.13, 783.389 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity42" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3113.62, 1005.37 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity48" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2958.75, 1568.06 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity54" parent="." instance=ExtResource( 7 )]
 position = Vector2( 351.774, 1454.49 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="OrangeEntity60" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2297.97, 1428.68 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2858.06, 2244.22 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity9" parent="." instance=ExtResource( 8 )]
 position = Vector2( 891.209, 1124 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity15" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1386.79, 1598.93 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity21" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2393.45, 1103.35 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity27" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2186.95, 1877.7 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity33" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1593.29, 907.183 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity39" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3389.77, 1129.16 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity45" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3234.9, 1691.86 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity51" parent="." instance=ExtResource( 8 )]
 position = Vector2( 627.93, 1578.29 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity57" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2574.13, 1552.47 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2992.73, 2361.22 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity8" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1025.89, 1240.99 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity13" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1521.47, 1715.93 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity20" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2528.12, 1220.34 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity26" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2321.63, 1994.69 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity32" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1727.96, 1024.18 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity38" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3524.45, 1246.16 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity44" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3369.58, 1808.85 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity50" parent="." instance=ExtResource( 8 )]
 position = Vector2( 762.607, 1695.28 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity56" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2708.8, 1669.47 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3206.31, 2225.18 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity7" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1239.47, 1104.96 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity14" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1735.05, 1579.89 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity19" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2741.7, 1084.31 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity25" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2535.21, 1858.66 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity31" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1941.54, 888.138 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity37" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3738.03, 1110.12 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity43" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3583.16, 1672.81 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity49" parent="." instance=ExtResource( 8 )]
 position = Vector2( 976.186, 1559.24 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity55" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2922.38, 1533.43 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 914.725, 1964.49 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity12" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1239.47, 1104.96 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity18" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1735.05, 1579.89 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity24" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2741.7, 1084.31 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity30" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2535.21, 1858.66 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity36" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1941.54, 888.138 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity42" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3738.03, 1110.12 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity48" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3583.16, 1672.81 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity54" parent="." instance=ExtResource( 8 )]
 position = Vector2( 976.186, 1559.24 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity60" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2922.38, 1533.43 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2711.13, 2192.53 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity11" parent="." instance=ExtResource( 8 )]
 position = Vector2( 744.288, 1072.31 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity17" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1239.87, 1547.24 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity23" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2246.52, 1051.66 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity29" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2040.03, 1826.01 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity35" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1446.36, 855.489 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity41" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3242.85, 1077.47 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity47" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3087.98, 1640.16 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity53" parent="." instance=ExtResource( 8 )]
 position = Vector2( 481.009, 1526.59 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity59" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2427.21, 1500.78 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity6" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2817.24, 2104.11 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity10" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2806.92, 1365.89 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity16" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1345.98, 1458.82 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity22" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2352.63, 963.233 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity28" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2146.14, 1737.58 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity34" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1552.47, 767.065 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity40" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3348.96, 989.045 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity46" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3194.09, 1551.74 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity52" parent="." instance=ExtResource( 8 )]
 position = Vector2( 587.119, 1438.17 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
 [node name="PearEntity58" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2533.32, 1412.36 )
-collision_layer = 3
-collision_mask = 3
-can_sleep = false
-min_velocity = Vector2( 40, 40 )
 
