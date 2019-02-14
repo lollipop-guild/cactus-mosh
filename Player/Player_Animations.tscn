@@ -1,69 +1,56 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Player/Textures/Prickles-Body.png" type="Texture" id=1]
 [ext_resource path="res://Fruit/Textures/LeftArmJoint.png" type="Texture" id=2]
 [ext_resource path="res://Fruit/Textures/RightArmJoint.png" type="Texture" id=3]
 [ext_resource path="res://Fruit/Textures/LegJoint.png" type="Texture" id=4]
-[ext_resource path="res://Player/Textures/Eyes-Lashes.png" type="Texture" id=5]
-[ext_resource path="res://Player/Textures/Mouth-Smile.png" type="Texture" id=6]
-[ext_resource path="res://Player/Textures/Flower.png" type="Texture" id=7]
-[ext_resource path="res://Player/Textures/Mouth-Laugh.png" type="Texture" id=8]
-[ext_resource path="res://Player/Textures/Prickles-Eyes-Closed.png" type="Texture" id=9]
-
-[sub_resource type="AnimationNodeAnimation" id=11]
-
-animation = "Dance"
-
-[sub_resource type="AnimationNodeAnimation" id=12]
-
-animation = "Dash"
+[ext_resource path="res://Particles/Dust.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/Textures/Eyes-Lashes.png" type="Texture" id=6]
+[ext_resource path="res://Player/Textures/Mouth-Smile.png" type="Texture" id=7]
+[ext_resource path="res://Player/Textures/Flower.png" type="Texture" id=8]
+[ext_resource path="res://Player/Textures/Mouth-Laugh.png" type="Texture" id=9]
+[ext_resource path="res://Player/Textures/Prickles-Eyes-Closed.png" type="Texture" id=10]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
-
-animation = "Idle"
+animation = "Dance"
 
 [sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Dash"
 
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=3]
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
 
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
-
-
-[sub_resource type="AnimationNodeStateMachine" id=4]
-
-states/Dance/node = SubResource( 11 )
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/Dance/node = SubResource( 1 )
 states/Dance/position = Vector2( 464, 54 )
-states/Dash/node = SubResource( 12 )
+states/Dash/node = SubResource( 2 )
 states/Dash/position = Vector2( 654, 114 )
-states/Idle/node = SubResource( 1 )
+states/Idle/node = SubResource( 3 )
 states/Idle/position = Vector2( 264, 93 )
-states/Walk/node = SubResource( 2 )
+states/Walk/node = SubResource( 4 )
 states/Walk/position = Vector2( 464, 186 )
-transitions = [ "Idle", "Walk", SubResource( 3 ), "Walk", "Dance", SubResource( 13 ), "Walk", "Dash", SubResource( 14 ), "Dance", "Dash", SubResource( 15 ), "Dash", "Dance", SubResource( 16 ), "Dash", "Walk", SubResource( 17 ), "Dance", "Walk", SubResource( 18 ) ]
+transitions = [ "Idle", "Walk", SubResource( 5 ), "Walk", "Dance", SubResource( 6 ), "Walk", "Dash", SubResource( 7 ), "Dance", "Dash", SubResource( 8 ), "Dash", "Dance", SubResource( 9 ), "Dash", "Walk", SubResource( 10 ), "Dance", "Walk", SubResource( 11 ) ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
-
-[sub_resource type="Animation" id=6]
-
+[sub_resource type="Animation" id=14]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -483,7 +470,7 @@ tracks/34/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 tracks/35/type = "value"
 tracks/35/path = NodePath("Body/Mouth:texture")
@@ -495,11 +482,34 @@ tracks/35/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 9 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("Body/RightLegUpper/RightLegLower/RightLegEnd/Dust:emitting")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("Body/LeftLegUpper/LeftLegLower/LeftLegEnd/Dust:emitting")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
-[sub_resource type="Animation" id=7]
-
+[sub_resource type="Animation" id=15]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -919,11 +929,34 @@ tracks/34/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 10 ) ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("Body/LeftLegUpper/LeftLegLower/LeftLegEnd/Dust:emitting")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("Body/RightLegUpper/RightLegLower/RightLegEnd/Dust:emitting")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
-[sub_resource type="Animation" id=8]
-
+[sub_resource type="Animation" id=16]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Eyes:texture")
@@ -935,7 +968,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Body/Mouth:texture")
@@ -947,7 +980,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Body/RightArmUpper/RightArmLower/RightArmEnd:position")
@@ -1261,9 +1294,32 @@ tracks/27/keys = {
 "update": 0,
 "values": [ 9.706 ]
 }
+tracks/28/type = "value"
+tracks/28/path = NodePath("Body/RightLegUpper/RightLegLower/RightLegEnd/Dust:emitting")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Body/LeftLegUpper/LeftLegLower/LeftLegEnd/Dust:emitting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=9]
-
+[sub_resource type="Animation" id=17]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Eyes:texture")
@@ -1275,7 +1331,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Body/RightArmUpper/RightArmLower/RightArmEnd:position")
@@ -1601,9 +1657,32 @@ tracks/27/keys = {
 "update": 0,
 "values": [ 1.0 ]
 }
+tracks/28/type = "value"
+tracks/28/path = NodePath("Body/RightLegUpper/RightLegLower/RightLegEnd/Dust:emitting")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Body/LeftLegUpper/LeftLegLower/LeftLegEnd/Dust:emitting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="Animation" id=10]
-
+[sub_resource type="Animation" id=18]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -1928,7 +2007,31 @@ tracks/26/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 6 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Body/LeftLegUpper/LeftLegLower/LeftLegEnd/Dust:emitting")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Body/RightLegUpper/RightLegLower/RightLegEnd/Dust:emitting")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [node name="Player" type="Node2D"]
@@ -2017,6 +2120,8 @@ __meta__ = {
 "_edit_bone_": true
 }
 
+[node name="Dust" parent="Body/LeftLegUpper/LeftLegLower/LeftLegEnd" instance=ExtResource( 5 )]
+
 [node name="RightLegUpper" type="Sprite" parent="Body"]
 position = Vector2( 41.3668, 113.442 )
 rotation = -0.297846
@@ -2043,23 +2148,25 @@ __meta__ = {
 "_edit_bone_": true
 }
 
+[node name="Dust" parent="Body/RightLegUpper/RightLegLower/RightLegEnd" instance=ExtResource( 5 )]
+
 [node name="Eyes" type="Sprite" parent="Body"]
 position = Vector2( 22.0298, -9.92677 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="Mouth" type="Sprite" parent="Body"]
 position = Vector2( 22.9489, 12.1327 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="Flower" type="Sprite" parent="Body"]
 position = Vector2( -35.8275, -63.4377 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 offset = Vector2( -18.1442, -24.7537 )
 __meta__ = {
 "_edit_bone_": true
@@ -2072,16 +2179,16 @@ __meta__ = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 4 )
+tree_root = SubResource( 12 )
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/playback = SubResource( 5 )
+parameters/playback = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 root_node = NodePath("../..")
-anims/Base = SubResource( 6 )
-anims/Dance = SubResource( 7 )
-anims/Dash = SubResource( 8 )
-anims/Idle = SubResource( 9 )
-anims/Walk = SubResource( 10 )
+anims/Base = SubResource( 14 )
+anims/Dance = SubResource( 15 )
+anims/Dash = SubResource( 16 )
+anims/Idle = SubResource( 17 )
+anims/Walk = SubResource( 18 )
 

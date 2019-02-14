@@ -38,8 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Logo" type="TextureRect" parent="Menu"]
-margin_left = 50.0
-margin_right = 200.0
+margin_right = 1024.0
 margin_bottom = 321.0
 texture = ExtResource( 5 )
 stretch_mode = 4
@@ -47,44 +46,41 @@ stretch_mode = 4
 [node name="Center Row" type="HBoxContainer" parent="Menu"]
 margin_top = 325.0
 margin_right = 1024.0
-margin_bottom = 500.0
+margin_bottom = 465.0
 size_flags_vertical = 3
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/Center Row"]
-margin_left = 175.0
 margin_right = 510.0
-margin_bottom = 175.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
 
 [node name="NewGameButton" parent="Menu/Center Row/Buttons" instance=ExtResource( 6 )]
-margin_top = 17.0
-margin_right = 360.0
-margin_bottom = 77.0
+margin_right = 510.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 360, 60 )
 script = ExtResource( 7 )
 
 [node name="SettingsButton" parent="Menu/Center Row/Buttons" instance=ExtResource( 8 )]
-margin_top = 97.0
-margin_right = 360.0
-margin_bottom = 157.0
+margin_top = 80.0
+margin_right = 510.0
+margin_bottom = 140.0
 rect_min_size = Vector2( 360, 60 )
 script = ExtResource( 9 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/Center Row"]
 margin_left = 514.0
 margin_right = 1024.0
-margin_bottom = 175.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Version Label" type="Label" parent="Menu"]
-margin_left = 25.0
-margin_top = 550.0
+margin_top = 469.0
 margin_right = 1024.0
-margin_bottom = 680.0
+margin_bottom = 600.0
 size_flags_vertical = 3
 text = "Version 1.1 
 Lollipop Guild"

@@ -1,35 +1,68 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://MoshEntity/Mosher/Mosher.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fruit/Apple.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fruit/Textures/AppleEyes-Normal.png" type="Texture" id=3]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-
-[node name="Mosher" index="0" instance=ExtResource( 1 )]
+[node name="Mosher" instance=ExtResource( 1 )]
 min_velocity = Vector2( 10, 10 )
 
 [node name="art" parent="." index="3" instance=ExtResource( 2 )]
 scale = Vector2( 0.4, 0.4 )
 
+[node name="Body" parent="art" index="0"]
+position = Vector2( -0.280426, -139 )
+rotation = 0.0
+
+[node name="LeftArmUpper" parent="art/Body" index="0"]
+rotation = 0.25967
+
+[node name="LeftArmLower" parent="art/Body/LeftArmUpper" index="0"]
+rotation = -0.5034
+
+[node name="RightArmUpper" parent="art/Body" index="1"]
+rotation = -0.337386
+
+[node name="RightArmLower" parent="art/Body/RightArmUpper" index="0"]
+rotation = 0.47037
+
+[node name="LeftLegUpper" parent="art/Body" index="2"]
+rotation = 0.160137
+
+[node name="LeftLegLower" parent="art/Body/LeftLegUpper" index="0"]
+rotation = 0.215267
+
+[node name="LeftLegEnd" parent="art/Body/LeftLegUpper/LeftLegLower" index="0"]
+rotation = 0.0
+
+[node name="RightLegUpper" parent="art/Body" index="3"]
+rotation = -0.0770863
+
+[node name="RightLegLower" parent="art/Body/RightLegUpper" index="0"]
+rotation = 0.215267
+
+[node name="Eyes" parent="art/Body" index="4"]
+texture = ExtResource( 3 )
+
 [node name="RemoteCollision" type="RemoteTransform2D" parent="art/Body" index="7"]
 remote_path = NodePath("../../../CollisionPolygon2D")
+update_scale = false
 
 [node name="RemoteArea2D" type="RemoteTransform2D" parent="art/Body" index="8"]
 remote_path = NodePath("../../../Area2D")
+update_scale = false
 
 [node name="AnimationTree" parent="art" index="1"]
 parameters/playback = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="5"]
-position = Vector2( -0.188665, 11.054 )
-rotation = 0.0511898
-scale = Vector2( 0.8, 0.8 )
-polygon = PoolVector2Array( 1.2057, 33.6023, -9.54892, 36.4702, -24.2469, 30.376, -41.4543, 6.35729, -47.5486, -18.3783, -39.3034, -40.963, -24.9639, -51.7177, -4.53011, -48.1328, 7.65846, -48.1328, 20.9225, -49.5667, 39.9223, -42.397, 46.3751, -4.39732, 36.3374, 23.9232, 19.847, 34.6778 )
+position = Vector2( -0.11217, 4.4 )
+polygon = PoolVector2Array( 1.2057, 33.6023, -9.54892, 36.4702, -24.2469, 30.376, -35.5729, 6.8849, -39.8514, -8.71906, -36.5796, -22.0579, -27.7709, -32.6284, -1.84822, -32.3767, 10.7356, -36.4035, 21.306, -34.3901, 32.1281, -28.8532, 39.9301, -5.19558, 32.3798, 21.9855, 19.847, 34.6778 )
 
 [node name="Area2D" parent="." index="6"]
-position = Vector2( -0.188665, 6.054 )
-rotation = 0.0511898
+position = Vector2( -0.11217, 4.4 )
 
 
 [editable path="art"]

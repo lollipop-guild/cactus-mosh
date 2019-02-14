@@ -5,19 +5,72 @@
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-
 [sub_resource type="CircleShape2D" id=2]
-
 radius = 35.3027
 
 [node name="Mosher" instance=ExtResource( 1 )]
 
 [node name="art" parent="." index="3" instance=ExtResource( 2 )]
 
+[node name="Body" parent="art" index="0"]
+position = Vector2( -0.280426, -139 )
+rotation = 0.0
+
+[node name="LeftArmUpper" parent="art/Body" index="0"]
+rotation = 0.25967
+
+[node name="LeftArmLower" parent="art/Body/LeftArmUpper" index="0"]
+rotation = -0.5034
+
+[node name="LeftArmEnd" parent="art/Body/LeftArmUpper/LeftArmLower" index="0"]
+rotation = 0.0
+
+[node name="RightArmUpper" parent="art/Body" index="1"]
+rotation = -0.337386
+
+[node name="RightArmLower" parent="art/Body/RightArmUpper" index="0"]
+rotation = 0.47037
+
+[node name="RightArmEnd" parent="art/Body/RightArmUpper/RightArmLower" index="0"]
+rotation = 0.0
+
+[node name="LeftLegUpper" parent="art/Body" index="2"]
+rotation = 0.160137
+
+[node name="LeftLegLower" parent="art/Body/LeftLegUpper" index="0"]
+rotation = 0.215267
+
+[node name="LeftLegEnd" parent="art/Body/LeftLegUpper/LeftLegLower" index="0"]
+rotation = 0.0
+
+[node name="RightLegUpper" parent="art/Body" index="3"]
+rotation = -0.0770863
+
+[node name="RightLegLower" parent="art/Body/RightLegUpper" index="0"]
+rotation = 0.215267
+
+[node name="RightLegEnd" parent="art/Body/RightLegUpper/RightLegLower" index="0"]
+rotation = 0.0
+
+[node name="Stem" parent="art/Body" index="6"]
+position = Vector2( 15.3347, -86.4342 )
+
+[node name="RemoteCollision" type="RemoteTransform2D" parent="art/Body" index="7"]
+remote_path = NodePath("../../../CollisionPolygon2D")
+update_scale = false
+
+[node name="RemoteArea2D" type="RemoteTransform2D" parent="art/Body" index="8"]
+remote_path = NodePath("../../../Area2D")
+update_scale = false
+
 [node name="AnimationTree" parent="art" index="1"]
 parameters/playback = SubResource( 1 )
 
+[node name="Area2D" parent="." index="5"]
+position = Vector2( -0.11217, -5.6 )
+
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="." index="6"]
+position = Vector2( -0.11217, -5.6 )
 shape = SubResource( 2 )
 
 
