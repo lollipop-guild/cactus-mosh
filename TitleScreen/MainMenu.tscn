@@ -51,7 +51,6 @@ rect_min_size = Vector2( 360, 60 )
 script = ExtResource( 5 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/Center Row"]
-editor/display_folded = true
 margin_left = 514.0
 margin_right = 1024.0
 margin_bottom = 320.0
@@ -67,7 +66,7 @@ texture = ExtResource( 6 )
 [node name="Version Label" type="Label" parent="Menu"]
 margin_top = 553.0
 margin_right = 1024.0
-margin_bottom = 600.0
+margin_bottom = 680.0
 size_flags_vertical = 3
 text = "Version 1.1 
 Lollipop Guild"

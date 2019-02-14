@@ -1,14 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://UI/ProgressBar/ProgressBar.gd" type="Script" id=3]
-[ext_resource path="res://MoshEntity/Mosher/Mosher.tscn" type="PackedScene" id=4]
-[ext_resource path="res://MoshEntity/Bouncer/Bouncer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Main/Textures/ClubAmbrosia.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/ProgressBar/ProgressBar.gd" type="Script" id=4]
+[ext_resource path="res://MoshEntity/Mosher/Mosher.tscn" type="PackedScene" id=5]
+[ext_resource path="res://MoshEntity/Bouncer/Bouncer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 565.926, 10 )
+extents = Vector2( 10, 1281 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 2076.91, 10 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,38 +29,48 @@ margin_right = 1018.0
 margin_bottom = 600.0
 color = Color( 0.32549, 0.32549, 0.32549, 1 )
 
-[node name="Node2D" type="Node2D" parent="."]
-editor/display_folded = true
+[node name="Environment" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+[node name="Background" type="Sprite" parent="Environment"]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stage" type="StaticBody2D" parent="Environment/Background"]
 position = Vector2( 510, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Background/Stage"]
+polygon = PoolVector2Array( -1267.34, -903.05, -1118.35, -787.169, -671.382, -714.329, -125.084, -714.329, 258.979, -777.236, 411.28, -903.05, 1586.65, -896.428, 1591.5, -1332.57, -2609.97, -1308.28, -2608.25, -903.05 )
+
+[node name="LeftWall" type="StaticBody2D" parent="Environment/Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Background/LeftWall"]
+position = Vector2( -2068.81, 16.7026 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D"]
-position = Vector2( 510, 0 )
+[node name="RightWall" type="StaticBody2D" parent="Environment/Background"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2"]
-position = Vector2( 4.2959, 594.269 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Background/RightWall"]
+position = Vector2( 2074.89, 16.7026 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D"]
-position = Vector2( 510, 0 )
-rotation = 1.5708
+[node name="LowerWall" type="StaticBody2D" parent="Environment/Background"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D3"]
-position = Vector2( 157.517, 557.038 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D3"]
-position = Vector2( 164.677, -511.215 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Background/LowerWall"]
+position = Vector2( -0.126709, 1278.88 )
+shape = SubResource( 2 )
 
 [node name="AreaContainer" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 47.6454, 128.532 )
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 47.6454, 127.744 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -63,7 +78,7 @@ position = Vector2( 47.6454, 128.532 )
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -86,107 +101,107 @@ text = "WICKED, YOU WIN!
 Press 'enter' to restart"
 align = 1
 
-[node name="Mosher" parent="." instance=ExtResource( 4 )]
+[node name="Mosher" parent="." instance=ExtResource( 5 )]
 position = Vector2( 440.693, 242.963 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher19" parent="." instance=ExtResource( 4 )]
+[node name="Mosher19" parent="." instance=ExtResource( 5 )]
 position = Vector2( 310.165, 258.471 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher2" parent="." instance=ExtResource( 4 )]
+[node name="Mosher2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 355.397, 360.567 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher18" parent="." instance=ExtResource( 4 )]
+[node name="Mosher18" parent="." instance=ExtResource( 5 )]
 position = Vector2( 224.87, 376.075 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher3" parent="." instance=ExtResource( 4 )]
+[node name="Mosher3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 708.21, 262.348 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher11" parent="." instance=ExtResource( 4 )]
+[node name="Mosher11" parent="." instance=ExtResource( 5 )]
 position = Vector2( 577.682, 277.856 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher4" parent="." instance=ExtResource( 4 )]
+[node name="Mosher4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 611.283, 133.112 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher12" parent="." instance=ExtResource( 4 )]
+[node name="Mosher12" parent="." instance=ExtResource( 5 )]
 position = Vector2( 480.756, 148.621 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher5" parent="." instance=ExtResource( 4 )]
+[node name="Mosher5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 516.942, 474.294 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher17" parent="." instance=ExtResource( 4 )]
+[node name="Mosher17" parent="." instance=ExtResource( 5 )]
 position = Vector2( 386.414, 489.802 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher6" parent="." instance=ExtResource( 4 )]
+[node name="Mosher6" parent="." instance=ExtResource( 5 )]
 position = Vector2( 555.712, 319.211 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher20" parent="." instance=ExtResource( 4 )]
+[node name="Mosher20" parent="." instance=ExtResource( 5 )]
 position = Vector2( 425.184, 334.72 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher7" parent="." instance=ExtResource( 4 )]
+[node name="Mosher7" parent="." instance=ExtResource( 5 )]
 position = Vector2( 333.427, 109.85 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher13" parent="." instance=ExtResource( 4 )]
+[node name="Mosher13" parent="." instance=ExtResource( 5 )]
 position = Vector2( 202.899, 125.358 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher8" parent="." instance=ExtResource( 4 )]
+[node name="Mosher8" parent="." instance=ExtResource( 5 )]
 position = Vector2( 177.052, 434.231 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher14" parent="." instance=ExtResource( 4 )]
+[node name="Mosher14" parent="." instance=ExtResource( 5 )]
 position = Vector2( 46.5246, 449.739 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher9" parent="." instance=ExtResource( 4 )]
+[node name="Mosher9" parent="." instance=ExtResource( 5 )]
 position = Vector2( 846.492, 169.298 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher15" parent="." instance=ExtResource( 4 )]
+[node name="Mosher15" parent="." instance=ExtResource( 5 )]
 position = Vector2( 715.964, 184.807 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher10" parent="." instance=ExtResource( 4 )]
+[node name="Mosher10" parent="." instance=ExtResource( 5 )]
 position = Vector2( 846.492, 169.298 )
 mode = 2
 can_sleep = true
 
-[node name="Mosher16" parent="." instance=ExtResource( 4 )]
+[node name="Mosher16" parent="." instance=ExtResource( 5 )]
 position = Vector2( 715.964, 184.807 )
 mode = 2
 can_sleep = true
 
-[node name="Bouncer" parent="." instance=ExtResource( 5 )]
+[node name="Bouncer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 806.789, 400.394 )
 debug_text = false
 
