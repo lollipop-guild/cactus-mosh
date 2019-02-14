@@ -14,10 +14,13 @@ export var mosh_weight = 5
 export var not_mosh_penalty = 3
 var time_since_dance = -1
 onready var global = get_node('/root/global')
+var playback
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect('timeout', self, 'add_percent')
+	playback = $Player/AnimationTree.get("parameters/playback")
+	playback.start("Idle")
 
 func add_percent():
 	var mosh_weight = calculate_mosh_weight()
@@ -95,8 +98,10 @@ func _integrate_forces(state):
 		state.set_linear_velocity(lv)
 		
 	if dashing:
+		playback.travel("Dash")
 		dash_time += state.step
 		if dash_time > dash_length:
 			dash_time = 0
 			dashing = false
+			playback.travel("Idle")
 

@@ -1,13 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MoshEntity/Mosher/Mosher.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fruit/Apple.tscn" type="PackedScene" id=2]
 
-[node name="Mosher" instance=ExtResource( 1 )]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+
+[node name="Mosher" index="0" instance=ExtResource( 1 )]
 min_velocity = Vector2( 10, 10 )
 
 [node name="art" parent="." index="3" instance=ExtResource( 2 )]
+scale = Vector2( 0.4, 0.4 )
+
+[node name="RemoteCollision" type="RemoteTransform2D" parent="art/Body" index="7"]
+remote_path = NodePath("../../../CollisionPolygon2D")
+
+[node name="RemoteArea2D" type="RemoteTransform2D" parent="art/Body" index="8"]
+remote_path = NodePath("../../../Area2D")
+
+[node name="AnimationTree" parent="art" index="1"]
+parameters/playback = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="5"]
+position = Vector2( -0.188665, 11.054 )
+rotation = 0.0511898
+scale = Vector2( 0.8, 0.8 )
 polygon = PoolVector2Array( 1.2057, 33.6023, -9.54892, 36.4702, -24.2469, 30.376, -41.4543, 6.35729, -47.5486, -18.3783, -39.3034, -40.963, -24.9639, -51.7177, -4.53011, -48.1328, 7.65846, -48.1328, 20.9225, -49.5667, 39.9223, -42.397, 46.3751, -4.39732, 36.3374, 23.9232, 19.847, 34.6778 )
 
+[node name="Area2D" parent="." index="6"]
+position = Vector2( -0.188665, 6.054 )
+rotation = 0.0511898
+
+
+[editable path="art"]
