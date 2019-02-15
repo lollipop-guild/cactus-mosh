@@ -13,4 +13,5 @@ func _ready():
 func _process(delta):
 	#TODO: Find a more effective way to normalize audio
 #	$Light2D.energy = lerp($Light2D.energy, audio_server.get_bus_peak_volume_left_db(0, 0)+14, .05)
-	print($Light2D.energy)
+#	print($Light2D.energy)
+	pass

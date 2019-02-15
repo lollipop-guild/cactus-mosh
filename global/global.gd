@@ -6,6 +6,7 @@ extends Node2D
 
 var percent_complete = 0.0
 var level = 1
+var game_over = false
 
 # Called when the node enters the scene tree for the first time.
 
@@ -27,6 +28,8 @@ func goto_scene(path):
 
 	call_deferred("_deferred_goto_scene", path)
 
+func end_game():
+	game_over = true
 
 func _deferred_goto_scene(path):
     # Immediately free the current scene,

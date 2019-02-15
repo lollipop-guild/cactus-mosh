@@ -20,7 +20,7 @@ func _ready():
 func _handle_collision(body):
 	if body.is_in_group('players'):
 		get_node('/root/global').percent_complete = 0
-		get_node('/root/global').goto_scene("res://TitleScreen/MainMenu.tscn")
+		body.knockdown()
 	dash = Vector2(0, 0)
 	playback.travel("Walk")
 

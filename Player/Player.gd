@@ -18,6 +18,7 @@ var playback
 var facing_left = false
 var original_art_scale
 var anim = ""
+var knockdown = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,6 +51,10 @@ func trigger_particles():
 	for body in bodies:
 		if body.is_in_group('moshers'):
 			body.trigger_particle()
+			
+func knockdown():
+	knockdown = true
+	playback.start("Knockdown")
 
 func _integrate_forces(state):
 	var move_left = Input.is_action_pressed("walk_left")
@@ -131,9 +136,9 @@ func _integrate_forces(state):
 	if dashing:
 		new_anim = "Dash"
 	elif time_since_dance > 0:
-		new_anim = "Dance"
+		new_anim = "Mosh"
 	else:
-		if abs(lv.x) < 0.1:
+		if abs(lv.x) < 0.1 && abs(lv.y) < 0.1:
 			new_anim = "Idle"
 		else:
 			new_anim = "Walk"

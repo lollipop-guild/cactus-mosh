@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player_Animations.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player/Textures/Mouth-Laugh.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -17,8 +16,8 @@ radius = 182.807
 
 
 [node name="Player" type="RigidBody2D" groups=[
-"players",
 "moshers",
+"players",
 ]]
 collision_layer = 3
 collision_mask = 3
@@ -32,14 +31,12 @@ dash_length = 1
 mosh_weight = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.20771, -74.2883 )
-rotation = 0.0189638
+position = Vector2( 0.20771, -75.2382 )
 scale = Vector2( 0.45, 0.45 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0.20771, -74.2883 )
-rotation = 0.0189638
+position = Vector2( 0.20771, -75.2382 )
 scale = Vector2( 0.45, 0.45 )
 collision_layer = 4
 collision_mask = 4
@@ -52,49 +49,6 @@ autostart = true
 
 [node name="Art" parent="." instance=ExtResource( 2 )]
 scale = Vector2( 0.45, 0.45 )
-
-[node name="Body" parent="Art" index="0"]
-position = Vector2( 0.461578, -165.085 )
-rotation = 0.0189638
-
-[node name="LeftArmUpper" parent="Art/Body" index="0"]
-rotation = 0.574565
-
-[node name="LeftArmLower" parent="Art/Body/LeftArmUpper" index="0"]
-rotation = -0.710691
-
-[node name="LeftArmEnd" parent="Art/Body/LeftArmUpper/LeftArmLower" index="0"]
-rotation = -0.107604
-
-[node name="RightArmUpper" parent="Art/Body" index="1"]
-rotation = -0.566352
-
-[node name="RightArmLower" parent="Art/Body/RightArmUpper" index="0"]
-rotation = 0.680674
-
-[node name="RightArmEnd" parent="Art/Body/RightArmUpper/RightArmLower" index="0"]
-rotation = 0.0186633
-
-[node name="LeftLegUpper" parent="Art/Body" index="2"]
-rotation = -0.0164
-
-[node name="LeftLegLower" parent="Art/Body/LeftLegUpper" index="0"]
-rotation = 0.494487
-
-[node name="LeftLegEnd" parent="Art/Body/LeftLegUpper/LeftLegLower" index="0"]
-rotation = -0.102691
-
-[node name="RightLegUpper" parent="Art/Body" index="3"]
-rotation = -0.249672
-
-[node name="RightLegLower" parent="Art/Body/RightLegUpper" index="0"]
-rotation = 0.548144
-
-[node name="RightLegEnd" parent="Art/Body/RightLegUpper/RightLegLower" index="0"]
-rotation = -0.160291
-
-[node name="Mouth" parent="Art/Body" index="5"]
-texture = ExtResource( 3 )
 
 [node name="RemoteCollision" type="RemoteTransform2D" parent="Art/Body" index="7"]
 remote_path = NodePath("../../../CollisionShape2D")

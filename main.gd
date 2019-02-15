@@ -45,6 +45,9 @@ func _process(delta):
 		prev_dense.target.remove_highlight()
 		most_dense.target.highlight()
 		set_seek_target(most_dense)
+	
+	if global.game_over:
+		$CanvasLayer/GameOver.popup()
 
 func move_audio_to_closest_bouncer():
 	for bouncer in get_tree().get_nodes_in_group("bouncers"):
