@@ -60,15 +60,19 @@ animation = "Walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=14]
 
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=18]
 
@@ -2088,6 +2092,30 @@ tracks/28/keys = {
 "args": [  ],
 "method": "down"
 } ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Body/RightLegUpper/RightLegLower/RightLegEnd/Dust:emitting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Body/LeftLegUpper/LeftLegLower/LeftLegEnd/Dust:emitting")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=25]

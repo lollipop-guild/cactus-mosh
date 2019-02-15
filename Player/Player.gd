@@ -28,15 +28,16 @@ func _ready():
 	original_art_scale = $Art.scale
 	
 func add_percent():
-	var mosh_weight = calculate_mosh_weight()
-	if linear_velocity.length() < WALK_MAX_VELOCITY+20 and mosh_weight > 0:
-		global.percent_complete += mosh_weight
-		trigger_particles()
-		time_since_dance = 10
-	elif time_since_dance < 0 and global.percent_complete > 0:
-		global.percent_complete -= max(not_mosh_penalty, 0)
-	else:
-		time_since_dance -= 1
+	if not knockdown:
+		var mosh_weight = calculate_mosh_weight()
+		if linear_velocity.length() < WALK_MAX_VELOCITY+20 and mosh_weight > 0:
+			global.percent_complete += mosh_weight
+			trigger_particles()
+			time_since_dance = 10
+		elif time_since_dance < 0 and global.percent_complete > 0:
+			global.percent_complete -= max(not_mosh_penalty, 0)
+		else:
+			time_since_dance -= 1
 
 func calculate_mosh_weight():
 	var bodies = $Area2D.get_overlapping_bodies()
