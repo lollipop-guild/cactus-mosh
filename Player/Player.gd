@@ -68,54 +68,55 @@ func _integrate_forces(state):
 	var new_facing_left = facing_left
 	var new_anim
 	
-	## Movement left and right
-	if move_left and not move_right:
-		delta_velocity.x -= WALK_ACCEL * step
-		if lv.x > -WALK_MAX_VELOCITY:
-			lv.x -= WALK_ACCEL * step
-	elif move_right and not move_left:
-		delta_velocity.x += WALK_ACCEL * step
-		if lv.x < WALK_MAX_VELOCITY:
-			lv.x += WALK_ACCEL * step
-	else:
-		var xv = abs(lv.x)
-		xv -= WALK_DEACCEL * step
-		if xv < 0:
-			xv = 0
-		lv.x = sign(lv.x) * xv
-		
-	# Handle up an down
-	if move_up and not move_down:
-		delta_velocity.y -= WALK_ACCEL * step
-		if lv.y > -WALK_MAX_VELOCITY:
-			lv.y -= WALK_ACCEL * step
-	elif move_down and not move_up:
-		delta_velocity.y += WALK_ACCEL * step
-		if lv.y < WALK_MAX_VELOCITY:
-			lv.y += WALK_ACCEL * step
-	else:
-		var yv = abs(lv.y)
-		yv -= WALK_DEACCEL * step
-		if yv < 0:
-			yv = 0
-		lv.y = sign(lv.y) * yv
-
-	if dash and not dashing:
-		dash_time += step
-		lv *= dash_speed
-		dashing = true
-		if (delta_velocity.length() > 0):
-			state.set_linear_velocity(delta_velocity * dash_speed)
-	else:
-		if lv.length() > WALK_MAX_VELOCITY and not dashing:
-			lv = lv.normalized()*WALK_MAX_VELOCITY
-		state.set_linear_velocity(lv)
-		
-	if dashing:
-		dash_time += state.step
-		if dash_time > dash_length:
-			dash_time = 0
-			dashing = false
+	if not knockdown:
+		## Movement left and right
+		if move_left and not move_right:
+			delta_velocity.x -= WALK_ACCEL * step
+			if lv.x > -WALK_MAX_VELOCITY:
+				lv.x -= WALK_ACCEL * step
+		elif move_right and not move_left:
+			delta_velocity.x += WALK_ACCEL * step
+			if lv.x < WALK_MAX_VELOCITY:
+				lv.x += WALK_ACCEL * step
+		else:
+			var xv = abs(lv.x)
+			xv -= WALK_DEACCEL * step
+			if xv < 0:
+				xv = 0
+			lv.x = sign(lv.x) * xv
+			
+		# Handle up an down
+		if move_up and not move_down:
+			delta_velocity.y -= WALK_ACCEL * step
+			if lv.y > -WALK_MAX_VELOCITY:
+				lv.y -= WALK_ACCEL * step
+		elif move_down and not move_up:
+			delta_velocity.y += WALK_ACCEL * step
+			if lv.y < WALK_MAX_VELOCITY:
+				lv.y += WALK_ACCEL * step
+		else:
+			var yv = abs(lv.y)
+			yv -= WALK_DEACCEL * step
+			if yv < 0:
+				yv = 0
+			lv.y = sign(lv.y) * yv
+	
+		if dash and not dashing:
+			dash_time += step
+			lv *= dash_speed
+			dashing = true
+			if (delta_velocity.length() > 0):
+				state.set_linear_velocity(delta_velocity * dash_speed)
+		else:
+			if lv.length() > WALK_MAX_VELOCITY and not dashing:
+				lv = lv.normalized()*WALK_MAX_VELOCITY
+			state.set_linear_velocity(lv)
+			
+		if dashing:
+			dash_time += state.step
+			if dash_time > dash_length:
+				dash_time = 0
+				dashing = false
 
 	# Animations & Scaling
 	if lv.x < 0 and move_left:

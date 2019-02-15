@@ -47,7 +47,7 @@ func _process(delta):
 		set_seek_target(most_dense)
 	
 	if global.game_over:
-		$CanvasLayer/GameOver.popup()
+		$CanvasLayer/GameOverMenu.visible = true
 
 func move_audio_to_closest_bouncer():
 	for bouncer in get_tree().get_nodes_in_group("bouncers"):

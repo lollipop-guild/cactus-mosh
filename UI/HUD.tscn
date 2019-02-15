@@ -13,12 +13,14 @@ size = 22
 font_data = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
 script = ExtResource( 1 )
 
 [node name="ProgressBar" type="HBoxContainer" parent="."]
 pause_mode = 2
+editor/display_folded = true
 anchor_right = 1.0
-margin_bottom = 14.0
+margin_bottom = 27.0
 script = ExtResource( 2 )
 
 [node name="Bar" type="ProgressBar" parent="ProgressBar"]
@@ -36,7 +38,6 @@ Press 'enter' to restart"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ProgressBar"]
-editor/display_folded = true
 margin_left = 514.0
 margin_right = 1024.0
 margin_bottom = 27.0
@@ -50,31 +51,31 @@ custom_fonts/font = SubResource( 1 )
 text = "1"
 align = 2
 
-[node name="GameOver" type="Popup" parent="."]
-editor/display_folded = true
-margin_left = 340.0
-margin_top = 109.0
-margin_right = 380.0
-margin_bottom = 149.0
-
-[node name="GameOverImg" type="TextureRect" parent="GameOver"]
+[node name="GameOverMenu" type="Container" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="GameOverImg" type="TextureRect" parent="GameOverMenu"]
+margin_left = 340.0
+margin_top = 109.0
+margin_right = 673.0
+margin_bottom = 354.0
 texture = ExtResource( 4 )
 
-[node name="Restart" type="TextureButton" parent="GameOver"]
-margin_left = 60.0
-margin_top = 280.0
-margin_right = 283.0
-margin_bottom = 325.0
+[node name="Restart" type="TextureButton" parent="GameOverMenu"]
+margin_left = 400.0
+margin_top = 389.0
+margin_right = 623.0
+margin_bottom = 434.0
 texture_normal = ExtResource( 5 )
 
-[node name="Quit" type="TextureButton" parent="GameOver"]
-margin_left = 114.291
-margin_top = 348.784
-margin_right = 227.291
-margin_bottom = 401.784
+[node name="Quit" type="TextureButton" parent="GameOverMenu"]
+margin_left = 454.291
+margin_top = 457.784
+margin_right = 567.291
+margin_bottom = 510.784
 texture_normal = ExtResource( 6 )
 
-[connection signal="pressed" from="GameOver/Restart" to="." method="_on_Restart_pressed"]
-[connection signal="pressed" from="GameOver/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="GameOverMenu/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="GameOverMenu/Quit" to="." method="_on_Quit_pressed"]
