@@ -10,15 +10,19 @@ var most_dense
 var default_spawn = 35
 var spawn_time = default_spawn
 var bouncer = preload("res://MoshEntity/Bouncer/Bouncer.tscn")
+var size_of_map
+var closest_bouncer
+var player
 
 func _ready():
 	create_world_grid()
-	instance_bouncer()
+	closest_bouncer = instance_bouncer()
+	player = get_tree().get_nodes_in_group("players")[0]
 
 func create_world_grid():
-	var size = $Environment/Background.texture.get_size() * $YSort/Player/Camera2D.zoom
-	var num_col = size.x / area_size.x
-	var num_row = size.y / area_size.y
+	size_of_map = $Environment/Background.texture.get_size() * $YSort/Player/Camera2D.zoom
+	var num_col = size_of_map.x / area_size.x
+	var num_row = size_of_map.y / area_size.y
 
 	for col in num_col:
 		for row in num_row:
@@ -29,6 +33,7 @@ func create_world_grid():
 			$AreaContainer.add_child(instance)
 
 func _process(delta):
+	move_audio_to_closest_bouncer()
 	var prev_dense = most_dense
 	most_dense = find_most_dense()
 	spawn_time -= delta
@@ -41,6 +46,14 @@ func _process(delta):
 		most_dense.target.highlight()
 		set_seek_target(most_dense)
 
+func move_audio_to_closest_bouncer():
+	for bouncer in get_tree().get_nodes_in_group("bouncers"):
+		var closest_bouncer_to_player = player.global_position.distance_to(closest_bouncer.global_position)
+		var bouncer_to_player = player.global_position.distance_to(bouncer.global_position)
+		if closest_bouncer_to_player < bouncer_to_player:
+			closest_bouncer = bouncer
+	$AudioStreamPlayer2D.global_position = closest_bouncer.global_position
+
 func calc_new_spawn_time():
 	return default_spawn - (most_dense.weight * $"/root/global".level)
 
@@ -51,9 +64,22 @@ func instance_bouncer():
 	var rand_y = rand_range(-1, 1)
 	var rand_vect = Vector2(rand_x, rand_y)
 	rand_vect = (rand_vect.normalized()*800)+center
+	rand_vect = adjust_vector_in_bound(rand_vect)
 	var temp = bouncer.instance()
 	temp.position = rand_vect
 	add_child(temp)
+	return temp
+
+func adjust_vector_in_bound(rand_vect):
+	if rand_vect.x > size_of_map.x:
+		rand_vect.x -= 1600
+	if rand_vect.x < 0:
+		rand_vect.x += 1600
+	if rand_vect.y > size_of_map.y:
+		rand_vect.y -= 1600
+	if rand_vect.y < 0:
+		rand_vect.y += 1600
+	return rand_vect
 
 func find_most_dense():
 	var most_bodies = $AreaContainer.get_children()[0]

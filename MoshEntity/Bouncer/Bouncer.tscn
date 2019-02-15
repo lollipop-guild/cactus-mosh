@@ -8,7 +8,7 @@
 
 radius = 30.302
 
-[node name="Bouncer" index="0" groups=[
+[node name="Bouncer" groups=[
 "bouncers",
 ] instance=ExtResource( 1 )]
 collision_layer = 7
@@ -17,16 +17,14 @@ mass = 100.0
 contacts_reported = 4
 contact_monitor = true
 script = ExtResource( 2 )
-MAX_SPEED = 40.0
 flock_type = 1
 seek_flee_multiplier = 200.0
-DASH_SPEED = 8
-time_to_delete = 20
+DASH_SPEED = 400
 will_dash_distance = 500
 
 [node name="art" parent="." index="2" instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-position = Vector2( -2.64075, 44.0125 )
+position = Vector2( -0.64075, 45.0125 )
 shape = SubResource( 1 )
 

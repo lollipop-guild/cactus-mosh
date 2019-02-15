@@ -8,7 +8,7 @@ export var WALK_ACCEL = 400
 export var WALK_DEACCEL = 300
 var dashing = false
 export var dash_speed = 80
-var dash_time = 0
+var dash_time = 2
 export var dash_length = 5
 export var mosh_weight = 5
 export var not_mosh_penalty = 3
@@ -28,7 +28,7 @@ func _ready():
 	
 func add_percent():
 	var mosh_weight = calculate_mosh_weight()
-	if linear_velocity.length() < 40 and mosh_weight > 0:
+	if linear_velocity.length() < WALK_MAX_VELOCITY+20 and mosh_weight > 0:
 		global.percent_complete += mosh_weight
 		trigger_particles()
 		time_since_dance = 10
@@ -102,6 +102,8 @@ func _integrate_forces(state):
 		if (delta_velocity.length() > 0):
 			state.set_linear_velocity(delta_velocity * dash_speed)
 	else:
+		if lv.length() > WALK_MAX_VELOCITY and not dashing:
+			lv = lv.normalized()*WALK_MAX_VELOCITY
 		state.set_linear_velocity(lv)
 		
 	if dashing:

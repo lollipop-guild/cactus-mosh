@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Main/Textures/ClubAmbrosia.png" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://MoshEntity/FruitEntity/PearEntity.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Main/Table.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Level/AudioLight/AudioLight.tscn" type="PackedScene" id=15]
+[ext_resource path="res://cactus mosh.ogg" type="AudioStream" id=16]
+[ext_resource path="res://cactus mosh - bouncer.ogg" type="AudioStream" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -661,4 +664,23 @@ __meta__ = {
 
 [node name="Table" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 831.496, 551.956 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.564706, 0.564706, 0.564706, 1 )
+
+[node name="AudioLight" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1570, 250 )
+
+[node name="AudioLight2" parent="." instance=ExtResource( 15 )]
+modulate = Color( 0.368627, 0.0392157, 0.0392157, 1 )
+position = Vector2( 2810, 250 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
+max_distance = 1000.0
 

@@ -9,8 +9,6 @@ export var DASH_SPEED = 10
 var player_pos = Vector2(0, 0)
 var players
 var playback
-export var time_to_delete = 4
-var kill_timer = time_to_delete
 export var will_dash_distance = 600
 
 func _ready():
@@ -29,7 +27,7 @@ func _handle_collision(body):
 func _integrate_forces(state):
 	._integrate_forces(state)
 	if dash.length() > 0:
-		state.set_linear_velocity(linear_velocity + dash)
+		state.set_linear_velocity(dash)
 
 func _draw():
 	._draw()
@@ -42,12 +40,6 @@ func _process(delta):
 	for player in players:
 		# Delete if too far away
 		var to_player = player.global_position.distance_to(self.global_position)
-		if to_player > 800:
-			kill_timer -= delta
-			if kill_timer <= 0:
-				self.queue_free()
-		else:
-			kill_timer = time_to_delete
 
 		# Dash if close
 		if to_player < will_dash_distance:
@@ -70,6 +62,3 @@ func check_if_facing_player(body):
 	if BP.dot(self.heading) > 0:
 		return true
 	return false
-
-#func _process(delta):
-#	get_tree().get_nodes_in_group('mosher')
