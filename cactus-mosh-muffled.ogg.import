@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cactus-mosh-muffled.ogg-51baa6fe95d6b645d85e14ba7cf32b1f.oggstr"
+
+[deps]
+
+source_file="res://cactus-mosh-muffled.ogg"
+dest_files=[ "res://.import/cactus-mosh-muffled.ogg-51baa6fe95d6b645d85e14ba7cf32b1f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
