@@ -1,13 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Main/Textures/ClubAmbrosia.png" type="Texture" id=2]
-[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=3]
-[ext_resource path="res://MoshEntity/Bouncer/Bouncer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://MoshEntity/FruitEntity/AppleEntity.tscn" type="PackedScene" id=5]
-[ext_resource path="res://MoshEntity/FruitEntity/OrangeEntity.tscn" type="PackedScene" id=6]
-[ext_resource path="res://MoshEntity/FruitEntity/PearEntity.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Main/Textures/Door-Interior.png" type="Texture" id=3]
+[ext_resource path="res://Main/Textures/MovePoster.png" type="Texture" id=4]
+[ext_resource path="res://Main/Textures/DashPoster.png" type="Texture" id=5]
+[ext_resource path="res://Main/Textures/FruitPoster.png" type="Texture" id=6]
+[ext_resource path="res://Main/Textures/BouncerPoster.png" type="Texture" id=7]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://MoshEntity/Bouncer/Bouncer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://MoshEntity/FruitEntity/AppleEntity.tscn" type="PackedScene" id=10]
+[ext_resource path="res://MoshEntity/FruitEntity/OrangeEntity.tscn" type="PackedScene" id=11]
+[ext_resource path="res://MoshEntity/FruitEntity/PearEntity.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -23,35 +28,39 @@ anchor_bottom = 1.0
 [node name="ColorRect" type="ColorRect" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.641418
 margin_right = 1018.0
-margin_bottom = 600.0
+margin_bottom = 599.359
 color = Color( 0.32549, 0.32549, 0.32549, 1 )
 
 [node name="Environment" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 2090, 1320 )
 
 [node name="Background" type="Sprite" parent="Environment"]
+editor/display_folded = true
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Stage" type="StaticBody2D" parent="Environment/Background"]
+editor/display_folded = true
+visible = false
 position = Vector2( 510, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Background/Stage"]
+visible = false
 polygon = PoolVector2Array( -1267.34, -903.05, -1118.35, -787.169, -671.382, -714.329, -125.084, -714.329, 258.979, -777.236, 411.28, -903.05, 1586.65, -896.428, 1591.5, -1332.57, -2609.97, -1308.28, -2608.25, -903.05 )
 
 [node name="LeftWall" type="StaticBody2D" parent="Environment/Background"]
+editor/display_folded = true
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/Background/LeftWall"]
 polygon = PoolVector2Array( -2108.94, -947.175, -2057.07, -950.633, -2057.07, -743.147, -2022.49, -732.773, -2011.28, -706.379, -1984.3, -681.2, -1977.54, -632.488, -1974.08, -117.232, -2005.2, -68.8185, -2025.95, -30.7793, -2060.53, -27.3213, -2063.44, 38.1924, -2025.95, 45.2988, -2013.08, 72.3635, -1989.7, 83.1545, -1973.51, 115.527, -1977.54, 681.589, -2005.2, 709.254, -2029.41, 754.209, -2060.53, 761.125, -2060.53, 761.125, -2056.24, 879.882, -2025.95, 889.075, -2005.2, 916.74, -1974.08, 944.404, -1978.91, 1311.52, -2098.57, 1304.05 )
 
 [node name="RightWall" type="StaticBody2D" parent="Environment/Background"]
+visible = false
 position = Vector2( 2, 0 )
 scale = Vector2( -1, 1 )
 
@@ -59,584 +68,587 @@ scale = Vector2( -1, 1 )
 polygon = PoolVector2Array( -2108.94, -947.175, -2057.07, -950.633, -2057.07, -743.147, -2022.49, -732.773, -2011.28, -706.379, -1984.3, -681.2, -1977.54, -632.488, -1974.08, -117.232, -2005.2, -68.8185, -2025.95, -30.7793, -2060.53, -27.3213, -2063.44, 38.1924, -2025.95, 45.2988, -2013.08, 72.3635, -1989.7, 83.1545, -1973.51, 115.527, -1977.54, 681.589, -2005.2, 709.254, -2029.41, 754.209, -2060.53, 761.125, -2060.53, 761.125, -2056.24, 879.882, -2025.95, 889.075, -2005.2, 916.74, -1974.08, 944.404, -1978.91, 1311.52, -2098.57, 1304.05 )
 
 [node name="LowerWall" type="StaticBody2D" parent="Environment/Background"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Background/LowerWall"]
 position = Vector2( -0.126709, 1278.88 )
 shape = SubResource( 1 )
 
+[node name="Door-Interior" type="Sprite" parent="Environment"]
+position = Vector2( -1778.32, -930.892 )
+texture = ExtResource( 3 )
+
+[node name="MovePoster" type="Sprite" parent="Environment"]
+position = Vector2( -1577.35, -949.562 )
+texture = ExtResource( 4 )
+
+[node name="DashPoster" type="Sprite" parent="Environment"]
+position = Vector2( -1381.96, -947.972 )
+texture = ExtResource( 5 )
+
+[node name="FruitPoster" type="Sprite" parent="Environment"]
+position = Vector2( -1172.75, -949.166 )
+texture = ExtResource( 6 )
+
+[node name="BouncerPoster" type="Sprite" parent="Environment"]
+position = Vector2( -981.443, -950.142 )
+texture = ExtResource( 7 )
+
 [node name="AreaContainer" type="Node2D" parent="."]
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
+[node name="CanvasLayer" parent="." instance=ExtResource( 8 )]
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Bouncer" parent="YSort" instance=ExtResource( 4 )]
+[node name="Bouncer" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 3248.57, 2269.16 )
 MAX_SPEED = 200.0
 min_velocity = Vector2( 10, 10 )
 DASH_SPEED = 20
 
-[node name="Bouncer2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 784.588, 650.329 )
-MAX_SPEED = 200.0
-min_velocity = Vector2( 10, 10 )
-DASH_SPEED = 20
-
-[node name="Bouncer3" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 1331.21, 2193.47 )
-MAX_SPEED = 200.0
-min_velocity = Vector2( 10, 10 )
-DASH_SPEED = 20
-
-[node name="Bouncer4" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 3122.43, 667.148 )
-MAX_SPEED = 200.0
-min_velocity = Vector2( 10, 10 )
-DASH_SPEED = 20
-
-[node name="AppleEntity" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2935.6, 2057.85 )
 
-[node name="AppleEntity11" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity11" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2925.27, 1319.64 )
 
-[node name="AppleEntity17" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity17" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1464.33, 1412.56 )
 
-[node name="AppleEntity23" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity23" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2470.99, 916.98 )
 
-[node name="AppleEntity29" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity29" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2264.49, 1691.33 )
 
-[node name="AppleEntity35" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity35" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1670.83, 720.812 )
 
-[node name="AppleEntity41" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity41" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3467.32, 942.792 )
 
-[node name="AppleEntity47" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity47" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3312.45, 1505.49 )
 
-[node name="AppleEntity54" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity54" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 705.471, 1391.91 )
 
-[node name="AppleEntity60" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity60" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2651.67, 1366.1 )
 
-[node name="AppleEntity2" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity2" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3070.27, 2174.85 )
 
-[node name="AppleEntity10" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity10" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1103.43, 1054.62 )
 
-[node name="AppleEntity16" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity16" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1599.01, 1529.56 )
 
-[node name="AppleEntity22" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity22" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2605.66, 1033.97 )
 
-[node name="AppleEntity28" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity28" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2399.17, 1808.32 )
 
-[node name="AppleEntity34" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity34" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1805.5, 837.804 )
 
-[node name="AppleEntity40" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity40" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3601.99, 1059.78 )
 
-[node name="AppleEntity46" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity46" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3447.12, 1622.48 )
 
-[node name="AppleEntity50" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity50" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 840.148, 1508.91 )
 
-[node name="AppleEntity56" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity56" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2786.34, 1483.09 )
 
-[node name="AppleEntity3" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity3" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3283.85, 2038.81 )
 
-[node name="AppleEntity9" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity9" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1317.01, 918.584 )
 
-[node name="AppleEntity15" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity15" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1812.59, 1393.52 )
 
-[node name="AppleEntity20" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity20" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2819.24, 897.935 )
 
-[node name="AppleEntity25" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity25" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2612.75, 1672.28 )
 
-[node name="AppleEntity31" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity31" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2019.08, 701.767 )
 
-[node name="AppleEntity37" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity37" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3815.57, 923.747 )
 
-[node name="AppleEntity43" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity43" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3660.7, 1486.44 )
 
-[node name="AppleEntity49" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity49" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1053.73, 1372.87 )
 
-[node name="AppleEntity55" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity55" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2999.92, 1347.06 )
 
-[node name="AppleEntity4" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity4" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3283.85, 2038.81 )
 
-[node name="AppleEntity8" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity8" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1317.01, 918.584 )
 
-[node name="AppleEntity13" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity13" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1812.59, 1393.52 )
 
-[node name="AppleEntity19" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity19" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2819.24, 897.935 )
 
-[node name="AppleEntity26" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity26" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2612.75, 1672.28 )
 
-[node name="AppleEntity32" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity32" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2019.08, 701.767 )
 
-[node name="AppleEntity38" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity38" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3815.57, 923.747 )
 
-[node name="AppleEntity44" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity44" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3660.7, 1486.44 )
 
-[node name="AppleEntity52" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity52" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1053.73, 1372.87 )
 
-[node name="AppleEntity58" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity58" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2999.92, 1347.06 )
 
-[node name="AppleEntity5" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity5" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2788.68, 2006.16 )
 
-[node name="AppleEntity7" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity7" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2778.35, 1267.95 )
 
-[node name="AppleEntity14" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity14" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1317.41, 1360.87 )
 
-[node name="AppleEntity21" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity21" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2324.07, 865.286 )
 
-[node name="AppleEntity27" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity27" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2117.57, 1639.64 )
 
-[node name="AppleEntity33" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity33" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1523.91, 669.118 )
 
-[node name="AppleEntity39" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity39" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3320.4, 891.098 )
 
-[node name="AppleEntity45" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity45" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3165.53, 1453.79 )
 
-[node name="AppleEntity53" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity53" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 558.551, 1340.22 )
 
-[node name="AppleEntity59" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity59" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2504.75, 1314.41 )
 
-[node name="AppleEntity6" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity6" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 525.277, 776.861 )
 
-[node name="AppleEntity12" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity12" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2884.46, 1179.52 )
 
-[node name="AppleEntity18" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity18" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1423.52, 1272.44 )
 
-[node name="AppleEntity24" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity24" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2430.18, 776.862 )
 
-[node name="AppleEntity30" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity30" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2223.68, 1551.21 )
 
-[node name="AppleEntity36" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity36" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1630.02, 580.694 )
 
-[node name="AppleEntity42" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity42" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3426.5, 802.674 )
 
-[node name="AppleEntity48" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity48" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3271.63, 1365.37 )
 
-[node name="AppleEntity51" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity51" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 664.66, 1251.8 )
 
-[node name="AppleEntity57" parent="YSort" instance=ExtResource( 5 )]
+[node name="AppleEntity57" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2610.86, 1225.98 )
 
-[node name="OrangeEntity" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2622.71, 2260.55 )
 
-[node name="OrangeEntity8" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity8" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 655.864, 1140.33 )
 
-[node name="OrangeEntity13" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity13" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1151.45, 1615.26 )
 
-[node name="OrangeEntity19" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity19" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2158.1, 1119.68 )
 
-[node name="OrangeEntity25" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity25" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1951.61, 1894.03 )
 
-[node name="OrangeEntity31" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity31" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1357.94, 923.508 )
 
-[node name="OrangeEntity37" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity37" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3154.43, 1145.49 )
 
-[node name="OrangeEntity43" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity43" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2999.56, 1708.18 )
 
-[node name="OrangeEntity49" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity49" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 392.585, 1594.61 )
 
-[node name="OrangeEntity55" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity55" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2338.78, 1568.8 )
 
-[node name="OrangeEntity2" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity2" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2757.39, 2377.54 )
 
-[node name="OrangeEntity7" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity7" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 790.541, 1257.32 )
 
-[node name="OrangeEntity14" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity14" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1286.12, 1732.25 )
 
-[node name="OrangeEntity20" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity20" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2292.78, 1236.67 )
 
-[node name="OrangeEntity26" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity26" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2086.28, 2011.02 )
 
-[node name="OrangeEntity32" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity32" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1492.62, 1040.5 )
 
-[node name="OrangeEntity38" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity38" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3289.11, 1262.48 )
 
-[node name="OrangeEntity44" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity44" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3134.24, 1825.17 )
 
-[node name="OrangeEntity50" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity50" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 527.262, 1711.6 )
 
-[node name="OrangeEntity56" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity56" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2473.46, 1685.79 )
 
-[node name="OrangeEntity3" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity3" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2970.97, 2241.5 )
 
-[node name="OrangeEntity11" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity11" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1004.12, 1121.28 )
 
-[node name="OrangeEntity17" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity17" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1499.7, 1596.21 )
 
-[node name="OrangeEntity23" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity23" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2506.36, 1100.63 )
 
-[node name="OrangeEntity29" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity29" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2299.86, 1874.98 )
 
-[node name="OrangeEntity35" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity35" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1706.2, 904.463 )
 
-[node name="OrangeEntity41" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity41" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3502.69, 1126.44 )
 
-[node name="OrangeEntity47" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity47" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3347.82, 1689.14 )
 
-[node name="OrangeEntity53" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity53" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 740.841, 1575.57 )
 
-[node name="OrangeEntity59" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity59" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2687.04, 1549.75 )
 
-[node name="OrangeEntity4" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity4" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2970.97, 2241.5 )
 
-[node name="OrangeEntity10" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity10" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1004.12, 1121.28 )
 
-[node name="OrangeEntity16" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity16" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1499.7, 1596.21 )
 
-[node name="OrangeEntity22" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity22" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2506.36, 1100.63 )
 
-[node name="OrangeEntity28" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity28" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2299.86, 1874.98 )
 
-[node name="OrangeEntity34" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity34" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1706.2, 904.463 )
 
-[node name="OrangeEntity40" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity40" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3502.69, 1126.44 )
 
-[node name="OrangeEntity46" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity46" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3347.82, 1689.14 )
 
-[node name="OrangeEntity52" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity52" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 740.841, 1575.57 )
 
-[node name="OrangeEntity58" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity58" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2687.04, 1549.75 )
 
-[node name="OrangeEntity5" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity5" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2475.79, 2208.86 )
 
-[node name="OrangeEntity9" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity9" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 508.943, 1088.63 )
 
-[node name="OrangeEntity15" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity15" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1004.53, 1563.57 )
 
-[node name="OrangeEntity21" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity21" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2011.18, 1067.98 )
 
-[node name="OrangeEntity27" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity27" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1804.69, 1842.33 )
 
-[node name="OrangeEntity33" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity33" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1211.02, 871.814 )
 
-[node name="OrangeEntity39" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity39" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3007.51, 1093.79 )
 
-[node name="OrangeEntity45" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity45" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2852.64, 1656.49 )
 
-[node name="OrangeEntity51" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity51" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 245.665, 1542.92 )
 
-[node name="OrangeEntity57" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity57" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2191.86, 1517.1 )
 
-[node name="OrangeEntity6" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity6" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2581.9, 2120.43 )
 
-[node name="OrangeEntity12" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity12" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 615.053, 1000.21 )
 
-[node name="OrangeEntity18" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity18" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1110.64, 1475.14 )
 
-[node name="OrangeEntity24" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity24" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2117.29, 979.557 )
 
-[node name="OrangeEntity30" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity30" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1910.8, 1753.91 )
 
-[node name="OrangeEntity36" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity36" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1317.13, 783.389 )
 
-[node name="OrangeEntity42" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity42" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3113.62, 1005.37 )
 
-[node name="OrangeEntity48" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity48" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2958.75, 1568.06 )
 
-[node name="OrangeEntity54" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity54" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 351.774, 1454.49 )
 
-[node name="OrangeEntity60" parent="YSort" instance=ExtResource( 6 )]
+[node name="OrangeEntity60" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2297.97, 1428.68 )
 
-[node name="PearEntity" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2858.06, 2244.22 )
 
-[node name="PearEntity9" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity9" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 891.209, 1124 )
 
-[node name="PearEntity15" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity15" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1386.79, 1598.93 )
 
-[node name="PearEntity21" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity21" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2393.45, 1103.35 )
 
-[node name="PearEntity27" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity27" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2186.95, 1877.7 )
 
-[node name="PearEntity33" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity33" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1593.29, 907.183 )
 
-[node name="PearEntity39" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity39" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3389.77, 1129.16 )
 
-[node name="PearEntity45" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity45" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3234.9, 1691.86 )
 
-[node name="PearEntity51" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity51" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 627.93, 1578.29 )
 
-[node name="PearEntity57" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity57" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2574.13, 1552.47 )
 
-[node name="PearEntity2" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2992.73, 2361.22 )
 
-[node name="PearEntity8" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity8" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1025.89, 1240.99 )
 
-[node name="PearEntity13" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity13" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1521.47, 1715.93 )
 
-[node name="PearEntity20" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity20" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2528.12, 1220.34 )
 
-[node name="PearEntity26" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity26" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2321.63, 1994.69 )
 
-[node name="PearEntity32" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity32" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1727.96, 1024.18 )
 
-[node name="PearEntity38" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity38" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3524.45, 1246.16 )
 
-[node name="PearEntity44" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity44" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3369.58, 1808.85 )
 
-[node name="PearEntity50" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity50" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 762.607, 1695.28 )
 
-[node name="PearEntity56" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity56" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2708.8, 1669.47 )
 
-[node name="PearEntity3" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity3" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3206.31, 2225.18 )
 
-[node name="PearEntity7" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity7" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1239.47, 1104.96 )
 
-[node name="PearEntity14" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity14" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1735.05, 1579.89 )
 
-[node name="PearEntity19" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity19" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2741.7, 1084.31 )
 
-[node name="PearEntity25" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity25" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2535.21, 1858.66 )
 
-[node name="PearEntity31" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity31" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1941.54, 888.138 )
 
-[node name="PearEntity37" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity37" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3738.03, 1110.12 )
 
-[node name="PearEntity43" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity43" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3583.16, 1672.81 )
 
-[node name="PearEntity49" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity49" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 976.186, 1559.24 )
 
-[node name="PearEntity55" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity55" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2922.38, 1533.43 )
 
-[node name="PearEntity4" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity4" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 914.725, 1964.49 )
 
-[node name="PearEntity12" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity12" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1239.47, 1104.96 )
 
-[node name="PearEntity18" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity18" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1735.05, 1579.89 )
 
-[node name="PearEntity24" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity24" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2741.7, 1084.31 )
 
-[node name="PearEntity30" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity30" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2535.21, 1858.66 )
 
-[node name="PearEntity36" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity36" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1941.54, 888.138 )
 
-[node name="PearEntity42" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity42" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3738.03, 1110.12 )
 
-[node name="PearEntity48" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity48" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3583.16, 1672.81 )
 
-[node name="PearEntity54" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity54" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 976.186, 1559.24 )
 
-[node name="PearEntity60" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity60" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2922.38, 1533.43 )
 
-[node name="PearEntity5" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity5" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2711.13, 2192.53 )
 
-[node name="PearEntity11" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity11" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 744.288, 1072.31 )
 
-[node name="PearEntity17" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity17" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1239.87, 1547.24 )
 
-[node name="PearEntity23" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity23" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2246.52, 1051.66 )
 
-[node name="PearEntity29" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity29" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2040.03, 1826.01 )
 
-[node name="PearEntity35" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity35" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1446.36, 855.489 )
 
-[node name="PearEntity41" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity41" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3242.85, 1077.47 )
 
-[node name="PearEntity47" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity47" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3087.98, 1640.16 )
 
-[node name="PearEntity53" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity53" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 481.009, 1526.59 )
 
-[node name="PearEntity59" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity59" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2427.21, 1500.78 )
 
-[node name="PearEntity6" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity6" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2817.24, 2104.11 )
 
-[node name="PearEntity10" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity10" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2806.92, 1365.89 )
 
-[node name="PearEntity16" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity16" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1345.98, 1458.82 )
 
-[node name="PearEntity22" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity22" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2352.63, 963.233 )
 
-[node name="PearEntity28" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity28" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2146.14, 1737.58 )
 
-[node name="PearEntity34" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity34" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1552.47, 767.065 )
 
-[node name="PearEntity40" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity40" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3348.96, 989.045 )
 
-[node name="PearEntity46" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity46" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3194.09, 1551.74 )
 
-[node name="PearEntity52" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity52" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 587.119, 1438.17 )
 
-[node name="PearEntity58" parent="YSort" instance=ExtResource( 7 )]
+[node name="PearEntity58" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2533.32, 1412.36 )
 
-[node name="Player" parent="YSort" instance=ExtResource( 8 )]
+[node name="Player" parent="YSort" instance=ExtResource( 13 )]
 editor/display_folded = true
-position = Vector2( 1948.32, 1271.7 )
+position = Vector2( 624.868, 543.606 )
 WALK_MAX_VELOCITY = 100
 dash_speed = 40
 
