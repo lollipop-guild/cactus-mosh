@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Main/Textures/ClubAmbrosia.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://MoshEntity/FruitEntity/OrangeEntity.tscn" type="PackedScene" id=11]
 [ext_resource path="res://MoshEntity/FruitEntity/PearEntity.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Main/Table.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -257,7 +258,7 @@ position = Vector2( 558.551, 1340.22 )
 position = Vector2( 2504.75, 1314.41 )
 
 [node name="AppleEntity6" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 525.277, 776.861 )
+position = Vector2( 1034.5, 557.859 )
 
 [node name="AppleEntity12" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2884.46, 1179.52 )
@@ -422,7 +423,7 @@ position = Vector2( 2011.18, 1067.98 )
 position = Vector2( 1804.69, 1842.33 )
 
 [node name="OrangeEntity33" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1211.02, 871.814 )
+position = Vector2( 870.943, 725.812 )
 
 [node name="OrangeEntity39" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 3007.51, 1093.79 )
@@ -602,7 +603,7 @@ position = Vector2( 2246.52, 1051.66 )
 position = Vector2( 2040.03, 1826.01 )
 
 [node name="PearEntity35" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 1446.36, 855.489 )
+position = Vector2( 1051.09, 720.171 )
 
 [node name="PearEntity41" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 3242.85, 1077.47 )
@@ -657,4 +658,7 @@ current = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Table" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 831.496, 551.956 )
 
