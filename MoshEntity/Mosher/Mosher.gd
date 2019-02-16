@@ -11,7 +11,7 @@ func _ready():
 	$Timer.connect('timeout', self, 'set_default_flock')
 	default_flock = flock_type
 	playback = $art/AnimationTree.get("parameters/playback")
-	playback.start("Idle")
+	playback.start("Dance")
 
 func set_default_flock():
 	flock_type = default_flock
