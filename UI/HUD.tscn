@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/HUD.gd" type="Script" id=1]
 [ext_resource path="res://UI/ProgressBar/ProgressBar.gd" type="Script" id=2]
-[ext_resource path="res://assets/FiraCode-Bold.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Main/Textures/GameOver.png" type="Texture" id=4]
-[ext_resource path="res://Main/Textures/Restart.png" type="Texture" id=5]
-[ext_resource path="res://Main/Textures/Quit.png" type="Texture" id=6]
+[ext_resource path="res://Main/Textures/EmptyMeter.png" type="Texture" id=3]
+[ext_resource path="res://Main/Textures/FullMeter.png" type="Texture" id=4]
+[ext_resource path="res://assets/FiraCode-Bold.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://Main/Textures/GameOver.png" type="Texture" id=6]
+[ext_resource path="res://Main/Textures/Restart.png" type="Texture" id=7]
+[ext_resource path="res://Main/Textures/Quit.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 22
-font_data = ExtResource( 3 )
+font_data = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 2
@@ -18,15 +20,15 @@ script = ExtResource( 1 )
 
 [node name="ProgressBar" type="HBoxContainer" parent="."]
 pause_mode = 2
-editor/display_folded = true
 anchor_right = 1.0
 margin_bottom = 27.0
 script = ExtResource( 2 )
 
-[node name="Bar" type="ProgressBar" parent="ProgressBar"]
-margin_right = 510.0
-margin_bottom = 14.0
-size_flags_horizontal = 3
+[node name="Bar" type="TextureProgress" parent="ProgressBar"]
+margin_right = 436.0
+margin_bottom = 59.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="ProgressBar"]
 visible = false
@@ -38,14 +40,15 @@ Press 'enter' to restart"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ProgressBar"]
-margin_left = 514.0
+margin_left = 440.0
 margin_right = 1024.0
-margin_bottom = 27.0
+margin_bottom = 59.0
 size_flags_horizontal = 3
 
 [node name="Level" type="Label" parent="ProgressBar/MarginContainer"]
-margin_right = 510.0
-margin_bottom = 27.0
+margin_top = 16.0
+margin_right = 584.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 text = "1"
@@ -61,21 +64,21 @@ margin_left = 340.0
 margin_top = 109.0
 margin_right = 673.0
 margin_bottom = 354.0
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="Restart" type="TextureButton" parent="GameOverMenu"]
 margin_left = 400.0
 margin_top = 389.0
 margin_right = 623.0
 margin_bottom = 434.0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 
 [node name="Quit" type="TextureButton" parent="GameOverMenu"]
 margin_left = 454.291
 margin_top = 457.784
 margin_right = 567.291
 margin_bottom = 510.784
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 8 )
 
 [connection signal="pressed" from="GameOverMenu/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="GameOverMenu/Quit" to="." method="_on_Quit_pressed"]
