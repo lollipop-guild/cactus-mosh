@@ -5,7 +5,7 @@ var velocity = Vector2(0, 0)
 var side
 export var min_velocity = Vector2(10, 10)
 export var seek_flee_multiplier = 2.0
-export var mosh_weight = 15
+export var mosh_weight = 1
 export var debug_text = false
 
 enum STATE {

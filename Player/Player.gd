@@ -46,7 +46,7 @@ func calculate_mosh_weight():
 		if body.is_in_group('moshers'):
 			weight += body.mosh_weight
 			weight = round(weight / global.level)
-	return weight
+	return weight*3
 
 func trigger_particles():
 	var bodies = $Area2D.get_overlapping_bodies()

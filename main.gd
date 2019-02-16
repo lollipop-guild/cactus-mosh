@@ -58,6 +58,7 @@ func move_audio_to_closest_bouncer():
 	$AudioStreamPlayer2D.global_position = closest_bouncer.global_position
 
 func calc_new_spawn_time():
+	print(most_dense.weight)
 	return default_spawn - (most_dense.weight * $"/root/global".level)
 
 func instance_bouncer():
