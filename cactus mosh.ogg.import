@@ -12,4 +12,4 @@ dest_files=[ "res://.import/cactus mosh.ogg-2d0408009375ed9b8b98fd4d43581640.ogg
 [params]
 
 loop=true
-loop_offset=0
+loop_offset=4.571

@@ -12,4 +12,4 @@ dest_files=[ "res://.import/cactus mosh - bouncer.ogg-868705097f619ffc604e893bb4
 [params]
 
 loop=true
-loop_offset=0
+loop_offset=4.571
