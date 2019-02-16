@@ -45,6 +45,7 @@ func calculate_mosh_weight():
 	for body in bodies:
 		if body.is_in_group('moshers'):
 			weight += body.mosh_weight
+			weight = round(weight / global.level)
 	return weight
 
 func trigger_particles():
