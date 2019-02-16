@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FullMeter.png-251c32a311a23f95cfe111c3ffc87aaa.stex"
+path="res://.import/MaximumMoshage.png-be8674099312642b8de8088fe70b9610.stex"
 
 [deps]
 
-source_file="res://Main/Textures/FullMeter.png"
-dest_files=[ "res://.import/FullMeter.png-251c32a311a23f95cfe111c3ffc87aaa.stex" ]
+source_file="res://Main/Textures/MaximumMoshage.png"
+dest_files=[ "res://.import/MaximumMoshage.png-be8674099312642b8de8088fe70b9610.stex" ]
 
 [params]
 

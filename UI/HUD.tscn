@@ -1,17 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/HUD.gd" type="Script" id=1]
 [ext_resource path="res://UI/ProgressBar/ProgressBar.gd" type="Script" id=2]
-[ext_resource path="res://Main/Textures/EmptyMeter.png" type="Texture" id=3]
-[ext_resource path="res://Main/Textures/FullMeter.png" type="Texture" id=4]
+[ext_resource path="res://UI/Textures/EmptyMeter.png" type="Texture" id=3]
+[ext_resource path="res://UI/Textures/FullMeter.png" type="Texture" id=4]
 [ext_resource path="res://assets/FiraCode-Bold.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://Main/Textures/GameOver.png" type="Texture" id=6]
 [ext_resource path="res://Main/Textures/Restart.png" type="Texture" id=7]
 [ext_resource path="res://Main/Textures/Quit.png" type="Texture" id=8]
+[ext_resource path="res://UI/Textures/LevelLabel.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 22
+size = 26
 font_data = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -46,11 +47,12 @@ margin_bottom = 59.0
 size_flags_horizontal = 3
 
 [node name="Level" type="Label" parent="ProgressBar/MarginContainer"]
-margin_top = 16.0
+margin_top = 13.0
 margin_right = 584.0
-margin_bottom = 43.0
+margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.52549, 0.52549, 0.52549, 1 )
 text = "1"
 align = 2
 
@@ -79,6 +81,13 @@ margin_top = 457.784
 margin_right = 567.291
 margin_bottom = 510.784
 texture_normal = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 852.72
+margin_top = 8.32234
+margin_right = 962.72
+margin_bottom = 56.3223
+texture = ExtResource( 9 )
 
 [connection signal="pressed" from="GameOverMenu/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="GameOverMenu/Quit" to="." method="_on_Quit_pressed"]

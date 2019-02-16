@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EmptyMeter.png-b08226fc1af54f1ebd057f5f1b28a2ec.stex"
+path="res://.import/FullMeter.png-3c451372affa1fa2600656c76d555523.stex"
 
 [deps]
 
-source_file="res://Main/Textures/EmptyMeter.png"
-dest_files=[ "res://.import/EmptyMeter.png-b08226fc1af54f1ebd057f5f1b28a2ec.stex" ]
+source_file="res://UI/Textures/FullMeter.png"
+dest_files=[ "res://.import/FullMeter.png-3c451372affa1fa2600656c76d555523.stex" ]
 
 [params]
 
