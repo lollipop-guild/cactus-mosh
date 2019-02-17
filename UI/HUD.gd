@@ -10,3 +10,8 @@ func _on_Restart_pressed():
 func _on_Quit_pressed():
 	global.game_over = false
 	get_node('/root/global').goto_scene("res://TitleScreen/MainMenu.tscn")
+
+func _on_Button_button_down():
+	get_node('/root/global').save_game($HighScoreMenuWoo/VBox/LineEdit.text)
+	$HighScoreMenuWoo.hide()
+	$GameOverMenu.show()

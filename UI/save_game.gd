@@ -4,7 +4,7 @@ extends Node
 # var a = 2
 # var b = "textvar"
 
-var initial_state = {}
+var score = {}
 
 func initialize_store(name):
 	if OS.has_feature('JavaScript'):
@@ -18,7 +18,7 @@ func load_from_local_storage():
 		var game_state = parse_json(init_json)
 		return game_state[name.to_lower()]
 	else:
-		return initial_state
+		return score
 		
 func load_from_disk():
 	var f = File.new()
@@ -29,10 +29,10 @@ func load_from_disk():
 		if saved_state and saved_state.has(name.to_lower()):
 			return saved_state[name.to_lower()]
 		else:
-			return initial_state
+			return score
 	else:
 		f.open("user://save.json", File.WRITE)
 		f.store_string("{}")
 		f.close()
-		return initial_state
+		return score
 		

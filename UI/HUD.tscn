@@ -19,6 +19,39 @@ font_data = ExtResource( 5 )
 layer = 2
 script = ExtResource( 1 )
 
+[node name="HighScoreMenuWoo" type="CenterContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -33.0
+margin_right = 296.0
+margin_bottom = 33.0
+
+[node name="VBox" type="VBoxContainer" parent="HighScoreMenuWoo"]
+margin_left = 241.0
+margin_right = 350.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="HighScoreMenuWoo/VBox"]
+margin_right = 109.0
+margin_bottom = 14.0
+text = "Enter your name!"
+
+[node name="LineEdit" type="LineEdit" parent="HighScoreMenuWoo/VBox"]
+margin_top = 18.0
+margin_right = 109.0
+margin_bottom = 42.0
+text = "Mosher"
+
+[node name="Button" type="Button" parent="HighScoreMenuWoo/VBox"]
+margin_top = 46.0
+margin_right = 109.0
+margin_bottom = 66.0
+text = "Save Score"
+
 [node name="ProgressBar" type="HBoxContainer" parent="."]
 pause_mode = 2
 anchor_right = 1.0
@@ -26,8 +59,8 @@ margin_bottom = 27.0
 script = ExtResource( 2 )
 
 [node name="Bar" type="TextureProgress" parent="ProgressBar"]
-margin_right = 436.0
-margin_bottom = 59.0
+margin_right = 428.0
+margin_bottom = 51.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
 
@@ -41,15 +74,15 @@ Press 'enter' to restart"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ProgressBar"]
-margin_left = 440.0
+margin_left = 432.0
 margin_right = 1024.0
-margin_bottom = 59.0
+margin_bottom = 51.0
 size_flags_horizontal = 3
 
 [node name="Level" type="Label" parent="ProgressBar/MarginContainer"]
-margin_top = 13.0
-margin_right = 584.0
-margin_bottom = 45.0
+margin_top = 9.0
+margin_right = 592.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.52549, 0.52549, 0.52549, 1 )
@@ -89,5 +122,6 @@ margin_right = 962.72
 margin_bottom = 56.3223
 texture = ExtResource( 9 )
 
+[connection signal="button_down" from="HighScoreMenuWoo/VBox/Button" to="." method="_on_Button_button_down"]
 [connection signal="pressed" from="GameOverMenu/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="GameOverMenu/Quit" to="." method="_on_Quit_pressed"]

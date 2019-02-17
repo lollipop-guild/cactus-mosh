@@ -14,12 +14,15 @@ var size_of_map
 var closest_bouncer
 var player
 
+
 func _ready():
 	create_world_grid()
 	closest_bouncer = instance_bouncer()
 	player = get_tree().get_nodes_in_group("players")[0]
 	$AudioStreamPlayer.play()
 	$AudioStreamPlayer2D.play()
+	get_node('/root/global').percent_complete = 0
+	get_node('/root/global').level = 0
 
 func create_world_grid():
 	size_of_map = $Environment/Background.texture.get_size() * $YSort/Player/Camera2D.zoom
@@ -44,12 +47,9 @@ func _process(delta):
 		for i in range($"/root/global".level):
 			instance_bouncer()
 	if prev_dense and prev_dense.target != most_dense.target:
-		prev_dense.target.remove_highlight()
-		most_dense.target.highlight()
 		set_seek_target(most_dense)
-	
 	if global.game_over:
-		$CanvasLayer/GameOverMenu.visible = true
+		$CanvasLayer/HighScoreMenuWoo.visible = true
 
 func move_audio_to_closest_bouncer():
 	for bouncer in get_tree().get_nodes_in_group("bouncers"):
@@ -60,7 +60,6 @@ func move_audio_to_closest_bouncer():
 	$AudioStreamPlayer2D.global_position = closest_bouncer.global_position
 
 func calc_new_spawn_time():
-	print(most_dense.weight)
 	return default_spawn - (most_dense.weight * $"/root/global".level)
 
 func instance_bouncer():
@@ -102,7 +101,6 @@ func set_seek_target(most_dense):
 		mosher.set_target(most_dense.target)
 	for bouncer in get_tree().get_nodes_in_group('bouncers'):
 		bouncer.set_target(most_dense.target)
-
 
 func get_mosh_weight(bodies):
 	var weight = 0

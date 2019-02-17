@@ -12,9 +12,68 @@ var game_over = false
 
 var current_scene = null
 
+var score = []
+
+class MyCustomSorter:
+	static func sort(a, b):
+		if a.score < b.score:
+			return true
+		return false
+
+func get_score():
+	return score
+
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
+	score = initialize_score()
+
+func initialize_score():
+	if OS.has_feature('JavaScript'):
+		return load_from_local_storage()
+	else:
+		return load_from_disk()
+
+func load_from_local_storage():
+	var init_json = JavaScript.eval("var gameState = localStorage.getItem('gameState'); gameState;")
+	if init_json != null:
+		var game_state = parse_json(init_json)
+		return game_state[name.to_lower()]
+	else:
+		return score
+
+func save_game(name):
+	add_to_high_score(name, self.percent_complete, self.level)
+	if OS.has_feature('JavaScript'):
+		var game_state = to_json(score)
+		JavaScript.eval("localStorage.setItem('gameState', '%s');" % game_state )
+	else:
+		var game_state = JSON.print(score, "    ", true)
+		var save_file = File.new()
+		save_file.open("user://save.json", File.WRITE)
+		save_file.store_line(str(game_state))
+		save_file.close()
+
+func add_to_high_score(name, percent, level):
+	var total_score = ((level*100) + percent) - 100
+	score.append({"name": name, "score": total_score})
+	score.sort_custom(MyCustomSorter, "sort")
+
+func load_from_disk():
+	var f = File.new()
+	if f.file_exists("user://save.json"):
+		f.open("user://save.json", File.READ)
+		var save_json = f.get_as_text()
+		var saved_state = parse_json(save_json)
+		if saved_state and typeof(saved_state) == TYPE_ARRAY:
+			return saved_state
+		else:
+			return score
+	else:
+		f.open("user://save.json", File.WRITE)
+		f.store_string("{}")
+		f.close()
+		return score
 
 func goto_scene(path):
     # This function will usually be called from a signal callback,
