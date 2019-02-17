@@ -22,7 +22,7 @@ func _process(delta):
 			transition_to_idle()
 	if not flock_type & STATE.idle and not is_in_group('moshers'):
 		add_to_group('moshers')
-		playback.travel("Mosh")
+		playback.start("Mosh")
 	$CollisionPolygon2D.set_transform($art/Body.get_transform())
 	$CollisionPolygon2D.global_position = $art/Body.global_position
 
@@ -34,6 +34,6 @@ func transition_to_idle():
 	if flock_type != default_flock:
 		if is_in_group('moshers'):
 			remove_from_group('moshers')
-		playback.travel("Idle")
+		playback.start("Dance")
 		flock_type = STATE.idle
 		$Timer.start()

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://MoshEntity/MoshEntity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MoshEntity/Mosher/Mosher.gd" type="Script" id=2]
-[ext_resource path="res://assets/note.png" type="Texture" id=3]
+[ext_resource path="res://Fruit/Textures/MoshParticle.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
