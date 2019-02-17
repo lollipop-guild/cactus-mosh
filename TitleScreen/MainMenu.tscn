@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://TitleScreen/Images/Wall.png" type="Texture" id=1]
 [ext_resource path="res://TitleScreen/Images/Sidewalk.png" type="Texture" id=2]
@@ -8,13 +8,14 @@
 [ext_resource path="res://Fruit/Orange.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player/Player_Animations.tscn" type="PackedScene" id=7]
 [ext_resource path="res://TitleScreen/Images/QueueRope.png" type="Texture" id=8]
-[ext_resource path="res://TitleScreen/Images/TitleLogo.png" type="Texture" id=9]
-[ext_resource path="res://TitleScreen/Buttons/NewGameButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://TitleScreen/Buttons/NewGameButton.gd" type="Script" id=11]
-[ext_resource path="res://TitleScreen/Buttons/SettingsButton.tscn" type="PackedScene" id=12]
-[ext_resource path="res://TitleScreen/Buttons/SettingsButton.gd" type="Script" id=13]
-[ext_resource path="res://TitleScreen/fade_in/FadeIn.tscn" type="PackedScene" id=14]
-[ext_resource path="res://cactus-mosh-muffled.ogg" type="AudioStream" id=15]
+[ext_resource path="res://TitleScreen/Images/lollipop-logo.png" type="Texture" id=9]
+[ext_resource path="res://TitleScreen/Images/TitleLogo.png" type="Texture" id=10]
+[ext_resource path="res://TitleScreen/Buttons/NewGameButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://TitleScreen/Buttons/NewGameButton.gd" type="Script" id=12]
+[ext_resource path="res://TitleScreen/Buttons/SettingsButton.tscn" type="PackedScene" id=13]
+[ext_resource path="res://TitleScreen/Buttons/SettingsButton.gd" type="Script" id=14]
+[ext_resource path="res://TitleScreen/fade_in/FadeIn.tscn" type="PackedScene" id=15]
+[ext_resource path="res://cactus-mosh-muffled.ogg" type="AudioStream" id=16]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -55,44 +56,48 @@ scale = Vector2( -1, 1 )
 position = Vector2( 958.119, 475.57 )
 texture = ExtResource( 8 )
 
+[node name="Lollipop" type="Sprite" parent="Environment"]
+position = Vector2( 81.8413, 536.122 )
+scale = Vector2( 0.165361, 0.165361 )
+texture = ExtResource( 9 )
+
 [node name="Logo" type="TextureRect" parent="."]
 margin_left = -16.2249
 margin_top = 14.1671
 margin_right = 583.775
 margin_bottom = 335.167
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 stretch_mode = 4
 
-[node name="NewGameButton" parent="." instance=ExtResource( 10 )]
+[node name="NewGameButton" parent="." instance=ExtResource( 11 )]
 margin_left = 178.747
 margin_top = 356.608
 margin_right = 688.747
 margin_bottom = 416.608
 rect_min_size = Vector2( 360, 60 )
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
-[node name="SettingsButton" parent="." instance=ExtResource( 12 )]
+[node name="SettingsButton" parent="." instance=ExtResource( 13 )]
 margin_left = 213.605
 margin_top = 425.657
 margin_right = 723.605
 margin_bottom = 485.657
 rect_min_size = Vector2( 360, 60 )
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="Version Label" type="Label" parent="."]
-margin_left = 26.4122
-margin_top = 546.47
-margin_right = 212.412
-margin_bottom = 600.47
+margin_left = 12.3592
+margin_top = 578.792
+margin_right = 198.359
+margin_bottom = 632.792
 size_flags_vertical = 3
-text = "Version 1.1 
-Lollipop Guild"
+text = "Version 1.0"
 
-[node name="FadeIn" parent="." instance=ExtResource( 14 )]
+[node name="FadeIn" parent="." instance=ExtResource( 15 )]
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -8.0
 autoplay = true
 
