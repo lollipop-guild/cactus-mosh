@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://TitleScreen/Images/Wall.png" type="Texture" id=1]
 [ext_resource path="res://TitleScreen/Images/Sidewalk.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://TitleScreen/DejaVuSansMono.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://TitleScreen/fade_in/FadeIn.tscn" type="PackedScene" id=14]
 [ext_resource path="res://title screen music.ogg" type="AudioStream" id=15]
+[ext_resource path="res://TitleScreen/Images/lollipop-logo.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -99,15 +100,6 @@ custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 3
 text = "High Score"
 
-[node name="Version Label" type="Label" parent="."]
-margin_left = 26.4122
-margin_top = 546.47
-margin_right = 212.412
-margin_bottom = 600.47
-size_flags_vertical = 3
-text = "Version 1.1 
-Lollipop Guild"
-
 [node name="FadeIn" parent="." instance=ExtResource( 14 )]
 visible = false
 
@@ -115,5 +107,10 @@ visible = false
 stream = ExtResource( 15 )
 volume_db = -8.0
 autoplay = true
+
+[node name="lollipop-logo" type="Sprite" parent="."]
+position = Vector2( 102.876, 563.948 )
+scale = Vector2( 0.174178, 0.174178 )
+texture = ExtResource( 16 )
 
 [connection signal="pressed" from="NewGameButton" to="NewGameButton" method="_on_NewGameButton_pressed"]
