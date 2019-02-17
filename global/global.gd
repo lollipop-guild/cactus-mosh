@@ -5,7 +5,7 @@ extends Node2D
 # var b = "text"
 
 var percent_complete = 0.0
-var level = 1
+var level = 0
 var game_over = false
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +16,7 @@ var score = []
 
 class MyCustomSorter:
 	static func sort(a, b):
-		if a.score < b.score:
+		if a.score > b.score:
 			return true
 		return false
 
@@ -55,7 +55,7 @@ func save_game(name):
 		save_file.close()
 
 func add_to_high_score(name, percent, level):
-	var total_score = ((level*100) + percent) - 100
+	var total_score = ((level*100) + percent)
 	score.append({"name": name, "score": total_score})
 	score.sort_custom(MyCustomSorter, "sort")
 
