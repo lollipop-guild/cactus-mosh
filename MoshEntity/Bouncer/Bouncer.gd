@@ -16,6 +16,9 @@ func _ready():
 	players = get_tree().get_nodes_in_group("players")
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Walk")
+	flock_type = STATE.wander
+	yield(get_tree().create_timer(15.0), "timeout")
+	flock_type = STATE.seek
 
 func _handle_collision(body):
 	if body.is_in_group('players'):

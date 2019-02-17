@@ -7,35 +7,43 @@
 [ext_resource path="res://Fruit/Textures/Eyes-Banana-Sunglasses.png" type="Texture" id=5]
 [ext_resource path="res://Fruit/Textures/Mouth-Frown.png" type="Texture" id=6]
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=1]
+
 animation = "Base"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=2]
+
 animation = "Dash"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=3]
+
 animation = "Walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
+
 xfade_time = 0.1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
 switch_mode = 2
 auto_advance = true
 xfade_time = 0.1
 
-[sub_resource type="AnimationNodeStateMachine" id=16]
-states/Base/node = SubResource( 11 )
+[sub_resource type="AnimationNodeStateMachine" id=6]
+
+states/Base/node = SubResource( 1 )
 states/Base/position = Vector2( 94, 87 )
-states/Dash/node = SubResource( 12 )
+states/Dash/node = SubResource( 2 )
 states/Dash/position = Vector2( 247, 79 )
-states/Walk/node = SubResource( 13 )
+states/Walk/node = SubResource( 3 )
 states/Walk/position = Vector2( 538, 79 )
-transitions = [ "Walk", "Dash", SubResource( 14 ), "Dash", "Walk", SubResource( 15 ) ]
+transitions = [ "Walk", "Dash", SubResource( 4 ), "Dash", "Walk", SubResource( 5 ) ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
 
-[sub_resource type="Animation" id=18]
+
+[sub_resource type="Animation" id=8]
+
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -410,7 +418,8 @@ tracks/30/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=9]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
 tracks/0/interp = 1
@@ -797,6 +806,7 @@ tracks/31/keys = {
 }
 
 [sub_resource type="Animation" id=10]
+
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -1327,15 +1337,15 @@ __meta__ = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 16 )
+tree_root = SubResource( 6 )
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/playback = SubResource( 17 )
+parameters/playback = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 root_node = NodePath("../..")
 playback_speed = 1.5
-anims/Base = SubResource( 18 )
-anims/Dash = SubResource( 19 )
+anims/Base = SubResource( 8 )
+anims/Dash = SubResource( 9 )
 anims/Walk = SubResource( 10 )
 
