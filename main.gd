@@ -18,6 +18,8 @@ func _ready():
 	create_world_grid()
 	closest_bouncer = instance_bouncer()
 	player = get_tree().get_nodes_in_group("players")[0]
+	$AudioStreamPlayer.play()
+	$AudioStreamPlayer2D.play()
 
 func create_world_grid():
 	size_of_map = $Environment/Background.texture.get_size() * $YSort/Player/Camera2D.zoom

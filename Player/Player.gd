@@ -63,7 +63,7 @@ func _integrate_forces(state):
 	var move_right = Input.is_action_pressed("walk_right")
 	var move_up = Input.is_action_pressed("walk_up")
 	var move_down = Input.is_action_pressed("walk_down")
-	var dash = Input.is_action_pressed("dash")
+	var dash = Input.is_action_just_pressed("dash")
 	var lv = state.get_linear_velocity()
 	var step = state.step
 	var delta_velocity = Vector2(0, 0)
