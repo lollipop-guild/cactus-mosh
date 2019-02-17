@@ -1736,7 +1736,7 @@ tracks/32/imported = false
 tracks/32/enabled = true
 tracks/32/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 0.000290333 ),
 "update": 1,
 "values": [ ExtResource( 9 ) ]
 }
