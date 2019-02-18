@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://TitleScreen/Images/Wall.png" type="Texture" id=1]
 [ext_resource path="res://TitleScreen/Images/Sidewalk.png" type="Texture" id=2]
@@ -13,9 +13,10 @@
 [ext_resource path="res://TitleScreen/Buttons/NewGameButton.gd" type="Script" id=11]
 [ext_resource path="res://TitleScreen/HighScoreButton.gd" type="Script" id=12]
 [ext_resource path="res://TitleScreen/DejaVuSansMono.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://TitleScreen/fade_in/FadeIn.tscn" type="PackedScene" id=14]
-[ext_resource path="res://title screen music.ogg" type="AudioStream" id=15]
-[ext_resource path="res://TitleScreen/Images/lollipop-logo.png" type="Texture" id=16]
+[ext_resource path="res://TitleScreen/CreditsButton.gd" type="Script" id=14]
+[ext_resource path="res://TitleScreen/fade_in/FadeIn.tscn" type="PackedScene" id=15]
+[ext_resource path="res://title screen music.ogg" type="AudioStream" id=16]
+[ext_resource path="res://TitleScreen/Images/lollipop-logo.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -70,21 +71,24 @@ texture = ExtResource( 9 )
 stretch_mode = 4
 
 [node name="NewGameButton" parent="." instance=ExtResource( 10 )]
-margin_left = 178.747
-margin_top = 356.608
-margin_right = 688.747
-margin_bottom = 416.608
+margin_left = 239.185
+margin_top = 353.0
+margin_right = 749.185
+margin_bottom = 413.0
 rect_min_size = Vector2( 360, 60 )
 script = ExtResource( 11 )
 
 [node name="HighScoreButton" type="Button" parent="."]
-margin_left = 213.605
+margin_left = 189.249
 margin_top = 435.657
-margin_right = 723.605
+margin_right = 699.249
 margin_bottom = 495.657
 rect_min_size = Vector2( 360, 60 )
 flat = true
 script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label" type="Label" parent="HighScoreButton"]
 anchor_right = 1.0
@@ -94,23 +98,47 @@ margin_top = -10.6623
 margin_right = 19.5954
 margin_bottom = 26.3377
 rect_min_size = Vector2( 360, 60 )
+rect_pivot_offset = Vector2( 71.5906, 39.3854 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0.717647, 0.0823529, 0.0823529, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 3
 text = "High Score"
 
-[node name="FadeIn" parent="." instance=ExtResource( 14 )]
+[node name="CreditsButton" type="Button" parent="."]
+margin_left = 248.465
+margin_top = 499.295
+margin_right = 758.465
+margin_bottom = 559.295
+rect_min_size = Vector2( 360, 60 )
+flat = true
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="CreditsButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 360, 60 )
+rect_pivot_offset = Vector2( 71.5906, 39.3854 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.717647, 0.0823529, 0.0823529, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 3
+text = "Credits"
+
+[node name="FadeIn" parent="." instance=ExtResource( 15 )]
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -8.0
 autoplay = true
 
 [node name="lollipop-logo" type="Sprite" parent="."]
 position = Vector2( 102.876, 563.948 )
 scale = Vector2( 0.174178, 0.174178 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [connection signal="pressed" from="NewGameButton" to="NewGameButton" method="_on_NewGameButton_pressed"]

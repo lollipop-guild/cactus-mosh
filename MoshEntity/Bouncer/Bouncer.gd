@@ -10,21 +10,20 @@ var player_pos = Vector2(0, 0)
 var players
 var playback
 export var will_dash_distance = 600
+var seek_wait_timer
 
 func _ready():
 	self.connect('body_entered', self, '_handle_collision')
+	seek_wait_timer = get_node("/root/Main/SeekWaitTimer")
 	players = get_tree().get_nodes_in_group("players")
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Walk")
-	flock_type = STATE.wander
-	yield(get_tree().create_timer(15.0), "timeout")
-	flock_type = STATE.seek
 
 func _handle_collision(body):
 	if body.is_in_group('players'):
 		body.knockdown()
 	dash = Vector2(0, 0)
-	playback.travel("Walk")
+	playback.start("Walk")
 
 func _integrate_forces(state):
 	._integrate_forces(state)
@@ -43,16 +42,17 @@ func _process(delta):
 		# Delete if too far away
 		var to_player = player.global_position.distance_to(self.global_position)
 
-		# Dash if close
-		if to_player < will_dash_distance:
-			var is_facing_player = check_if_facing_player(player)
-			if is_facing_player and dash.length() == 0:
-				player_pos = to_local(player.global_position)
-				dash_to_target(player.global_position)
-				playback.travel("Dash")
-		else:
-			dash = Vector2(0, 0)
-			playback.travel("Walk")
+		if seek_wait_timer.time_left == 0:
+			# Dash if close
+			if to_player < will_dash_distance:
+				var is_facing_player = check_if_facing_player(player)
+				if is_facing_player and dash.length() == 0:
+					player_pos = to_local(player.global_position)
+					dash_to_target(player.global_position)
+					playback.start("Dash")
+			else:
+				dash = Vector2(0, 0)
+				playback.start("Walk")
 
 func dash_to_target(pos):
 	var BP = pos - self.global_position

@@ -9,7 +9,6 @@ func _ready():
 	self.connect("button_down", self, "goto_high_score")
 
 func goto_high_score():
-	print("hey")
 	$"/root/global".goto_scene("res://UI/HighScore/HighScore.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

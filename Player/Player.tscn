@@ -10,7 +10,7 @@ height = 72.5359
 
 [sub_resource type="CircleShape2D" id=2]
 
-radius = 182.807
+radius = 351.966
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
