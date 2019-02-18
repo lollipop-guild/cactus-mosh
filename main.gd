@@ -64,15 +64,21 @@ func calc_new_spawn_time():
 
 func instance_bouncer():
 	randomize()
-	var center = $YSort/Player/Camera2D.get_camera_screen_center()
-	var rand_x = rand_range(-1, 1)
-	var rand_y = rand_range(-1, 1)
+#	Commented was causing bouncers to spawn within boundary collision shapes	
+#	var center = $YSort/Player/Camera2D.get_camera_screen_center()
+#	var rand_x = rand_range(-1, 1)
+#	var rand_y = rand_range(-1, 1)
+#	var rand_vect = Vector2(rand_x, rand_y)
+#	rand_vect = (rand_vect.normalized()*800)+center
+#	rand_vect = adjust_vector_in_bound(rand_vect)
+	var center = $BouncerSpawnArea/CollisionShape2D.position + $BouncerSpawnArea.position
+	var size = $BouncerSpawnArea/CollisionShape2D.shape.extents
+	var rand_x = (randi() % int(size.x)) - (size.x/2) + center.x
+	var rand_y = (randi() % int(size.y)) - (size.y/2) + center.y
 	var rand_vect = Vector2(rand_x, rand_y)
-	rand_vect = (rand_vect.normalized()*800)+center
-	rand_vect = adjust_vector_in_bound(rand_vect)
 	var temp = bouncer.instance()
 	temp.position = rand_vect
-	add_child(temp)
+	$YSort.add_child(temp)
 	return temp
 
 func adjust_vector_in_bound(rand_vect):
