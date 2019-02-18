@@ -9,9 +9,11 @@ var playback
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect('timeout', self, 'set_default_flock')
+	self.connect('body_entered', self, '_on_body_entered')
 	default_flock = flock_type
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Dance")
+	#$art.scale.x = -0.4
 
 func set_default_flock():
 	flock_type = default_flock
@@ -23,8 +25,6 @@ func _process(delta):
 	if not flock_type & STATE.idle and not is_in_group('moshers'):
 		add_to_group('moshers')
 		playback.start("Mosh")
-	$CollisionPolygon2D.set_transform($art/Body.get_transform())
-	$CollisionPolygon2D.global_position = $art/Body.global_position
 
 func trigger_particle():
 	$CPUParticles2D.emitting = true
@@ -37,3 +37,13 @@ func transition_to_idle():
 		playback.start("Dance")
 		flock_type = STATE.idle
 		$Timer.start()
+
+func _on_body_entered(body):
+	var collision_vector = position - body.position
+	print("Hit!")
+	if collision_vector.x < 0:
+		print("Left!")
+		$art.scale.x = -1
+	elif collision_vector.x > 0:
+		print("Right!")
+		$art.scale.x = 1

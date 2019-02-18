@@ -11,11 +11,9 @@ var players
 var playback
 export var will_dash_distance = 250
 export var seek_range = 800
-var dash_wait_timer
 
 func _ready():
 	self.connect('body_entered', self, '_handle_collision')
-	dash_wait_timer = get_node("/root/Main/DashWaitTimer")
 	players = get_tree().get_nodes_in_group("players")
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Idle")
@@ -43,7 +41,7 @@ func _process(delta):
 		# Delete if too far away
 		var to_player = player.global_position.distance_to(self.global_position)
 
-		if to_player < seek_range && dash_wait_timer.time_left == 0 && global.percent_complete > 0.50:
+		if to_player < seek_range && global.percent_complete > 50:
 			flock_type = 1
 			# Dash if close
 			if to_player < will_dash_distance:

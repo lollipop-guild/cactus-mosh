@@ -5,14 +5,13 @@
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-[node name="BananaEntity" index="0" instance=ExtResource( 1 )]
+[node name="BananaEntity" instance=ExtResource( 1 )]
 
 [node name="Banana" parent="." index="2" instance=ExtResource( 2 )]
 editor/display_folded = true
 
 [node name="Body" parent="Banana" index="0"]
 position = Vector2( 9.12515, -232.116 )
-rotation = 0.0
 
 [node name="LeftArmUpper" parent="Banana/Body" index="0"]
 rotation = 0.25967
@@ -29,9 +28,6 @@ rotation = -0.436915
 [node name="RightArmLower" parent="Banana/Body/RightArmUpper" index="0"]
 rotation = -1.00257
 
-[node name="RightArmEnd" parent="Banana/Body/RightArmUpper/RightArmLower" index="0"]
-rotation = 1.57247
-
 [node name="LeftLegUpper" parent="Banana/Body" index="2"]
 rotation = 0.160137
 
@@ -46,9 +42,6 @@ rotation = -0.0770863
 
 [node name="RightLegLower" parent="Banana/Body/RightLegUpper" index="0"]
 rotation = 0.215267
-
-[node name="RightLegEnd" parent="Banana/Body/RightLegUpper/RightLegLower" index="0"]
-rotation = 0.0
 
 [node name="RemoteCollision" type="RemoteTransform2D" parent="Banana/Body" index="6"]
 remote_path = NodePath("../../../CollisionPolygon2D")

@@ -4,16 +4,13 @@
 [ext_resource path="res://Player/Player_Animations.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-
 radius = 79.221
 height = 72.5359
 
 [sub_resource type="CircleShape2D" id=2]
-
 radius = 351.966
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
-
 
 [node name="Player" type="RigidBody2D" groups=[
 "players",
@@ -23,6 +20,8 @@ collision_layer = 3
 collision_mask = 3
 mode = 2
 mass = 20.0
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 1 )
 WALK_MAX_VELOCITY = 200
 WALK_ACCEL = 600

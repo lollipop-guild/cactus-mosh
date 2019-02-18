@@ -5,10 +5,11 @@
 [ext_resource path="res://Fruit/Textures/MoshParticle.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-
 radius = 57.9606
 
 [node name="Mosher" instance=ExtResource( 1 )]
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 2 )
 flock_type = 97
 seek_flee_multiplier = 400.0

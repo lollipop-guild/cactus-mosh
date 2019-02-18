@@ -71,4 +71,5 @@ limits/debugger_stdout/max_errors_per_frame=500
 [rendering]
 
 quality/driver/driver_name="GLES2"
+environment/default_clear_color=Color( 0.360784, 0.360784, 0.360784, 1 )
 environment/default_environment="res://default_env.tres"

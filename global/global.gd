@@ -29,10 +29,11 @@ func _ready():
 	score = initialize_score()
 
 func initialize_score():
-	if OS.has_feature('JavaScript'):
-		return load_from_local_storage()
-	else:
-		return load_from_disk()
+#	if OS.has_feature('JavaScript'):
+#		return load_from_local_storage()
+#	else:
+#		return load_from_disk()
+	return load_from_disk()
 
 func load_from_local_storage():
 	var init_json = JavaScript.eval("var gameState = localStorage.getItem('gameState'); gameState;")
@@ -44,15 +45,20 @@ func load_from_local_storage():
 
 func save_game(name):
 	add_to_high_score(name, self.percent_complete, self.level)
-	if OS.has_feature('JavaScript'):
-		var game_state = to_json(score)
-		JavaScript.eval("localStorage.setItem('gameState', '%s');" % game_state )
-	else:
-		var game_state = JSON.print(score, "    ", true)
-		var save_file = File.new()
-		save_file.open("user://save.json", File.WRITE)
-		save_file.store_line(str(game_state))
-		save_file.close()
+#	if OS.has_feature('JavaScript'):
+#		var game_state = to_json(score)
+#		JavaScript.eval("localStorage.setItem('gameState', '%s');" % game_state )
+#	else:
+#		var game_state = JSON.print(score, "    ", true)
+#		var save_file = File.new()
+#		save_file.open("user://save.json", File.WRITE)
+#		save_file.store_line(str(game_state))
+#		save_file.close()
+	var game_state = JSON.print(score, "    ", true)
+	var save_file = File.new()
+	save_file.open("user://save.json", File.WRITE)
+	save_file.store_line(str(game_state))
+	save_file.close()
 
 func add_to_high_score(name, percent, level):
 	var total_score = ((level*100) + percent)

@@ -1,13 +1,11 @@
 [gd_resource type="AudioBusLayout" load_steps=2 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
-
 resource_name = "Reverb"
 room_size = 0.18
 wet = 0.32
 
 [resource]
-
 bus/1/name = "StageMusic"
 bus/1/solo = false
 bus/1/mute = false

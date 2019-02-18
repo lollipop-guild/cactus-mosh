@@ -5,7 +5,6 @@
 [ext_resource path="res://Fruit/Banana.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-
 radius = 30.302
 
 [node name="Bouncer" groups=[
@@ -23,6 +22,9 @@ seek_flee_multiplier = 200.0
 mosh_weight = 0
 DASH_SPEED = 400
 will_dash_distance = 500
+
+[node name="DebugLabel" parent="." index="1"]
+visible = true
 
 [node name="art" parent="." index="2" instance=ExtResource( 3 )]
 

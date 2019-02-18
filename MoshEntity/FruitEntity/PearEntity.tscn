@@ -8,6 +8,7 @@
 [node name="PearEntity" instance=ExtResource( 1 )]
 
 [node name="art" parent="." index="3" instance=ExtResource( 2 )]
+editor/display_folded = true
 
 [node name="RemoteCollision" type="RemoteTransform2D" parent="art/Body" index="7"]
 remote_path = NodePath("../../../CollisionPolygon2D")
@@ -25,6 +26,7 @@ position = Vector2( -0.11217, -20 )
 polygon = PoolVector2Array( -12.4442, 42.8378, -24.2148, 32.2442, -28.923, 17.7271, -23.8224, 0.463547, -21.0759, -12.4841, -16.76, -36.0254, -8.12826, -41.9107, 2.85765, -41.5183, 15.413, -36.4177, 20.1212, -25.0395, 23.2601, -1.89058, 28.753, 6.74121, 29.1454, 19.6889, 22.083, 33.8136, 4.03471, 42.8378 )
 
 [node name="Area2D" parent="." index="6"]
+editor/display_folded = true
 position = Vector2( -0.11217, -20 )
 
 
