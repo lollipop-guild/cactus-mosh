@@ -93,6 +93,7 @@ texture = ExtResource( 7 )
 [node name="AreaContainer" type="Node2D" parent="."]
 
 [node name="BouncerSpawnArea" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BouncerSpawnArea"]
 position = Vector2( 2160.14, 1627.57 )
@@ -401,4 +402,7 @@ bus = "BouncerAudio"
 [node name="CanvasLayer" parent="." instance=ExtResource( 16 )]
 
 [node name="DashWaitTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+autostart = true
 

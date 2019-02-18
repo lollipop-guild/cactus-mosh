@@ -9,8 +9,8 @@ export var DASH_SPEED = 10
 var player_pos = Vector2(0, 0)
 var players
 var playback
-export var will_dash_distance = 600
-export var seek_range = 1000
+export var will_dash_distance = 250
+export var seek_range = 800
 var dash_wait_timer
 
 func _ready():
@@ -18,13 +18,13 @@ func _ready():
 	dash_wait_timer = get_node("/root/Main/DashWaitTimer")
 	players = get_tree().get_nodes_in_group("players")
 	playback = $art/AnimationTree.get("parameters/playback")
-	playback.start("Walk")
+	playback.start("Idle")
 
 func _handle_collision(body):
 	if body.is_in_group('players'):
 		body.knockdown()
 	dash = Vector2(0, 0)
-	playback.start("Walk")
+	playback.start("Idle")
 
 func _integrate_forces(state):
 	._integrate_forces(state)
@@ -43,7 +43,7 @@ func _process(delta):
 		# Delete if too far away
 		var to_player = player.global_position.distance_to(self.global_position)
 
-		if to_player < seek_range && dash_wait_timer.time_left == 0:
+		if to_player < seek_range && dash_wait_timer.time_left == 0 && global.percent_complete > 0.50:
 			flock_type = 1
 			# Dash if close
 			if to_player < will_dash_distance:
@@ -56,7 +56,8 @@ func _process(delta):
 				dash = Vector2(0, 0)
 				playback.start("Walk")
 		else:
-			flock_type = 16
+			flock_type = 64
+			playback.travel("Idle")
 
 func dash_to_target(pos):
 	var BP = pos - self.global_position
