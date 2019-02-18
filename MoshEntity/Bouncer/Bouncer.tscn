@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.302
 
-[node name="Bouncer" groups=[
+[node name="Bouncer" index="0" groups=[
 "bouncers",
 ] instance=ExtResource( 1 )]
 collision_layer = 7
@@ -22,9 +22,6 @@ seek_flee_multiplier = 200.0
 mosh_weight = 0
 DASH_SPEED = 400
 will_dash_distance = 500
-
-[node name="DebugLabel" parent="." index="1"]
-visible = true
 
 [node name="art" parent="." index="2" instance=ExtResource( 3 )]
 

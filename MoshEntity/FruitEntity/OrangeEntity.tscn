@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 35.3027
 
-[node name="Mosher" index="0" instance=ExtResource( 1 )]
+[node name="Mosher" instance=ExtResource( 1 )]
 
 [node name="art" parent="." index="3" instance=ExtResource( 2 )]
 

@@ -81,4 +81,3 @@ func calc_wall_vel(object, ray):
 	wander_target = -ray.get_collision_normal() * overshoot.length()*wander_distance
 	wander_target = wander_target.normalized()
 	return ray.get_collision_normal() * (pow(overshoot.length(), 1.3))
-

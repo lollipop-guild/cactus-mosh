@@ -94,5 +94,3 @@ func _integrate_forces(state):
 	velocity += state.get_total_gravity() * state.step
 	state.set_linear_velocity(velocity)
 	update()
-	
-
