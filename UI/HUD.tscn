@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://UI/HUD.gd" type="Script" id=1]
 [ext_resource path="res://UI/ProgressBar/ProgressBar.gd" type="Script" id=2]
@@ -8,7 +8,10 @@
 [ext_resource path="res://Main/Textures/GameOver.png" type="Texture" id=6]
 [ext_resource path="res://Main/Textures/Restart.png" type="Texture" id=7]
 [ext_resource path="res://Main/Textures/Quit.png" type="Texture" id=8]
-[ext_resource path="res://UI/Textures/BananaMarker.png" type="Texture" id=9]
+[ext_resource path="res://UI/Textures/LevelLabel.png" type="Texture" id=9]
+[ext_resource path="res://UI/Textures/BananaMarker.png" type="Texture" id=10]
+[ext_resource path="res://UI/Textures/MaximumMoshage.png" type="Texture" id=11]
+[ext_resource path="res://Fruit/Textures/MoshParticle.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
@@ -68,6 +71,70 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("MaximumMoshage:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Moshage:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "MaximumMoshage"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Moshage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MaximumMoshage:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MaximumMoshage:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, 0.25 ), Vector2( 0.35, 0.35 ), Vector2( 0.25, 0.25 ) ]
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 2
@@ -85,6 +152,7 @@ margin_right = 296.0
 margin_bottom = 33.0
 
 [node name="VBox" type="VBoxContainer" parent="HighScoreMenuWoo"]
+editor/display_folded = true
 margin_left = 241.0
 margin_right = 350.0
 margin_bottom = 66.0
@@ -108,6 +176,7 @@ text = "Save Score"
 
 [node name="ProgressBar" type="HBoxContainer" parent="."]
 pause_mode = 2
+editor/display_folded = true
 anchor_right = 1.0
 margin_bottom = 27.0
 script = ExtResource( 2 )
@@ -120,14 +189,16 @@ texture_progress = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="ProgressBar"]
 visible = false
-margin_left = 441.0
-margin_right = 583.0
-margin_bottom = 31.0
+margin_left = 432.0
+margin_top = 10.0
+margin_right = 574.0
+margin_bottom = 41.0
 text = "WICKED, YOU WIN!
 Press 'enter' to restart"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ProgressBar"]
+editor/display_folded = true
 margin_left = 432.0
 margin_right = 1024.0
 margin_bottom = 51.0
@@ -170,6 +241,13 @@ margin_right = 567.291
 margin_bottom = 510.784
 texture_normal = ExtResource( 8 )
 
+[node name="LevelLabel" type="TextureRect" parent="."]
+margin_left = 854.991
+margin_top = 5.50424
+margin_right = 962.991
+margin_bottom = 51.5042
+texture = ExtResource( 9 )
+
 [node name="BananaMarker" type="TextureRect" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -177,11 +255,28 @@ margin_left = 204.218
 margin_top = -300.0
 margin_right = 244.218
 margin_bottom = -249.0
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
+
+[node name="MaximumMoshage" type="TextureRect" parent="."]
+visible = false
+margin_left = 453.724
+margin_top = 6.20091
+margin_right = 888.724
+margin_bottom = 203.201
+rect_scale = Vector2( 0.282234, 0.282234 )
+texture = ExtResource( 11 )
+
+[node name="Moshage" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2( 394.991, 24.3269 )
+texture = ExtResource( 12 )
+emission_shape = 1
+emission_sphere_radius = 30.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/BananaBeware = SubResource( 2 )
 anims/Base = SubResource( 3 )
+anims/MaximumMoshage = SubResource( 4 )
 
 [connection signal="button_down" from="HighScoreMenuWoo/VBox/Button" to="." method="_on_Button_button_down"]
 [connection signal="pressed" from="GameOverMenu/Restart" to="." method="_on_Restart_pressed"]

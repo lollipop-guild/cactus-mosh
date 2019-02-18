@@ -13,7 +13,6 @@ func _ready():
 	default_flock = flock_type
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Dance")
-	#$art.scale.x = -0.4
 
 func set_default_flock():
 	flock_type = default_flock
@@ -43,7 +42,7 @@ func _on_body_entered(body):
 	print("Hit!")
 	if collision_vector.x < 0:
 		print("Left!")
-		$art.scale.x = -1
+		$art.scale.x = -0.40
 	elif collision_vector.x > 0:
 		print("Right!")
-		$art.scale.x = 1
+		$art.scale.x = 0.40

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MaximumMoshage.png-be8674099312642b8de8088fe70b9610.stex"
+path="res://.import/MaximumMoshage.png-38a79e12ce9e0713af306590f5724920.stex"
 
 [deps]
 
-source_file="res://Main/Textures/MaximumMoshage.png"
-dest_files=[ "res://.import/MaximumMoshage.png-be8674099312642b8de8088fe70b9610.stex" ]
+source_file="res://UI/Textures/MaximumMoshage.png"
+dest_files=[ "res://.import/MaximumMoshage.png-38a79e12ce9e0713af306590f5724920.stex" ]
 
 [params]
 

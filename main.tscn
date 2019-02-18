@@ -101,6 +101,7 @@ position = Vector2( 2160.14, 1627.57 )
 shape = SubResource( 2 )
 
 [node name="YSort" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="AppleEntity" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2289.87, 1867.67 )
