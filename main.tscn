@@ -105,334 +105,500 @@ editor/display_folded = true
 
 [node name="AppleEntity" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2289.87, 1867.67 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity17" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 771.842, 1236.82 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity23" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2102.7, 1157.01 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity29" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1059.46, 2083.34 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity35" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1670.83, 720.812 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity41" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 3467.32, 942.792 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity47" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 3315.67, 1502.27 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity60" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2651.67, 1366.1 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity2" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2995.08, 2073.13 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity52" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 944.291, 1546.69 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity58" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 3320.94, 892.005 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity5" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2151.8, 2006.16 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity7" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1413.01, 2215.38 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity27" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1643.3, 1499.15 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity33" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1527.13, 665.899 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity45" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2829.4, 1113.24 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity53" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 931.514, 629.356 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity12" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2964.07, 790.315 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity18" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1426.25, 1268.33 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity24" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2151.54, 918.391 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity36" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1431, 877.02 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity42" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 3429.72, 799.455 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity48" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 3541.42, 1100 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity51" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 664.66, 1251.8 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="AppleEntity57" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2619.71, 783.702 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2770.77, 1298.13 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity8" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 655.864, 1140.33 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity19" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1962.56, 951.834 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity31" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1583.5, 773.133 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity37" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2942.14, 911.083 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity43" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2264.18, 1727.07 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity49" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 392.585, 1594.61 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity2" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1116.54, 2006.18 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity14" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1639.94, 1639.37 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity26" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1573.24, 2205.62 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity38" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 3327.71, 1042.54 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity44" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1515.5, 2117.07 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity56" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2610.57, 1535.42 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity3" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2882.51, 2046.9 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity17" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1502.92, 1592.99 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity47" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 3347.82, 1689.14 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity53" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 563.93, 1416.35 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity10" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 772.933, 1617.83 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity16" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1663.34, 1361.8 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity34" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1706.2, 904.463 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity52" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 692.19, 1372.12 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity5" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1532.54, 2325.05 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity21" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2011.18, 1067.98 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity27" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1587.97, 1227.56 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity39" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2684.65, 890.342 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity57" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 489.115, 1295 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity6" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 3421.02, 1568.79 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity18" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 876.233, 1236.31 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity30" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1013.94, 1960.58 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity36" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1408.81, 753.633 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity42" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2812.87, 793.077 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity48" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2750.88, 1488.45 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity54" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 972.241, 524.699 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="OrangeEntity60" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 2249.32, 1070.44 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2134.25, 1768.18 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity9" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 608.151, 1619.35 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity15" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1431.02, 1452.98 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity33" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1596.51, 903.964 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity39" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3531.3, 877.062 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity57" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2882.52, 1562.52 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity2" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2966.19, 1914.52 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity13" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1521.47, 1715.93 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity20" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2444.43, 1159.18 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity38" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3448.06, 1061.61 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity3" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3047.09, 1973.08 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity19" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2737.28, 1026.81 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity49" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 876.403, 1456.24 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity4" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1541.56, 1470.34 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity24" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2878.81, 1031.24 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity30" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2265.42, 1982.5 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity60" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2854.79, 1452.96 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity11" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 781.341, 675.661 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity23" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2127.1, 1064.93 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity53" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 484.228, 1523.37 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity6" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2034.41, 1878.55 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity22" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2352.63, 963.233 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity46" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 3220.21, 1653.95 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="PearEntity58" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 2533.32, 1412.36 )
+collision_layer = 3
+collision_mask = 3
 contacts_reported = 0
 
 [node name="Player" parent="YSort" instance=ExtResource( 11 )]

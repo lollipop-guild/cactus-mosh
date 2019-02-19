@@ -9,7 +9,7 @@ var playback
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect('timeout', self, 'set_default_flock')
-	self.connect('body_entered', self, '_on_body_entered')
+	connect('body_entered', self, '_on_body_entered')
 	default_flock = flock_type
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Dance")
