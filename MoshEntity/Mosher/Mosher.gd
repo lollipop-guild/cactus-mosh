@@ -4,6 +4,7 @@ extends "res://MoshEntity/Vehicle.gd"
 # var a = 2
 # var b = "text"
 var default_flock
+var default_scale
 
 var playback
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +14,7 @@ func _ready():
 	default_flock = flock_type
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Dance")
+	default_scale = $art.scale
 
 func set_default_flock():
 	flock_type = default_flock
@@ -38,11 +40,9 @@ func transition_to_idle():
 		$Timer.start()
 
 func _on_body_entered(body):
+	var new_scale
 	var collision_vector = position - body.position
-	print("Hit!")
 	if collision_vector.x < 0:
-		print("Left!")
-		$art.scale.x = -0.40
+		$art.scale = Vector2(default_scale.x, default_scale.y)
 	elif collision_vector.x > 0:
-		print("Right!")
-		$art.scale.x = 0.40
+		$art.scale = Vector2(default_scale.x * -1, default_scale.y)

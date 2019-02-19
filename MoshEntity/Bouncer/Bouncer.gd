@@ -11,12 +11,15 @@ var players
 var playback
 export var will_dash_distance = 250
 export var seek_range = 800
+var default_scale
 
 func _ready():
 	self.connect('body_entered', self, '_handle_collision')
 	players = get_tree().get_nodes_in_group("players")
 	playback = $art/AnimationTree.get("parameters/playback")
 	playback.start("Idle")
+	default_scale = $art.scale
+	$art/Light2D.visible = false
 
 func _handle_collision(body):
 	if body.is_in_group('players'):
@@ -43,6 +46,7 @@ func _process(delta):
 
 		if to_player < seek_range && global.percent_complete > 50:
 			flock_type = 1
+			$art/Light2D.visible = true
 			# Dash if close
 			if to_player < will_dash_distance:
 				var is_facing_player = check_if_facing_player(player)
@@ -55,7 +59,15 @@ func _process(delta):
 				playback.start("Walk")
 		else:
 			flock_type = 64
+			$art/Light2D.visible = false
 			playback.travel("Idle")
+	
+	var lv = get_linear_velocity()
+	
+	if lv.x < 0:
+		$art.scale = Vector2(default_scale.x * -1, default_scale.y)
+	elif lv.x > 0:
+		$art.scale = Vector2(default_scale.x, default_scale.y)
 
 func dash_to_target(pos):
 	var BP = pos - self.global_position

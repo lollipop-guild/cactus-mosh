@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/ConeLight.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "sway"
 length = 20.0
 loop = true

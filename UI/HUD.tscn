@@ -133,7 +133,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.25, 0.25 ), Vector2( 0.35, 0.35 ), Vector2( 0.25, 0.25 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -176,7 +176,6 @@ text = "Save Score"
 
 [node name="ProgressBar" type="HBoxContainer" parent="."]
 pause_mode = 2
-editor/display_folded = true
 anchor_right = 1.0
 margin_bottom = 27.0
 script = ExtResource( 2 )
@@ -258,16 +257,14 @@ margin_bottom = -249.0
 texture = ExtResource( 10 )
 
 [node name="MaximumMoshage" type="TextureRect" parent="."]
-visible = false
 margin_left = 453.724
 margin_top = 6.20091
 margin_right = 888.724
 margin_bottom = 203.201
-rect_scale = Vector2( 0.282234, 0.282234 )
+rect_scale = Vector2( 1.43248, 1.43248 )
 texture = ExtResource( 11 )
 
 [node name="Moshage" type="CPUParticles2D" parent="."]
-visible = false
 position = Vector2( 394.991, 24.3269 )
 texture = ExtResource( 12 )
 emission_shape = 1
@@ -276,7 +273,13 @@ emission_sphere_radius = 30.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/BananaBeware = SubResource( 2 )
 anims/Base = SubResource( 3 )
+
+[node name="MoshageAnims" type="AnimationPlayer" parent="."]
 anims/MaximumMoshage = SubResource( 4 )
+
+[node name="MaxMoshTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [connection signal="button_down" from="HighScoreMenuWoo/VBox/Button" to="." method="_on_Button_button_down"]
 [connection signal="pressed" from="GameOverMenu/Restart" to="." method="_on_Restart_pressed"]
